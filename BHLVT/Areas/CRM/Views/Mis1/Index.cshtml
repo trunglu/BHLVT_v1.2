@@ -1,0 +1,379 @@
+﻿@using BHLVTDAL.Data
+@using CRMLVTBLLmd.CONST
+@model BHLVTDAL.Data.tblmission
+
+@{
+    ViewBag.Title = "Công tác";
+    ViewBag.namewindow = "mainp";
+    var lpps = (PagedList.IPagedList<Dictionary<string, Object>>)ViewBag.lpps;
+    var btn_class = ViewBag.btn == "Thêm" ? "btn btn-flat btn-sm btn-success" : "btn btn-flat btn-sm btn-warning";
+    Model.date = Model.date == null ? DateTime.Now : Model.date;
+    //Model.missionid = Model.missionid == null ? "" : Model.missionid;
+    
+
+}
+@section styles {
+    <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td {
+            padding: 1px 5px;
+        }
+
+        table.scroll tbody {
+            height: 320px;
+        }
+    </style>
+    <style>
+        .textbox {
+            border-bottom: 1px solid #c2d0e4;
+        }
+    </style>
+
+}
+<div class="content">
+    <div class="col-md-12">
+        <div class="nav-tabs-custom">
+            @Html.Action("MBar", "Cus", new { area = "crm", t = "6", _id = ViewBag._id })
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="col-md-7">
+                        <div class="box box-widget">
+                            <div class="box-header">
+                                <i class="fa fa-th"></i>
+                                <h3 class="box-title">Danh sách công tác</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn bg-white btn-xs btn-flat" data-widget="collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div style="margin-bottom:3px"><a href="javascript:void(0);" onclick="return window_open('@Url.RouteUrl(new { controller = "Cons1", action = "Create", area = "crm", _idcus = ViewBag._id })','t',600,300)" class="btn btn-xs btn-flat btn-success"><i class="fa fa-plus"></i></a></div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped scroll table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Tên nhân viên</th>
+                                                <th>Ngày đi</th>
+                                                <th>Ngày về</th>
+                                                <th>Loại</th>
+                                                <th>Công việc cần làm</th>
+                                                <th>Ý kiến khách hàng</th>
+                                                <th>Ghi chú</th>
+                                                <th class="text-center">Sửa</th>
+                                                <th class="text-center">Xóa</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                var index = (lpps.PageNumber - 1) * (lpps.PageSize) + 1;
+                                                foreach (var i in lpps)
+                                                {
+
+                                                    var q = (tblmission)i["q"]; var e = (tblemployee)i["e"]; var m1 = (tblmistype)i["m1"];
+                                                    var fdate = q.date != null ? q.date.Value.ToString("dd-MM-yyyy") : "";
+                                                    var tdate = q.todate != null ? q.todate.Value.ToString("dd-MM-yyyy") : "";
+                                                    <tr>
+                                                        <td><div style="width:50px"></div></td>
+                                                        <td><div style="width:150px">@(e.firstname + " " + e.lastname)</div></td>
+                                                        <td><div style="width:100px;">@(fdate)</div></td>
+                                                        <td><div style="width:100px">@(tdate)</div></td>
+                                                        <td><div style="width:100px">@m1.mistypename</div></td>
+                                                        <td><div style="width:150px">@q.content</div></td>
+                                                        <td><div style="width:150px">@q.idea</div></td>
+                                                        <td><div style="width:100px">@q.note</div></td>
+                                                        <td class="text-center"><div style="width:40px"><a href="/crm/mis1?_id=@q.customerid&cid=@q.missionid" class="btn btn-xs btn-warning btn-flat"><i class="fa fa-edit"></i></a></div></td>
+                                                        <td class="text-center"><div style="width:30px"><form onsubmit="return checkvar()" action="~/CRM/Mis1/Delete" method="post">@Html.AntiForgeryToken()<input type="hidden" name="_id" value="@q.customerid" /><input type="hidden" name="cid" value="@q.missionid" /><button class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button></form></div></td>
+                                                    </tr>
+                                                    index++;
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>    
+                        </div>
+                                
+                            </div>
+                            <div class="col-md-5 col-xs-12 panel-form">
+                                <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary()
+                                    @Html.HiddenFor(model => model.customerid)
+                                    @Html.HiddenFor(model => model.missionid)
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.employeeid, "Người công tác", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @*Html.TextBoxFor(model => model.contractid, new { @class = "form-control input-sm", placeholder = "Mã hợp đồng", @readonly = "true" })*@
+                                            @Html.DropDownListFor(model => model.employeeid, (IEnumerable<SelectListItem>)ViewBag.lemploy, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.date, "Ngày đi", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextBoxFor(model => model.date, new { @class = "form-control1 input-sm datepicker", placeholder = "Ngày đi" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Giờ - phút đi", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextBoxFor(model => model.fromh, new { @class = "form-control1 input-sm", placeholder = "Giờ đi", maxlength = 2, size = 2 })
+                                            @Html.TextBoxFor(model => model.fromi, new { @class = "form-control1 input-sm", placeholder = "Phút đi", maxlength = 2, size = 2 })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.mistype, "Loại công tác", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-3">
+                                            @Html.DropDownListFor(model => model.mistype, (IEnumerable<SelectListItem>)ViewBag.lmtypes, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:120px" })
+
+                                        </div>
+                                        @Html.LabelFor(model => model.workin, "Nơi làm việc", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-3">
+                                            @Html.DropDownListFor(model => model.workin, (IEnumerable<SelectListItem>)ViewBag.lworkin, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:80px" })
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.content, "Nội dung công việc", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextAreaFor(model => model.content, new { @class = "form-control input-sm", placeholder = "Nội dung công việc", rows = "5" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Hình ảnh", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            <div class="input-group input-group-xs">
+                                                <input type="text" id="image" class="form-control input-sm" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-default"><i class="fa fa-plus"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("File ghi âm hoặc video", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            <div class="input-group input-group-xs">
+                                                <input type="text" id="media" class="form-control input-sm" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-default"><i class="fa fa-plus"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.todate, "Ngày về", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextBoxFor(model => model.todate, new { @class = "form-control1 input-sm datepicker", placeholder = "Ngày về" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Giờ - phút về", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextBoxFor(model => model.toh, new { @class = "form-control1 input-sm", placeholder = "Giờ về", maxlength = 2, size = 5 })
+                                            @Html.TextBoxFor(model => model.toi, new { @class = "form-control1 input-sm", placeholder = "Phút về", maxlength = 2, size = 5 })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.done, "Công việc đã hoàn thành", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextAreaFor(model => model.done, new { @class = "form-control input-sm", placeholder = "Công việc đã hoàn thành", rows = "5" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.wait, "Công việc chưa hoàn thành", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextAreaFor(model => model.wait, new { @class = "form-control input-sm", placeholder = "Công việc chưa hoàn thành", rows = "5" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.result, "Tỷ lệ hoàn thành (%)", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextBoxFor(model => model.result, new { @class = "form-control input-sm", placeholder = "Ngày về" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.contactdate, "Ngày liên hệ", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextBoxFor(model => model.contactdate, new { @class = "form-control1 input-sm datepicker", placeholder = "Ngày liên hệ" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.idea, "Ý kiến của khách hàng", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextAreaFor(model => model.idea, new { @class = "form-control input-sm", placeholder = "Ý kiến của khách hàng", rows = "5" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-3 col-md-3">
+                                            <input type="submit" value="@ViewBag.btn" name="btn" class="@btn_class" />
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="modal-default" style="display: none;">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                    <h4 class="modal-title">Select Files</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div>
+                                                        <div class="col-md-12">
+                                                            <div class="box box-default">
+                                                                <div class="box-header with-border"><b>Images</b></div>
+                                                                <div class="box-body">
+                                                                    <div class="row col-md-12" style="margin-bottom:5px">
+                                                                        <div class="form-group">
+                                                                            <div class="col-md-3">
+                                                                                <a class="btn btn-success btn-flat btn-xs btn-add-f-img"><i class="fa fa-plus"></i></a>
+                                                                                <br />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-12 col-xs-12 table-responsive">
+                                                                            <div class="table-responsive">
+                                                                                <table class="table" id="tableimg" data-row="1">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td><input type="file" name="image[]" class="form-control input-sm" /></td>
+                                                                                            <td></td>
+                                                                                            <td></td>
+                                                                                        </tr>
+                                                                                        @{
+                                                                                            //string[] fimg;
+                                                                                            //fimg = Model.image.Split(',');
+                                                                                            var fimg = Model.image != null ? Model.image.Split(',') : new List<string>().ToArray();
+                                                                                            foreach (var fh in fimg)
+                                                                                            {
+                                                                                                if (fh.Trim() != "")
+                                                                                                {
+                                                                                                    <tr>
+                                                                                                        <td><input type="file" name="image[]" class="form-control input-sm" /><input type="hidden" name="image" value="@fh" /></td>
+                                                                                                        <td><img class="img-responsive" style="height:100px" src="@(CRMLVTBLLmd.CONST.ConstCRM.PATHFILEIMGMISSION+""+fh)" /></td>
+                                                                                                        <td><a class="btn btn-danger btn-flat btn-xs" onclick="return deleteRow(this);"><i class="fa fa-trash"></i></a></td>
+                                                                                                    </tr>
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="box box-default">
+                                                                <div class="box-header with-border"><b>Media</b></div>
+                                                                <div class="box-body">
+                                                                    <div class="row col-md-12" style="margin-bottom:5px">
+                                                                        <div class="form-group">
+                                                                            <div class="col-md-3">
+                                                                                <a class="btn btn-success btn-flat btn-xs btn-add-f-media"><i class="fa fa-plus"></i></a>
+                                                                                <br />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-12 col-xs-12 ">
+                                                                            <div class="table-responsive">
+                                                                                <table class="table" id="tablemedia" data-row="1">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td><input type="file" name="media[]" class="form-control input-sm" /></td>
+                                                                                            <td></td>
+                                                                                            <td></td>
+                                                                                        </tr>
+                                                                                        @{
+                                                                                            //string[] fmd;
+                                                                                            var fmd = Model.media != null ? Model.media.Split(',') : new List<string>().ToArray();
+                                                                                            foreach (var fm in fmd)
+                                                                                            {
+                                                                                                if (fm.Trim() != "")
+                                                                                                {
+                                                                                                    <tr>
+                                                                                                        <td><input type="file" name="media[]" class="form-control input-sm" /><input type="hidden" name="media" value="@fm" /></td>
+                                                                                                        <td><img class="img-responsive" style="height:100px" src="@(CRMLVTBLLmd.CONST.ConstCRM.PATHFILEMEDIAMISSION+""+fm)" /></td>
+                                                                                                        <td><a class="btn btn-danger btn-flat btn-xs" onclick="return deleteRow(this);"><i class="fa fa-trash"></i></a></td>
+                                                                                                    </tr>
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    </tbody>
+
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default pull-left btn-flat btn-xs" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary btn-flat btn-xs">Save changes</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+            </div>
+        </div>
+    <div class="clearfix"></div>
+    </div>
+
+@section scripts {
+    <!-- daterange picker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+
+<!-- date-range-picker -->
+<script src="~/Themes/AdminLTE/bower_components/moment/min/moment.min.js"></script>
+<script src="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/public/js/datatable_process.js"></script>
+    <script src="~/Areas/CRM/Sources/js/windows.js"></script>
+    <script src="~/Areas/CRM/Sources/js/fileuploadmutiple.js"></script>
+    <script>
+            $(document).ready(function () {
+                process_scroll_table(0);
+                onchangeFileImgUp('[name="image[]"]');
+                onchangeFileMediaUp('[name="media[]"]');
+                clickAddFImg();
+                clickAddFMedia();
+            });
+            function clickAddFImg(){
+                $('.btn-add-f-img').click(function(){
+                    addRowfinputmis1('tableimg', 'image[]');
+                    onchangeFileImgUp('[name="image[]"]');
+                });
+            }
+            function clickAddFMedia(){
+                $('.btn-add-f-media').click(function(){
+                    addRowfinputmis1('tablemedia','media[]');
+                    onchangeFileMediaUp('[name="media[]"]');
+                });
+            }
+
+    </script>
+}

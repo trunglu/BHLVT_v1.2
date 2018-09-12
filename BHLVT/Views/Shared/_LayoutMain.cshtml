@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title - Phần mềm bán hàng</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+            <link href="~/Themes/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="~/Themes/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Themes/AdminLTE/bower_components/Ionicons/css/ionicons.min.css" rel="stylesheet" />
+        <link href="~/Themes/AdminLTE/dist/css/AdminLTE.min.css" rel="stylesheet" />
+        <link href="~/Themes/AdminLTE/plugins/iCheck/square/blue.css" rel="stylesheet" />
+        <link href="~/Themes/AdminLTE/dist/css/skins/_all-skins.min.css" rel="stylesheet" />
+        
+
+    <link href="~/public/jq/themes/bootstrap/easyui.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/public/jq/themes/icon.css">
+    <style>
+        .field-validation-valid {
+            color: red;
+            font-size: small;
+            padding-top: 10px;
+        }
+
+        .main-header .navbar {
+            /**/height: 40px;
+        }
+
+        body {
+            font-size: 13px;
+            /*color: black;*/
+        }
+
+        .textbox {
+            border-radius: 0px !important;
+        }
+
+        .control-sidebar {
+            padding-top: 40px;
+        }
+
+        .modal.fade .modal-dialog {
+            -webkit-transform: scale(0.1);
+            -moz-transform: scale(0.1);
+            -ms-transform: scale(0.1);
+            transform: scale(0.1);
+            top: 300px;
+            opacity: 0;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .modal.fade.in .modal-dialog {
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform: translate3d(0, -300px, 0);
+            transform: translate3d(0, -300px, 0);
+            opacity: 1;
+        }
+        /**Customize styles*/
+        .textbox .textbox-text {
+            font-size: 12px;
+        }
+        .textbox {
+            color: black;
+        }
+
+        .l-btn:hover, .l-btn {
+            border-radius: 0px;
+        }
+
+        .menu-active {
+            border-radius: 0px;
+        }
+        .tabs li a.tabs-inner {
+            border-radius: 0px;
+            color: #5b5d5f;
+        }
+        .tabs li a.tabs-inner:hover {
+            color: #5b5d5f;
+        }
+        .l-btn-text {
+            line-height: 23px;
+        }
+
+    </style>
+
+            @*
+            
+            @Styles.Render("~/Content/modules")
+
+           
+            *@
+    
+
+    @RenderSection("styles", required: false)
+</head>
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+    <div class="wrapper">
+        @Html.Partial("_PartialView/_Header")
+        @Html.Partial("_PartialView/_LeftSide")
+        @Html.Action("RenderLeftSide", "Home", new {  area=""  })
+        <div class="content-wrapper">
+            <div class="" style="padding:0px 10px;">
+                @{Html.RenderPartial("_Alert");}
+            </div>
+            @RenderBody()
+        </div>
+        @Html.Partial("_PartialView/_Footer")
+        @Html.Partial("_PartialView/_ControlSide")
+    </div>
+    @*@Scripts.Render("~/Themes/AdminLTE/jquery")*@
+    <script src="~/Themes/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+    @*@Scripts.Render("~/Themes/AdminLTE/js")*@
+        
+        <script src="~/Themes/AdminLTE/bower_components/jquery-ui/jquery-ui.min.js"></script>
+        
+    <script src="~/Themes/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/Themes/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+        <script src="~/Themes/AdminLTE/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="~/Themes/AdminLTE/bower_components/fastclick/lib/fastclick.js"></script>
+        <script src="~/Themes/AdminLTE/dist/js/adminlte.min.js"></script>
+        
+   
+
+
+   @*Scripts.Render("~/Themes/AdminLTE/js/datepicker")*@ 
+    @Scripts.Render("~/bundles/modules")
+            @*
+               
+                <script src="~/public/jq/jquery.easyui.min.js"></script>
+        <script src="~/public/js/NumberFormat154.js"></script>
+        <script src="~/public/js/bootstrap-datepicker.js"></script>*@
+       
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+        window.name = '@ViewBag.namewindow';
+    </script>
+    @RenderSection("scripts", required: false)
+    
+</body>
+</html>

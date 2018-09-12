@@ -1,0 +1,368 @@
+﻿@model BHLVT.Data.arkh
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>arkh</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.loai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_kh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_kh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_so_thue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_so_thue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dia_chi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dia_chi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.home_page)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.home_page)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nguoi_gd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nguoi_gd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.so_tk_nh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.so_tk_nh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_nh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_nh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tinh_tp_nh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tinh_tp_nh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_plkh1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_plkh1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_plkh2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_plkh2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_plkh3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_plkh3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_nhkh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_nhkh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_tt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_tt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gh_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gh_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ghi_chu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghi_chu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tinh_dt_nb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tinh_dt_nb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khoa_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khoa_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isKh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isKh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isNcc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isNcc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isNv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isNv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cuser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cuser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ldate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ldate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.luser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.luser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_duong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_duong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_phuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_phuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_quan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_quan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_tp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_tp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.so_nha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.so_nha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_dd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_dd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.chuc_vu_dd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.chuc_vu_dd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cmnd_hc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cmnd_hc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngay_cap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngay_cap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noi_cap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noi_cap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.muc_han_tt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.muc_han_tt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtdd)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

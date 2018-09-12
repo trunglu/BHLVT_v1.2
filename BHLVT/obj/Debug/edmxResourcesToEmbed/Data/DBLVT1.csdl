@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WSCHUAN_161812Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="arkh">
+    <Key>
+      <PropertyRef Name="ma_cty" />
+      <PropertyRef Name="ma_kh" />
+    </Key>
+    <Property Name="ma_cty" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_kh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="loai" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_kh" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_so_thue" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dia_chi" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tel" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fax" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="home_page" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nguoi_gd" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_tk_nh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_nh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tinh_tp_nh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_plkh1" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_plkh2" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_plkh3" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_nhkh" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_tt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gh_no" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ghi_chu" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tinh_dt_nb" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="khoa_no" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="isKh" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="isNcc" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="isNv" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sd" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="cuser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ldate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="luser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_duong" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_phuong" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_quan" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_tp" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_nha" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_dd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="chuc_vu_dd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cmnd_hc" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ngay_cap" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="noi_cap" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="muc_han_tt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dtdd" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inloaivt">
+    <Key>
+      <PropertyRef Name="loai_vt_id" />
+    </Key>
+    <Property Name="loai_vt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ma_cty" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_loai_vt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_loai_vt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ghi_chu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cuser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="luser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ldate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="innhvt">
+    <Key>
+      <PropertyRef Name="ma_cty" />
+      <PropertyRef Name="ma_nhvt" />
+    </Key>
+    <Property Name="ma_cty" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_nhvt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_nhvt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cap" Type="Int32" Nullable="false" />
+    <Property Name="stt_nhom" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nhom_me" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cong_sl" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_vt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_dt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_dtnb" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_gv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_tl" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_ck" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sd" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="cuser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ldate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="luser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="invt">
+    <Key>
+      <PropertyRef Name="ma_cty" />
+      <PropertyRef Name="ma_vt" />
+    </Key>
+    <Property Name="ma_cty" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_vt" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_vt" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="part_no" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dvt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dvt_ban" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hs_dvtban" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="dvt_mua" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hs_dvtmua" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ton_kho" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gia_ton" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_vt_vo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_vt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_dt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_dtnb" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_gv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_tl" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_ck" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_dt_vo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_coc_vo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tinh_gt" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_nhvt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nhom_vat" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sl_min" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_max" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="thue_nk" Type="Int32" Nullable="false" />
+    <Property Name="thue_gtgt" Type="Int32" Nullable="false" />
+    <Property Name="thue_xk" Type="Int32" Nullable="false" />
+    <Property Name="thue_ttdb" Type="Int32" Nullable="false" />
+    <Property Name="ma_kho" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_vitri" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="barcode_fifo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ghi_chu" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="han_bh_ncc" Type="Int32" Nullable="false" />
+    <Property Name="han_bh" Type="Int32" Nullable="false" />
+    <Property Name="ma_nt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gia_mua" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia_ban" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sd" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="lUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Loai" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Anh" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="tao_sku" Type="Boolean" Nullable="false" />
+    <Property Name="trong_luong" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="postvo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dvt_ban2" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hs_dvtban2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ma_kh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="file_pdf" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="xuat_xu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="quy_cach" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="soct0">
+    <Key>
+      <PropertyRef Name="ma_cty" />
+      <PropertyRef Name="stt_rec" />
+      <PropertyRef Name="stt_rec0" />
+    </Key>
+    <Property Name="ma_cty" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stt_rec" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stt_rec0" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_vt" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_kho" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_luong" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="dvt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_luong_qd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia_nt2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_nt2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tl_ck" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_ck_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_ck" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ts_gtgt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="thue_gtgt_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="thue_gtgt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tt_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="khuyen_mai" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tra_ck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_nvkd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_bp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_phi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_pt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_dt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_gv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_vt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_thue" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_ck" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sl_xuat" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_xuat_qd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_hd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_hd_qd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ten_vt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="xlbm" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="vat_lieu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tgian_gc" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ten_nguoi_pt" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nguoi_pt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="soct1">
+    <Key>
+      <PropertyRef Name="ma_cty" />
+      <PropertyRef Name="stt_rec" />
+      <PropertyRef Name="stt_rec0" />
+    </Key>
+    <Property Name="ma_cty" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stt_rec" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stt_rec0" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_vt" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_kho" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_luong" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="dvt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_luong_qd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia_nt2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_nt2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tl_ck" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_ck_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_ck" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ts_gtgt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="thue_gtgt_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="thue_gtgt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tt_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="khuyen_mai" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tra_ck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_nvkd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_bp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_phi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_pt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_dt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_gv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_vt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_thue" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_ck" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sl_xuat" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_xuat_qd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_hd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_hd_qd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ten_vt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="xlbm" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="vat_lieu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tgian_gc" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ten_nguoi_pt" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nguoi_pt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nguoi_pt2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_nguoi_pt2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nguoi_pt3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_nguoi_pt3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ghi_chu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_lsx" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_vt2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_vat_lieu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="huy_ct" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="soct2">
+    <Key>
+      <PropertyRef Name="ma_cty" />
+      <PropertyRef Name="stt_rec" />
+      <PropertyRef Name="stt_rec0" />
+      <PropertyRef Name="stt_rec_dh" />
+    </Key>
+    <Property Name="ma_cty" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stt_rec" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stt_rec0" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stt_rec_dh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_dh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_vt" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_kho" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_vitri" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_lo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_luong" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="dvt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_luong_qd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia_nt2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_nt2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tl_ck" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_ck_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_ck" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ts_gtgt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="thue_gtgt_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="thue_gtgt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tt_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="khuyen_mai" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tra_ck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_nvkd" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_bp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_phi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_pt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_dt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_gv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_vt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_thue" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_ck" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="opt1" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="opt2" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="opt3" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="opt4" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="opt5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="opt6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="opt7" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="opt8" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="opt9" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="opt10" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sl_hd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_hd_qd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="so_luong1" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="so_luong2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="so_luong3" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ten_vt" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dien_giai" Type="String" MaxLength="164" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="part_no" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stt_rec0_dh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_vt2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_lsx" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_po_kh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="soph1">
+    <Key>
+      <PropertyRef Name="ma_cty" />
+      <PropertyRef Name="stt_rec" />
+    </Key>
+    <Property Name="ma_cty" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stt_rec" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_ct" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_kh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_kh" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dia_chi" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_so_thue" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dien_thoai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nguoi_gd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="loai_dh" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="trang_thai" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_hd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_nvkd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_tt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="han_ck" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tl_ck" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="han_tt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ls_qh" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="dien_giai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_ct" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ngay_ct" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ngay_hh" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ma_nt" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ty_gia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ma_dckh" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nguoi_nhan" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cty_nhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dc_nhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tel_nhan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_nvt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_pt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="bien_so" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nguoi_lai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_td" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_td" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="km" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tk_pt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tk_thue" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="t_tien_hh" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tien_hh_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_thue_hh" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_thue_hh_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt_hh" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt_hh_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tien_cp" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tien_cp_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_thue_cp" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_thue_cp_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt_cp" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt_cp_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_ck" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_ck_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="cdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="cuser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ldate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="luser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ngay_giao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="trang_thai_lsx" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tyle_nvl" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_lsx" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ty_le_gcn" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_nvkd" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nguoi_pt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_nguoi_pt" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tong_tien_dh" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="so_po_kh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysUserInfo">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sysadmin" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="active" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="grand" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="idcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cuser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="luser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ldate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="sysUserRole">
+    <Key>
+      <PropertyRef Name="userroleid" />
+    </Key>
+    <Property Name="userroleid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="roleid" Type="Int32" Nullable="false" />
+    <Property Name="userid" Type="Int32" Nullable="false" />
+    <Property Name="cuser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="luser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ldate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="WSCHUAN_161812Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="arkhs" EntityType="Self.arkh" />
+    <EntitySet Name="inloaivts" EntityType="Self.inloaivt" />
+    <EntitySet Name="innhvts" EntityType="Self.innhvt" />
+    <EntitySet Name="invts" EntityType="Self.invt" />
+    <EntitySet Name="soct0" EntityType="Self.soct0" />
+    <EntitySet Name="soct1" EntityType="Self.soct1" />
+    <EntitySet Name="soct2" EntityType="Self.soct2" />
+    <EntitySet Name="soph1" EntityType="Self.soph1" />
+    <EntitySet Name="sysUserInfos" EntityType="Self.sysUserInfo" />
+    <EntitySet Name="sysUserRoles" EntityType="Self.sysUserRole" />
+  </EntityContainer>
+</Schema>

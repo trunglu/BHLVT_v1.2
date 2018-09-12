@@ -1,0 +1,137 @@
+﻿@using BHLVTDAL.Data
+@using CRMLVTBLLmd.CONST
+@using CRMLVTBLLmd.Models.Ultils
+@using VTExtensions.P
+@model BHLVTDAL.Data.tblcash
+@{
+    ViewBag.Title = "Hệ thống quản lý nhân sự";
+    ViewBag.namewindow = "mainp";
+    var btn_class = ViewBag.btn == "Thêm" ? "btn btn-flat btn-sm btn-success" : "btn btn-flat btn-sm btn-warning";
+    var contract = (tblcontract)ViewBag.contract;
+    //long? paid = 0;long? feedbacked = 0;
+    var paid = ViewBag.paid == null ? 0 : (long)ViewBag.paid;
+    var feedbacked = ViewBag.feedbacked == null ? 0 : (long)ViewBag.feedbacked;
+
+ }
+@section styles {
+    <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td {
+            padding: 1px 5px;
+        }
+
+        table.scroll tbody {
+            height: 400px;
+        }
+    </style>
+    <style>
+        .textbox {
+            border-bottom: 1px solid #c2d0e4;
+        }
+    </style>
+
+}
+<div class="content">
+
+    <div class="col-md-12">
+        <div class="box box-default">
+            <div class="box-heading with-border" style="text-align:center">
+                <h4 class="box-title">@contract.contractid</h4>
+                <h4  class="box-title">@contract.contractname</h4>
+            </div>
+            <div class="box-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td></td>
+                        <th>Giá trị</th>
+                        <th>Feedback</th>
+                    </tr>
+                    <tr>
+                        <td>Giá trị:</td>
+                        <td>@string.Format(CRMFormatNumber.Decimal1P, contract.price)</td>
+                        <td>@string.Format(CRMFormatNumber.Decimal1P, contract.feedback)</td>
+                    </tr>
+                    <tr>
+                        <td>Đã thu:</td>
+                        <td>@string.Format(CRMFormatNumber.Decimal1P, paid)</td>
+                        <td>@string.Format(CRMFormatNumber.Decimal1P, feedbacked)</td>
+                    </tr>
+                    <tr>
+                        <td>Còn lại:</td>
+                        <td>@string.Format(CRMFormatNumber.Decimal1P, contract.price - paid)</td>
+                        <td>@string.Format(CRMFormatNumber.Decimal1P, contract.feedback - feedbacked)</td>
+                    </tr>
+                </table>
+                <div class="col-md-12">
+                    <form enctype="multipart/form-data" method="post" class="form-horizontal">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="contractid" value="@contract.contractid"/>
+                        @Html.HiddenFor(x=>x.cashid)
+                        @Html.HiddenFor(x => x.employeeid)
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.date, "Ngày", new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(model => model.date, new { @class = "form-control1 input-sm datepicker", placeholder = "Ngày", size = "20" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.price, "Giá trị VND", new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(model => model.price, new { @class = "form-control1 input-sm decimal-mask", placeholder = "Giá trị",size="20" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.feedback, "Feedback", new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(model => model.feedback, new { @class = "form-control1 input-sm decimal-mask", placeholder = "Feedback", size = "20" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.description, "Lý do thu", new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(model => model.description, new { @class = "form-control input-sm", placeholder = "Lý do thu" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.status, "Trạng thái", new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @*Html.TextBoxFor(model => model.contractid, new { @class = "form-control input-sm", placeholder = "Mã hợp đồng", @readonly = "true" })*@
+                                @Html.DropDownListFor(model => model.status, (IEnumerable<SelectListItem>)ViewBag.lstatuscash, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-md-3">
+                                <input type="submit" value="@ViewBag.btn" name="btn" class="@btn_class" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+
+    <!-- date-range-picker -->
+    <script src="~/Themes/AdminLTE/bower_components/moment/min/moment.min.js"></script>
+    <script src="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap datepicker -->
+    <script src="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/Themes/AdminLTE/plugins/input-mask/jquery.inputmask.js"></script>
+    
+    <script src="~/public/js/datatable_process.js"></script>
+    <script src="~/Areas/CRM/Sources/js/windows.js"></script>
+    <script>
+            $(document).ready(function () {
+                process_scroll_table(0);
+            });
+
+    </script>
+}

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<BHLVTDAL.Data.tblemployee>
+@{
+    ViewBag.Title = "TestGrid";
+    var grid = new LVTDataGrid(source: Model, canPage:false);
+   // var index_ = 0;
+
+}
+<div class="table-responsive">
+  @grid.GetHtml(columns:grid.Columns(
+    grid.Column( format:(model) => {
+        
+        return model.username+" ";
+    },
+    headerFormat:@<div><a href="">
+    User Name </a></div>
+
+    ),
+    grid.Column(
+    format: (model) => {
+        //var index = model.WebGrid.Rows.IndexOf(model);
+        return model.firstname +" ";
+    },header:"Name"
+    )
+
+    ))
+</div>
+
+
+

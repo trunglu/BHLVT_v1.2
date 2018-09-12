@@ -1,0 +1,234 @@
+﻿@model BHLVTBLL.ModelsBLL.ViewModel.BCDPSSEARCHModel
+@{
+    ViewBag.Title = "Search";
+}
+@section styles{
+    <!-- daterange picker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+
+  <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+  <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .row-hover {
+        background-color:#f9d27d !important;
+         }
+        .nav-tabs-custom > .tab-content {
+        padding-top:5px;
+        }
+    </style>
+}
+
+<section class="content" style="padding-top:0px">
+    <!-- Content Header (Page header) -->
+    <section class="content-header" style="padding:7px 4px">
+        <h3> Bảng cân đối phát sinh</h3>
+    </section>
+   
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab_1" data-toggle="tab">Lọc dữ liệu</a></li>
+            <li><a href="#tab_2" data-toggle="tab">Kết quả</a></li>
+            <li><a href="#tab_3" data-toggle="tab">Preview</a></li>
+            <li class="dropdown hidden">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Dropdown <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                </ul>
+            </li>
+            <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
+                <div class="">
+                    <div class="col-md-12">
+                        @using (Html.BeginForm("Search", "BCDPSReport", FormMethod.Post, new { @class = "form-horizontal", role = "form", target = "_blank", onsubmit = "return false;", id = "form-search" }))
+                        {
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="title">Tiêu đề:</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control input-sm" id="title" placeholder="Nhập tiêu đề" value="Bảng cân đối phát sinh các tài khoản">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Tháng / Kỳ:</label>
+                                    <div class="">
+                                        <div class="col-md-2" style="padding-right:2px">
+                                            <select class="easyui-combobox form-control input-sm" id="typedate" data-options="onChange:changetypedate">
+                                                <option value="3">Tùy chọn</option>
+                                                <option value="0">Cả năm</option>
+                                                <option value="1">Tháng</option>
+                                                <option value="2">Tuần</option>
+                                            </select>
+                                        </div>
+
+                                        <div style="margin-left:10px">
+                                            <div class="col-sm-3" style="margin-left:20px">
+                                                @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="col-sm-3">
+                                                @Html.TextBoxFor(model => model.ToDate, new { @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Mã Ngoại Tệ:</label>
+                                    <div class="col-sm-9">
+                                        @Html.TextBoxFor(model => model.MaNT, new { @class = "form-control input-sm", placeholder = "Nhập mã ngoại tệ" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="" style="padding-bottom:20px;padding-top:20px">
+                                    <button type="submit" class="" onclick="submitsearch()">Thực hiện</button>
+                                </div>
+                            </div>
+
+                        }
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="tab-pane " id="tab_2">
+                <p class="loading" style="display:none">Loading...</p>
+                <div class="content">
+                    
+                </div>
+               
+            </div>
+            <div class="tab-pane " id="tab_3">
+                <div class="col-md-12" style="border-bottom:1px dotted black"><div class="col-md-offset-11 text-right"><a href="javascript:void(0);" onclick="printpreview()" style="text-decoration:solid;margin-top:-5px;font-size:18px"><i class="fa fa-print"></i></a></div></div>
+
+                <div class="content">
+
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+
+</section>
+@section scripts{
+ <!-- date-range-picker -->
+<script src="~/Themes/AdminLTE/bower_components/moment/min/moment.min.js"></script>
+<script src="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="~/public/js/datatable_process.js"></script>
+<script>
+   
+    function changetypedate() {
+        var val = $('#typedate').combobox('getValue');
+        var baseurl = $('.main-header a').attr('href');
+        console.log(val);
+        if (val == "3") {
+            $('#FromDate').prop("readonly", false);
+            $('#ToDate').prop("readonly", false);
+            $('#FromDate').datepicker();
+            $('#ToDate').datepicker();
+        }
+        else {
+            $('#FromDate').prop("readonly", true);
+            $('#ToDate').prop("readonly", true);
+            $('#FromDate').datepicker('destroy');
+            $('#ToDate').datepicker('destroy');
+
+            $.ajax({
+                url: baseurl + "Ultils/GetDatePicker",
+                data: { type: val },
+                // type: "GET",
+                success: function (data) {
+                    console.log(data);
+                    if (data != null) {
+                        data = JSON.parse(data);
+                        $('#FromDate').val(data.firstday);
+                        $('#ToDate').val(data.lastday);
+                    }
+
+                }, error: function (response) {
+                    alert(response);
+                }
+            });
+        }
+
+    }
+
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    //$('#ToDate').datepicker();
+    var checkin = $('#FromDate').datepicker({
+        //format: "mm/dd/yyyy",
+        onRender: function (date) {
+            return date.valueOf() < now.valueOf() ? 'disabled' : '';
+        }
+    }).on('changeDate', function (ev) {
+        if (ev.date.valueOf() > checkout.viewDate.valueOf()) {
+            var newDate = new Date(ev.date)
+            newDate.setDate(newDate.getDate() + 1);
+            checkout.setValue(newDate);
+            console.log(newDate);
+        }
+        checkin.hide();
+        $('#ToDate')[0].focus();
+    }).data('datepicker');
+
+    var checkout = $('#ToDate').datepicker({
+        // format: "mm/dd/yyyy",
+        onRender: function (date) {
+            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+        }
+    }).on('changeDate', function (ev) {
+        checkout.hide();
+    }).data('datepicker');
+    //----------------------------------------//
+
+    function submitsearch() {
+        var baseurl = $('.main-header a').attr('href');
+       // console.log(baseurl);
+        //return;
+        $('[href="#tab_2"]').click();
+        $('#tab_2 .content').html('');
+        $('#tab_2 .loading').show();
+        $.post(baseurl + "BCDPSReport/Search", $('#form-search').serialize(), function (data) {
+            //console.log(data);
+            $('#tab_2 .loading').hide();
+            $('#tab_2 .content').html(data);
+            setTimeout(function () {
+                process_scroll_table(1);
+                initDatatable('#datatable');
+            }, 500);
+        });
+        $.post(baseurl + "BCDPSReport/PreviewReport", $('#form-search').serialize(), function (data) {
+            //console.log(data);
+            $('#tab_3 .content').html(data);
+            setTimeout(function () {
+                //process_scroll_table(1);
+                //initDatatable('#datatable');
+            }, 500);
+        });
+    }
+    function printpreview() {
+        $('#tab_3 .content')
+    }
+
+</script>
+    
+}
+   
+

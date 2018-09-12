@@ -1,0 +1,81 @@
+﻿@using BHLVTDAL.Data
+@using CRMLVTBLLmd.Models.Ultils
+@model BHLVTDAL.Data.tblreport
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="content">
+    <div class="col-md-12">
+        <div class="box box-widget">
+            <div class="box-header with-border">
+                <h4 class="box-title">Xem nội dung công việc</h4>
+            </div>
+            <div class="col-md-12 box-body">
+                <div style="margin-bottom:10px">
+                    <div class="row col-md-12">
+                        Người quyết định: @{var employee = EntityModel.GetEmployee(Model.reportfrom);@(employee.firstname+" "+employee.lastname)}
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-6">
+                            Ngày giao việc: @Model.date.Value.ToString("dd/MM/yyyy")
+                        </div>
+                        <div class="col-md-6">
+                            Ngày hiệu lực: @Model.expire.Value.ToString("dd/MM/yyyy")
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="row col-md-12" style="margin-bottom:5px">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                           <b>@Model.title</b>
+                        </div>
+                        <div class="col-md-12 box-body">
+                            @Model.content
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+               
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="box-footer box-comments">
+                <!--Hiển thị danh sách user đã xem-->
+                <div class="row col-md-12">
+                    @foreach (var r in ViewBag.lreplies)
+                    {
+                        <p>@Html.Raw(r)</p>
+                    }
+                    
+                </div>
+                <div class="clearfix"></div>
+                <p><b>Bình luận: </b></p>
+                @foreach (var c in ViewBag.lcomment)
+                {
+                    var e = (tblemployee)c["e"];
+                    var r1 = (tblreply)c["r1"];
+                    <div class="box-comment">
+                        <!-- User image -->
+                        <img class="img-circle img-sm" src="/Themes/AdminLTE/dist/img/user_avatar.png" alt="User Image">
+                        <div class="comment-text">
+                            <span class="username">
+                                @(e.firstname + " " + e.lastname)
+                                <span class="text-muted pull-right">@(r1.date)</span>
+                            </span><!-- /.username -->
+                           @(r1.title)<br />
+                           @(r1.content)
+                        </div>
+                        <!-- /.comment-text -->
+                    </div>
+                    <div class="clearfix"></div>
+                }
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+

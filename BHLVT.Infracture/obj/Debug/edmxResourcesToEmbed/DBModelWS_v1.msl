@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBWSContextV1StoreContainer" CdmEntityContainer="WSCHUAN_161812Entities">
+    <EntitySetMapping Name="arkhs">
+      <EntityTypeMapping TypeName="DBWSContextV1.arkh">
+        <MappingFragment StoreEntitySet="arkh">
+          <ScalarProperty Name="ma_cty" ColumnName="ma_cty" />
+          <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
+          <ScalarProperty Name="loai" ColumnName="loai" />
+          <ScalarProperty Name="ten_kh" ColumnName="ten_kh" />
+          <ScalarProperty Name="ma_so_thue" ColumnName="ma_so_thue" />
+          <ScalarProperty Name="dia_chi" ColumnName="dia_chi" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="home_page" ColumnName="home_page" />
+          <ScalarProperty Name="nguoi_gd" ColumnName="nguoi_gd" />
+          <ScalarProperty Name="so_tk_nh" ColumnName="so_tk_nh" />
+          <ScalarProperty Name="ten_nh" ColumnName="ten_nh" />
+          <ScalarProperty Name="tinh_tp_nh" ColumnName="tinh_tp_nh" />
+          <ScalarProperty Name="tk" ColumnName="tk" />
+          <ScalarProperty Name="ma_plkh1" ColumnName="ma_plkh1" />
+          <ScalarProperty Name="ma_plkh2" ColumnName="ma_plkh2" />
+          <ScalarProperty Name="ma_plkh3" ColumnName="ma_plkh3" />
+          <ScalarProperty Name="ma_nhkh" ColumnName="ma_nhkh" />
+          <ScalarProperty Name="ma_tt" ColumnName="ma_tt" />
+          <ScalarProperty Name="gh_no" ColumnName="gh_no" />
+          <ScalarProperty Name="ghi_chu" ColumnName="ghi_chu" />
+          <ScalarProperty Name="tinh_dt_nb" ColumnName="tinh_dt_nb" />
+          <ScalarProperty Name="khoa_no" ColumnName="khoa_no" />
+          <ScalarProperty Name="isKh" ColumnName="isKh" />
+          <ScalarProperty Name="isNcc" ColumnName="isNcc" />
+          <ScalarProperty Name="isNv" ColumnName="isNv" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="sd" ColumnName="sd" />
+          <ScalarProperty Name="cdate" ColumnName="cdate" />
+          <ScalarProperty Name="cuser" ColumnName="cuser" />
+          <ScalarProperty Name="ldate" ColumnName="ldate" />
+          <ScalarProperty Name="luser" ColumnName="luser" />
+          <ScalarProperty Name="ma_duong" ColumnName="ma_duong" />
+          <ScalarProperty Name="ma_phuong" ColumnName="ma_phuong" />
+          <ScalarProperty Name="ma_quan" ColumnName="ma_quan" />
+          <ScalarProperty Name="ma_tp" ColumnName="ma_tp" />
+          <ScalarProperty Name="so_nha" ColumnName="so_nha" />
+          <ScalarProperty Name="ten_dd" ColumnName="ten_dd" />
+          <ScalarProperty Name="chuc_vu_dd" ColumnName="chuc_vu_dd" />
+          <ScalarProperty Name="cmnd_hc" ColumnName="cmnd_hc" />
+          <ScalarProperty Name="ngay_cap" ColumnName="ngay_cap" />
+          <ScalarProperty Name="noi_cap" ColumnName="noi_cap" />
+          <ScalarProperty Name="muc_han_tt" ColumnName="muc_han_tt" />
+          <ScalarProperty Name="dtdd" ColumnName="dtdd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="soct1">
+      <EntityTypeMapping TypeName="DBWSContextV1.soct1">
+        <MappingFragment StoreEntitySet="soct1">
+          <ScalarProperty Name="ma_cty" ColumnName="ma_cty" />
+          <ScalarProperty Name="stt_rec" ColumnName="stt_rec" />
+          <ScalarProperty Name="stt_rec0" ColumnName="stt_rec0" />
+          <ScalarProperty Name="ma_vt" ColumnName="ma_vt" />
+          <ScalarProperty Name="ma_kho" ColumnName="ma_kho" />
+          <ScalarProperty Name="so_luong" ColumnName="so_luong" />
+          <ScalarProperty Name="dvt" ColumnName="dvt" />
+          <ScalarProperty Name="so_luong_qd" ColumnName="so_luong_qd" />
+          <ScalarProperty Name="gia_nt2" ColumnName="gia_nt2" />
+          <ScalarProperty Name="gia2" ColumnName="gia2" />
+          <ScalarProperty Name="tien_nt2" ColumnName="tien_nt2" />
+          <ScalarProperty Name="tien2" ColumnName="tien2" />
+          <ScalarProperty Name="tl_ck" ColumnName="tl_ck" />
+          <ScalarProperty Name="tien_ck_nt" ColumnName="tien_ck_nt" />
+          <ScalarProperty Name="tien_ck" ColumnName="tien_ck" />
+          <ScalarProperty Name="ts_gtgt" ColumnName="ts_gtgt" />
+          <ScalarProperty Name="thue_gtgt_nt" ColumnName="thue_gtgt_nt" />
+          <ScalarProperty Name="thue_gtgt" ColumnName="thue_gtgt" />
+          <ScalarProperty Name="tt_nt" ColumnName="tt_nt" />
+          <ScalarProperty Name="tt" ColumnName="tt" />
+          <ScalarProperty Name="khuyen_mai" ColumnName="khuyen_mai" />
+          <ScalarProperty Name="tra_ck" ColumnName="tra_ck" />
+          <ScalarProperty Name="ma_nvkd" ColumnName="ma_nvkd" />
+          <ScalarProperty Name="ma_bp" ColumnName="ma_bp" />
+          <ScalarProperty Name="ma_phi" ColumnName="ma_phi" />
+          <ScalarProperty Name="tk_pt" ColumnName="tk_pt" />
+          <ScalarProperty Name="tk_dt" ColumnName="tk_dt" />
+          <ScalarProperty Name="tk_gv" ColumnName="tk_gv" />
+          <ScalarProperty Name="tk_vt" ColumnName="tk_vt" />
+          <ScalarProperty Name="tk_thue" ColumnName="tk_thue" />
+          <ScalarProperty Name="tk_ck" ColumnName="tk_ck" />
+          <ScalarProperty Name="sl_xuat" ColumnName="sl_xuat" />
+          <ScalarProperty Name="sl_xuat_qd" ColumnName="sl_xuat_qd" />
+          <ScalarProperty Name="sl_hd" ColumnName="sl_hd" />
+          <ScalarProperty Name="sl_hd_qd" ColumnName="sl_hd_qd" />
+          <ScalarProperty Name="ten_vt" ColumnName="ten_vt" />
+          <ScalarProperty Name="xlbm" ColumnName="xlbm" />
+          <ScalarProperty Name="vat_lieu" ColumnName="vat_lieu" />
+          <ScalarProperty Name="tgian_gc" ColumnName="tgian_gc" />
+          <ScalarProperty Name="ten_nguoi_pt" ColumnName="ten_nguoi_pt" />
+          <ScalarProperty Name="nguoi_pt" ColumnName="nguoi_pt" />
+          <ScalarProperty Name="nguoi_pt2" ColumnName="nguoi_pt2" />
+          <ScalarProperty Name="ten_nguoi_pt2" ColumnName="ten_nguoi_pt2" />
+          <ScalarProperty Name="nguoi_pt3" ColumnName="nguoi_pt3" />
+          <ScalarProperty Name="ten_nguoi_pt3" ColumnName="ten_nguoi_pt3" />
+          <ScalarProperty Name="ghi_chu" ColumnName="ghi_chu" />
+          <ScalarProperty Name="so_lsx" ColumnName="so_lsx" />
+          <ScalarProperty Name="ten_vt2" ColumnName="ten_vt2" />
+          <ScalarProperty Name="ten_vat_lieu" ColumnName="ten_vat_lieu" />
+          <ScalarProperty Name="huy_ct" ColumnName="huy_ct" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

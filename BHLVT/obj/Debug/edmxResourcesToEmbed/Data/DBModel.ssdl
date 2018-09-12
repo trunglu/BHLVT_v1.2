@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WSCHUAN_161812Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="arkh">
+    <Key>
+      <PropertyRef Name="ma_cty" />
+      <PropertyRef Name="ma_kh" />
+    </Key>
+    <Property Name="ma_cty" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="ma_kh" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="loai" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="ten_kh" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="ma_so_thue" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="dia_chi" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="tel" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="fax" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="home_page" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="nguoi_gd" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="so_tk_nh" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ten_nh" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tinh_tp_nh" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tk" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ma_plkh1" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ma_plkh2" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ma_plkh3" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ma_nhkh" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ma_tt" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="gh_no" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ghi_chu" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="tinh_dt_nb" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="khoa_no" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="isKh" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="isNcc" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="isNv" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="sd" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="cdate" Type="smalldatetime" Nullable="false" />
+    <Property Name="cuser" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ldate" Type="smalldatetime" Nullable="false" />
+    <Property Name="luser" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ma_duong" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ma_phuong" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ma_quan" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ma_tp" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="so_nha" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ten_dd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="chuc_vu_dd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cmnd_hc" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ngay_cap" Type="smalldatetime" Nullable="false" />
+    <Property Name="noi_cap" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="muc_han_tt" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="dtdd" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="invt">
+    <Key>
+      <PropertyRef Name="ma_cty" />
+      <PropertyRef Name="ma_vt" />
+    </Key>
+    <Property Name="ma_cty" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="ma_vt" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ten_vt" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="part_no" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="dvt" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="dvt_ban" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="hs_dvtban" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="dvt_mua" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="hs_dvtmua" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ton_kho" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="gia_ton" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="ma_vt_vo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_vt" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_dt" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_dtnb" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_gv" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_tl" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_ck" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_dt_vo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_coc_vo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tinh_gt" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="ma_nhvt" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="nhom_vat" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="sl_min" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_max" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="thue_nk" Type="int" Nullable="false" />
+    <Property Name="thue_gtgt" Type="int" Nullable="false" />
+    <Property Name="thue_xk" Type="int" Nullable="false" />
+    <Property Name="thue_ttdb" Type="int" Nullable="false" />
+    <Property Name="ma_kho" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ma_vitri" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="barcode_fifo" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="ghi_chu" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="han_bh_ncc" Type="int" Nullable="false" />
+    <Property Name="han_bh" Type="int" Nullable="false" />
+    <Property Name="ma_nt" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="gia_mua" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia_ban" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sd" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="cUser" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="lUser" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="lDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="Loai" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Anh" Type="image" Nullable="false" />
+    <Property Name="tao_sku" Type="bit" Nullable="false" />
+    <Property Name="trong_luong" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="postvo" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="dvt_ban2" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="hs_dvtban2" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ma_kh" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="file_pdf" Type="varbinary(max)" Nullable="false" />
+    <Property Name="xuat_xu" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="quy_cach" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="soct1">
+    <Key>
+      <PropertyRef Name="ma_cty" />
+      <PropertyRef Name="stt_rec" />
+      <PropertyRef Name="stt_rec0" />
+    </Key>
+    <Property Name="ma_cty" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="stt_rec" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="stt_rec0" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="ma_vt" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ma_kho" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="so_luong" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="dvt" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="so_luong_qd" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia_nt2" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="gia2" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_nt2" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien2" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tl_ck" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_ck_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tien_ck" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ts_gtgt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="thue_gtgt_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="thue_gtgt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tt_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="khuyen_mai" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="tra_ck" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="ma_nvkd" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ma_bp" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ma_phi" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_pt" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_dt" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_gv" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_vt" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_thue" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_ck" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="sl_xuat" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_xuat_qd" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_hd" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="sl_hd_qd" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ten_vt" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="xlbm" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="vat_lieu" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="tgian_gc" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ten_nguoi_pt" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="nguoi_pt" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="nguoi_pt2" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ten_nguoi_pt2" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="nguoi_pt3" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ten_nguoi_pt3" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ghi_chu" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="so_lsx" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ten_vt2" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ten_vat_lieu" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="huy_ct" Type="nvarchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="soph1">
+    <Key>
+      <PropertyRef Name="ma_cty" />
+      <PropertyRef Name="stt_rec" />
+    </Key>
+    <Property Name="ma_cty" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="stt_rec" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ma_ct" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="ma_kh" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ten_kh" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="dia_chi" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="ma_so_thue" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="dien_thoai" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="nguoi_gd" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="loai_dh" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="trang_thai" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="ma_hd" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ma_nvkd" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ma_tt" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="han_ck" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tl_ck" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="han_tt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ls_qh" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="dien_giai" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="so_ct" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ngay_ct" Type="smalldatetime" Nullable="false" />
+    <Property Name="ngay_hh" Type="smalldatetime" Nullable="false" />
+    <Property Name="ma_nt" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="ty_gia" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ma_dckh" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="nguoi_nhan" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="cty_nhan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dc_nhan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tel_nhan" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ma_nvt" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ma_pt" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="bien_so" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="nguoi_lai" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ma_td" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ten_td" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="km" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="tk_pt" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tk_thue" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="t_tien_hh" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tien_hh_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_thue_hh" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_thue_hh_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt_hh" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt_hh_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tien_cp" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tien_cp_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_thue_cp" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_thue_cp_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt_cp" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt_cp_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_ck" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_ck_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="t_tt_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="cdate" Type="smalldatetime" Nullable="false" />
+    <Property Name="cuser" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ldate" Type="smalldatetime" Nullable="false" />
+    <Property Name="luser" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ngay_giao" Type="smalldatetime" Nullable="false" />
+    <Property Name="trang_thai_lsx" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="tyle_nvl" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="so_lsx" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ty_le_gcn" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ten_nvkd" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="nguoi_pt" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ten_nguoi_pt" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="tong_tien_dh" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="so_po_kh" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysUserInfos">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="sysadmin" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="active" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="grand" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="idcode" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="mobile" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cuser" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="luser" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cdate" Type="smalldatetime" Nullable="false" />
+    <Property Name="ldate" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysUserRoles">
+    <Key>
+      <PropertyRef Name="userroleid" />
+    </Key>
+    <Property Name="userroleid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleid" Type="int" Nullable="false" />
+    <Property Name="userid" Type="int" Nullable="false" />
+    <Property Name="cuser" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="luser" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cdate" Type="smalldatetime" Nullable="false" />
+    <Property Name="ldate" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="WSCHUAN_161812ModelStoreContainer">
+    <EntitySet Name="arkh" EntityType="Self.arkh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="invt" EntityType="Self.invt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="soct1" EntityType="Self.soct1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="soph1" EntityType="Self.soph1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysUserInfos" EntityType="Self.sysUserInfos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysUserRoles" EntityType="Self.sysUserRoles" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

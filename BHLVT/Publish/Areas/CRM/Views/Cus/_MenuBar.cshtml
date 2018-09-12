@@ -1,0 +1,32 @@
+﻿@{ 
+
+
+}
+<ul class="nav nav-tabs pull-right">
+    <li class="@{if (ViewBag.t=="10") {@("active") } }"><a href="@Url.RouteUrl(new {controller="Reqs",action= "Index", area="crm", _id = ViewBag._id })" @{if (ViewBag.t == "10") { @("data-toggle=\"tab\"")    } }>Yêu cầu</a></li>
+    <li class="@{if (ViewBag.t=="9") {@("active") } }"><a href="@Url.RouteUrl(new {controller="Funs",action="Index",area="crm",_id=ViewBag._id })" @{if (ViewBag.t == "9") { @("data-toggle=\"tab\"")   } }>Báo Cáo Ngày</a></li>
+    <li class="@{if (ViewBag.t=="8") {@("active") } }"><a href="@Url.RouteUrl(new {controller="Schs",action="Index",area="crm",_id=ViewBag._id })" @{if (ViewBag.t == "8") { @("data-toggle=\"tab\"")   } }>Dự kiến</a></li>
+    <li class="@{if (ViewBag.t=="7") {@("active") } }"><a href="@Url.RouteUrl(new {controller="Cas1",action="Index",area="crm",_id=ViewBag._id })" @{if (ViewBag.t == "7") { @("data-toggle=\"tab\"")   } }>Thu tiền</a></li>
+    <li class="@{if (ViewBag.t=="6") {@("active") } }"><a href="@Url.RouteUrl(new {controller="Mis1",action="Index",area="crm",_id=ViewBag._id })" @{if (ViewBag.t == "6") { @("data-toggle=\"tab\"")   } }>Công Tác</a></li>
+    <li class="@{if (ViewBag.t=="5") {@("active") } }"><a href="@Url.RouteUrl(new {controller="Cons1",action="Index",area="crm",_id=ViewBag._id })" @{if (ViewBag.t == "5") { @("data-toggle=\"tab\"")  } }>Hợp Đồng</a></li>
+    <li class="@{if (ViewBag.t=="4") {@("active") } }"><a href="@Url.RouteUrl(new {controller="Prcs",action="Index",area="crm",_id=ViewBag._id })" @{if (ViewBag.t == "4") { @("data-toggle=\"tab\"")    } }>Báo Giá</a></li>
+    <li class="@{if (ViewBag.t=="3") {@("active") } }"><a href="@Url.RouteUrl(new {controller="Conts",action="Index",area="crm",_id=ViewBag._id })" @{if (ViewBag.t == "3") { @("data-toggle=\"tab\"")    } }>Liên Hệ</a></li>
+    <li class="@{if (ViewBag.t=="2") {@("active") } }"><a href="@Url.RouteUrl(new {controller="Cus",action="Pps",area="crm",_id=ViewBag._id })" @{if (ViewBag.t == "2") { @("data-toggle=\"tab\"")    } }>Tiến độ</a></li>
+
+    <li class="@{if (ViewBag.t=="1") {@("active") } }"><a href="@Url.RouteUrl(new {controller="Cus",action="Infor",area="crm",_id=ViewBag._id })" @{if (ViewBag.t == "1") { @("data-toggle=\"tab\"")  } }>Thông tin KH</a></li>
+   
+    <li class="dropdown hidden">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Dropdown <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+        </ul>
+    </li>
+    <li class="pull-left header"><i class="fa fa-th"></i> Custom Tabs</li>
+</ul>
+

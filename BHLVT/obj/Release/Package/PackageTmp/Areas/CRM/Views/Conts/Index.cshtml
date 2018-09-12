@@ -1,0 +1,146 @@
+﻿@model BHLVTDAL.Data.tblcontact
+@{
+    ViewBag.Title = "Liên hệ";
+    ViewBag.namewindow = "mainp";
+    var lpps = (PagedList.IPagedList<BHLVTDAL.Data.tblcontact>)ViewBag.lpps;
+    var btn_class = ViewBag.btn == "Thêm" ? "btn btn-flat btn-sm btn-success" : "btn btn-flat btn-sm btn-warning";
+    // var read_only_id = ViewBag.btn == "Thêm" ? "" : "readonly";
+}
+@section styles {
+    <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td {
+            padding: 1px 5px;
+        }
+
+        table.scroll tbody {
+            height: 400px;
+        }
+    </style>
+
+}
+<div class="content">
+
+    <div class="col-md-12">
+        <div class="nav-tabs-custom">
+            @Html.Action("MBar", "Cus", new { area = "crm", t = "3", _id = ViewBag._id })
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="col-md-7">
+                        <div style="margin-bottom:3px"><a href="javascript:void(0);" onclick="return window_open('@Url.RouteUrl(new { controller = "Conts", action = "Create", area = "crm", _idcus = ViewBag._id })','t',600,300)" class="btn btn-xs btn-flat btn-success"><i class="fa fa-plus"></i></a></div>
+                        <div class="table-responsive">
+                            <table class="table table-striped scroll table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Tên người liên hệ</th>
+                                        <th>Chức vụ</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Mobile</th>
+                                        <th class="text-center">Xóa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        var index = (lpps.PageNumber - 1) * (lpps.PageSize) + 1;
+                                        foreach (var i in lpps)
+                                        {
+                                            <tr>
+                                                <td><div style="width:150px"><a href="/crm/conts?_id=@i.customerid.ToString().Trim()&cid=@i.contactid">@i.contactname.Trim()</a></div></td>
+                                                <td><div style="width:100px">@i.position</div></td>
+                                                <td><div style="width:70px">@i.phone</div></td>
+                                                <td><div style="width:70px">@i.email</div></td>
+                                                <td><div style="width:70px">@i.mobile</div></td>
+                                                <td class="text-center"><div style="width:70px"><form onsubmit="return checkvar()" action="/CRM/Conts/Delete" method="post">@Html.AntiForgeryToken()<input type="hidden" name="_id" value="@i.customerid"/><input type="hidden" name="cid" value="@i.contactid" /><button class="btn btn-xs"><i class="fa fa-trash"></i></button></form></div></td>
+                                            </tr>
+                                            index++;
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-5 panel-form">
+                        <form class="form-horizontal" method="post" >
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary()
+                            @Html.HiddenFor(model => model.contactid, new { required = false })
+                            @Html.HiddenFor(model => model.customerid)
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.contactname, "Tên người liên hệ", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.contactname, new { @class = "form-control input-sm", placeholder = "Tên người liên hệ", required = "true" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.position, "Chức vụ", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.position, new { @class = "form-control input-sm", placeholder = "Chức vụ", })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.phone, "Phone", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.phone, new { @class = "form-control input-sm", placeholder = "Phone" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.fax, "Fax", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.fax, new { @class = "form-control input-sm", placeholder = "Phone" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.mobile, "Mobile", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.mobile, new { @class = "form-control input-sm", placeholder = "Mobile" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.email, "Email", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.email, new { @class = "form-control input-sm", placeholder = "Email" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.active, "Hoạt động", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    <input type="checkbox" name="active" @{if (Model.active == "1") { @("checked")}
+                                        } value="1" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.note, "Ghi chú", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextAreaFor(model => model.note, new { rows = "5", @class = "form-control input-sm", placeholder = "Ghi chú" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-md-3">
+                                    <input type="submit" value="@ViewBag.btn" name="btn" class="@btn_class" />
+
+                                </div>     
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+@section scripts {
+    <script src="~/public/js/datatable_process.js"></script>
+    <script src="~/Areas/CRM/Sources/js/windows.js"></script>
+    <script>
+            $(document).ready(function () {
+                process_scroll_table(0);
+            });
+
+    </script>
+}
+
+

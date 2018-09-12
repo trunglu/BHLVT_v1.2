@@ -1,0 +1,80 @@
+﻿@using BHLVTDAL.Data
+@{
+    Layout = "~/Views/Shared/_LayoutReceipt.cshtml";
+    ViewBag.Title = "Search";
+    var lcus = (List<tblcustomer>)ViewBag.listCus;
+
+}
+@section styles {
+    <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td {
+            padding: 1px 5px;
+        }
+
+        table.scroll tbody {
+            height: 400px;
+        }
+    </style>
+    <style>
+        .textbox {
+            border-bottom: 1px solid #c2d0e4;
+        }
+        .form-control {
+        border-radius:0px;
+        }
+    </style>
+
+}
+<div class="container">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Danh sách khách hàng
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <form name="frmkh">
+                        @{
+                            var gridcus = new LVTDataGrid(source: lcus, rowsPerPage: 50);
+                            var index = 1;
+                        }
+                        @gridcus.GetHtml(tableStyle: "table table-striped",
+                     columns: gridcus.Columns(gridcus.Column(header: "Mã KH", format:@<div>
+                        <a href="javascript:void(0);" onclick="return selectcustomer(@index);">@item.customerid</a>
+                        <input type="hidden" name="customerid@(index)" value="@item.customerid"/>
+                        <input type="hidden" name="customername@(index)" value="@item.customername" />
+                    </div>), gridcus.Column(header: "Tên Khách Hàng", format:@<div>
+                            <input type="text" class="form-control1 input-sm" value="@item.customername" size="20" readonly/>
+                        </div>), gridcus.Column(header: "Địa chỉ", format:@<div>
+                            <input type="text" class="form-control1 input-sm" value="@item.address" size="20" readonly/>
+                        </div>), gridcus.Column(header: "Điện thoại", format:@<div>
+                            @item.phone
+                        @{index++;}
+                        </div>)))
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+<script>
+        function selectcustomer(stt)
+        {
+            txtid = eval("frmkh.customerid" + stt);
+            txtname = eval("frmkh.customername" + stt);
+
+            //window.opener.document.frm.customerid.value = txtid.value;
+            window.opener.$('#customerid').attr('value',txtid.value);
+            window.opener.document.frm.customername.value = txtname.value;
+            //console.log();
+            window.close();
+            return false;
+
+        }
+</script>
+}
+

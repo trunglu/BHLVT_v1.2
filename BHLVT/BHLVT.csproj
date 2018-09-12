@@ -1,0 +1,1442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C7BC8C2F-5763-4BE0-8BB0-11ED9447FD8F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BHLVT</RootNamespace>
+    <AssemblyName>BHLVT</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BHLVTBLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BHLVTBLL\BHLVTBLL\BHLVTBLL\bin\Debug\BHLVTBLL.dll</HintPath>
+    </Reference>
+    <Reference Include="BHLVTDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\BHLVTDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.2.0\lib\net45\CommonServiceLocator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CRMLVTBLLmd, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CRMLVTBLLmd\CRMLVTBLLmd\bin\Debug\CRMLVTBLLmd.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\..\..\BHLVT\BHLVT\bin\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\..\..\BHLVT\BHLVT\bin\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorGenerator.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorGenerator.Mvc.2.4.9\lib\net40\RazorGenerator.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="VTExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CRMLVTBLLmd\CRMLVTBLLmd\bin\Debug\VTExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\Cas1Controller.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\CddqsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\Cons1Controller.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\ContsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\CusCRMController.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\CustomerController.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\FunsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\IdasController.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\Mis1Controller.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\PpsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\PrcsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\ReqsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\Customer\SchsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\General\CmssController.cs" />
+    <Compile Include="Areas\CRM\Controllers\General\CursController.cs" />
+    <Compile Include="Areas\CRM\Controllers\General\DepartController.cs" />
+    <Compile Include="Areas\CRM\Controllers\General\EmpsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\General\MtpsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\General\ProvsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\General\StatusObController.cs" />
+    <Compile Include="Areas\CRM\Controllers\General\VensController.cs" />
+    <Compile Include="Areas\CRM\Controllers\General\WarsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\InCom\AstsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\InCom\DcdsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\InCom\MtrsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\InCom\NquysController.cs" />
+    <Compile Include="Areas\CRM\Controllers\InCom\QChsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\InCom\RepsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\InCom\TsksController.cs" />
+    <Compile Include="Areas\CRM\Controllers\InCom\TsksoController.cs" />
+    <Compile Include="Areas\CRM\Controllers\Report\Business\ThnhController.cs" />
+    <Compile Include="Areas\CRM\Controllers\Report\General\RFB1Controller.cs" />
+    <Compile Include="Areas\CRM\CRMAreaRegistration.cs" />
+    <Compile Include="Areas\Order\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Order\OrderAreaRegistration.cs" />
+    <Compile Include="Areas\PO\Controllers\Figures\PhieuNhapController.cs" />
+    <Compile Include="Areas\PO\POAreaRegistration.cs" />
+    <Compile Include="Areas\TARCL\Controllers\OrderController.cs" />
+    <Compile Include="Areas\TARCL\TARCLAreaRegistration.cs" />
+    <Compile Include="Areas\XConfig\Controllers\HomeController.cs" />
+    <Compile Include="Areas\XConfig\XConfigAreaRegistration.cs" />
+    <Compile Include="ConfigProgram\XWebConfig.cs" />
+    <Compile Include="Const\Const.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\arkhsController.cs" />
+    <Compile Include="Controllers\COMMON\CommonController.cs" />
+    <Compile Include="Controllers\CRM\GENERAL\TestGController.cs" />
+    <Compile Include="Controllers\ERP\PO\Figures\MuaHangController.cs" />
+    <Compile Include="Controllers\ERP\REPORT\BALANCE\BCDPSController.cs" />
+    <Compile Include="Controllers\ERP\TARCL\DonHangController.cs" />
+    <Compile Include="Controllers\EXCEPTION\ExceptionController.cs" />
+    <Compile Include="Controllers\TMAIN\HomeController.cs" />
+    <Compile Include="Controllers\invtsController.cs" />
+    <Compile Include="Controllers\UTILS\UltilsController.cs" />
+    <Compile Include="Data\DBContext\LVTDBContext.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\arkhmd.cs" />
+    <Compile Include="Models\BCDPSSEARCHModel.cs" />
+    <Compile Include="Models\BillViewModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InputData.cs" />
+    <Compile Include="Models\soct1md.cs" />
+    <Compile Include="Models\soph1md.cs" />
+    <Compile Include="Models\spGLRptCdpsTk_Result.cs" />
+    <Compile Include="Models\StatusComboView.cs" />
+    <Compile Include="Models\UtilEntities\Alert.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CRM\Sources\js\fileuploadmutiple.js" />
+    <Content Include="Areas\CRM\Sources\js\searchcustomer.js" />
+    <Content Include="Areas\CRM\Sources\js\windows.js" />
+    <Content Include="Areas\PO\public\js\process_phieunhap.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Database\CRM\db.sql" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="public\css\bootstrap-theme.css" />
+    <Content Include="public\css\bootstrap-theme.min.css" />
+    <Content Include="public\css\bootstrap.css" />
+    <Content Include="public\css\bootstrap.min.css" />
+    <Content Include="public\css\datagridstyle.css" />
+    <Content Include="public\css\datepicker.css" />
+    <Content Include="public\css\jquery-ui.min.css" />
+    <Content Include="public\css\main.css" />
+    <Content Include="public\css\scrollbar-basic.css" />
+    <Content Include="public\css\style.css" />
+    <Content Include="public\css\customizestyle.css" />
+    <Content Include="public\font\font-awesome\css\font-awesome.css" />
+    <Content Include="public\font\font-awesome\css\font-awesome.min.css" />
+    <Content Include="public\font\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="public\font\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="public\font\glyphicons-halflings-regular.svg" />
+    <Content Include="public\images\arrowdown.jpg" />
+    <Content Include="public\images\arrowup.jpg" />
+    <Content Include="public\images\arw.gif" />
+    <Content Include="public\images\bg-body.png" />
+    <Content Include="public\images\bg_top_banner_2.gif" />
+    <Content Include="public\images\boards_mini.gif" />
+    <Content Include="public\images\bottom_center.gif" />
+    <Content Include="public\images\bottom_left.gif" />
+    <Content Include="public\images\bottom_right.gif" />
+    <Content Include="public\images\b_drop.png" />
+    <Content Include="public\images\b_edit.png" />
+    <Content Include="public\images\b_usradd.png" />
+    <Content Include="public\images\b_usrdrop.png" />
+    <Content Include="public\images\b_usredit.png" />
+    <Content Include="public\images\b_usrlist.png" />
+    <Content Include="public\images\check1.jpg" />
+    <Content Include="public\images\check2.jpg" />
+    <Content Include="public\images\close.gif" />
+    <Content Include="public\images\delete.bmp" />
+    <Content Include="public\images\doc.jpg" />
+    <Content Include="public\images\drop1.gif" />
+    <Content Include="public\images\drop2.gif" />
+    <Content Include="public\images\head0.gif" />
+    <Content Include="public\images\icon52.gif" />
+    <Content Include="public\images\in_bg.gif" />
+    <Content Include="public\images\left1.gif" />
+    <Content Include="public\images\left2.gif" />
+    <Content Include="public\images\loading1_gif.gif" />
+    <Content Include="public\images\loading2_gif.gif" />
+    <Content Include="public\images\loading3_gif.gif" />
+    <Content Include="public\images\loading4_gif.gif" />
+    <Content Include="public\images\loading_gif.gif" />
+    <Content Include="public\images\logo.bmp" />
+    <Content Include="public\images\logo.gif" />
+    <Content Include="public\images\logo.JPG" />
+    <Content Include="public\images\logoasean.jpg" />
+    <Content Include="public\images\main_left_bg.gif" />
+    <Content Include="public\images\main_right_bg.gif" />
+    <Content Include="public\images\menu_bg_left.gif" />
+    <Content Include="public\images\menu_bg_right.gif" />
+    <Content Include="public\images\menu_bot_1.gif" />
+    <Content Include="public\images\menu_center_bg.gif" />
+    <Content Include="public\images\menu_icon.gif" />
+    <Content Include="public\images\menu_icon_s.gif" />
+    <Content Include="public\images\menu_icon_s1.gif" />
+    <Content Include="public\images\menu_left_1.gif" />
+    <Content Include="public\images\menu_left_bg.gif" />
+    <Content Include="public\images\menu_left_bot1.gif" />
+    <Content Include="public\images\menu_right_1.gif" />
+    <Content Include="public\images\menu_right_bg.gif" />
+    <Content Include="public\images\pdf.jpg" />
+    <Content Include="public\images\pin.gif" />
+    <Content Include="public\images\post_button_bgcolor.gif" />
+    <Content Include="public\images\post_button_bold.gif" />
+    <Content Include="public\images\post_button_centre.gif" />
+    <Content Include="public\images\post_button_hyperlink.gif" />
+    <Content Include="public\images\post_button_image.gif" />
+    <Content Include="public\images\post_button_indent.gif" />
+    <Content Include="public\images\post_button_italic.gif" />
+    <Content Include="public\images\post_button_justifyfull.gif" />
+    <Content Include="public\images\post_button_left_just.gif" />
+    <Content Include="public\images\post_button_list.gif" />
+    <Content Include="public\images\post_button_numbered_list.gif" />
+    <Content Include="public\images\post_button_outdent.gif" />
+    <Content Include="public\images\post_button_right_just.gif" />
+    <Content Include="public\images\post_button_textcolor.gif" />
+    <Content Include="public\images\post_button_underline.gif" />
+    <Content Include="public\images\pre.gif" />
+    <Content Include="public\images\products_findreseller.gif" />
+    <Content Include="public\images\rar.jpg" />
+    <Content Include="public\images\right1.gif" />
+    <Content Include="public\images\right2.gif" />
+    <Content Include="public\images\thongtindichvu.gif" />
+    <Content Include="public\images\tim.gif" />
+    <Content Include="public\images\top_bg.gif" />
+    <Content Include="public\images\top_end.gif" />
+    <Content Include="public\images\top_left.gif" />
+    <Content Include="public\images\top_right.gif" />
+    <Content Include="public\images\vip.gif" />
+    <Content Include="public\images\xls.jpg" />
+    <Content Include="public\images\zip.jpg" />
+    <Content Include="public\jq\bootstrap.js" />
+    <Content Include="public\jq\changelog.txt" />
+    <Content Include="public\jq\demo-mobile\accordion\basic.html" />
+    <Content Include="public\jq\demo-mobile\accordion\header.html" />
+    <Content Include="public\jq\demo-mobile\accordion\_content.html" />
+    <Content Include="public\jq\demo-mobile\animation\basic.html" />
+    <Content Include="public\jq\demo-mobile\animation\fade.html" />
+    <Content Include="public\jq\demo-mobile\animation\pop.html" />
+    <Content Include="public\jq\demo-mobile\animation\slide.html" />
+    <Content Include="public\jq\demo-mobile\badge\basic.html" />
+    <Content Include="public\jq\demo-mobile\badge\button.html" />
+    <Content Include="public\jq\demo-mobile\badge\list.html" />
+    <Content Include="public\jq\demo-mobile\badge\tabs.html" />
+    <Content Include="public\jq\demo-mobile\button\basic.html" />
+    <Content Include="public\jq\demo-mobile\button\group.html" />
+    <Content Include="public\jq\demo-mobile\button\style.html" />
+    <Content Include="public\jq\demo-mobile\button\switch.html" />
+    <Content Include="public\jq\demo-mobile\datagrid\basic.html" />
+    <Content Include="public\jq\demo-mobile\datagrid\rowediting.html" />
+    <Content Include="public\jq\demo-mobile\datalist\basic.html" />
+    <Content Include="public\jq\demo-mobile\datalist\group.html" />
+    <Content Include="public\jq\demo-mobile\datalist\selection.html" />
+    <Content Include="public\jq\demo-mobile\dialog\basic.html" />
+    <Content Include="public\jq\demo-mobile\dialog\message.html" />
+    <Content Include="public\jq\demo-mobile\form\basic.html" />
+    <Content Include="public\jq\demo-mobile\images\login1.jpg" />
+    <Content Include="public\jq\demo-mobile\images\modem.png" />
+    <Content Include="public\jq\demo-mobile\images\more.png" />
+    <Content Include="public\jq\demo-mobile\images\pda.png" />
+    <Content Include="public\jq\demo-mobile\images\scanner.png" />
+    <Content Include="public\jq\demo-mobile\images\tablet.png" />
+    <Content Include="public\jq\demo-mobile\input\numberspinner.html" />
+    <Content Include="public\jq\demo-mobile\input\textbox.html" />
+    <Content Include="public\jq\demo-mobile\layout\basic.html" />
+    <Content Include="public\jq\demo-mobile\menu\basic.html" />
+    <Content Include="public\jq\demo-mobile\menu\menubar.html" />
+    <Content Include="public\jq\demo-mobile\panel\ajax.html" />
+    <Content Include="public\jq\demo-mobile\panel\basic.html" />
+    <Content Include="public\jq\demo-mobile\panel\nav.html" />
+    <Content Include="public\jq\demo-mobile\panel\_content.html" />
+    <Content Include="public\jq\demo-mobile\simplelist\basic.html" />
+    <Content Include="public\jq\demo-mobile\simplelist\button.html" />
+    <Content Include="public\jq\demo-mobile\simplelist\group.html" />
+    <Content Include="public\jq\demo-mobile\simplelist\image.html" />
+    <Content Include="public\jq\demo-mobile\simplelist\link.html" />
+    <Content Include="public\jq\demo-mobile\tabs\basic.html" />
+    <Content Include="public\jq\demo-mobile\tabs\nav.html" />
+    <Content Include="public\jq\demo-mobile\tabs\pill.html" />
+    <Content Include="public\jq\demo-mobile\toolbar\basic.html" />
+    <Content Include="public\jq\demo-mobile\toolbar\button.html" />
+    <Content Include="public\jq\demo-mobile\toolbar\menu.html" />
+    <Content Include="public\jq\demo-mobile\tree\basic.html" />
+    <Content Include="public\jq\demo-mobile\tree\dnd.html" />
+    <Content Include="public\jq\demo\accordion\actions.html" />
+    <Content Include="public\jq\demo\accordion\ajax.html" />
+    <Content Include="public\jq\demo\accordion\basic.html" />
+    <Content Include="public\jq\demo\accordion\expandable.html" />
+    <Content Include="public\jq\demo\accordion\fluid.html" />
+    <Content Include="public\jq\demo\accordion\multiple.html" />
+    <Content Include="public\jq\demo\accordion\tools.html" />
+    <Content Include="public\jq\demo\accordion\_content.html" />
+    <Content Include="public\jq\demo\calendar\basic.html" />
+    <Content Include="public\jq\demo\calendar\custom.html" />
+    <Content Include="public\jq\demo\calendar\disabledate.html" />
+    <Content Include="public\jq\demo\calendar\firstday.html" />
+    <Content Include="public\jq\demo\calendar\fluid.html" />
+    <Content Include="public\jq\demo\combobox\actions.html" />
+    <Content Include="public\jq\demo\combobox\basic.html" />
+    <Content Include="public\jq\demo\combobox\customformat.html" />
+    <Content Include="public\jq\demo\combobox\dynamicdata.html" />
+    <Content Include="public\jq\demo\combobox\fluid.html" />
+    <Content Include="public\jq\demo\combobox\group.html" />
+    <Content Include="public\jq\demo\combobox\icons.html" />
+    <Content Include="public\jq\demo\combobox\itemicon.html" />
+    <Content Include="public\jq\demo\combobox\multiline.html" />
+    <Content Include="public\jq\demo\combobox\multiple.html" />
+    <Content Include="public\jq\demo\combobox\navigation.html" />
+    <Content Include="public\jq\demo\combobox\remotedata.html" />
+    <Content Include="public\jq\demo\combobox\remotejsonp.html" />
+    <Content Include="public\jq\demo\combogrid\actions.html" />
+    <Content Include="public\jq\demo\combogrid\basic.html" />
+    <Content Include="public\jq\demo\combogrid\fluid.html" />
+    <Content Include="public\jq\demo\combogrid\initvalue.html" />
+    <Content Include="public\jq\demo\combogrid\multiple.html" />
+    <Content Include="public\jq\demo\combogrid\navigation.html" />
+    <Content Include="public\jq\demo\combogrid\setvalue.html" />
+    <Content Include="public\jq\demo\combotree\actions.html" />
+    <Content Include="public\jq\demo\combotree\basic.html" />
+    <Content Include="public\jq\demo\combotree\fluid.html" />
+    <Content Include="public\jq\demo\combotree\initvalue.html" />
+    <Content Include="public\jq\demo\combotree\multiple.html" />
+    <Content Include="public\jq\demo\combo\animation.html" />
+    <Content Include="public\jq\demo\combo\basic.html" />
+    <Content Include="public\jq\demo\datagrid\aligncolumns.html" />
+    <Content Include="public\jq\demo\datagrid\basic.html" />
+    <Content Include="public\jq\demo\datagrid\cacheeditor.html" />
+    <Content Include="public\jq\demo\datagrid\cellediting.html" />
+    <Content Include="public\jq\demo\datagrid\cellstyle.html" />
+    <Content Include="public\jq\demo\datagrid\checkbox.html" />
+    <Content Include="public\jq\demo\datagrid\clientpagination.html" />
+    <Content Include="public\jq\demo\datagrid\columngroup.html" />
+    <Content Include="public\jq\demo\datagrid\complextoolbar.html" />
+    <Content Include="public\jq\demo\datagrid\contextmenu.html" />
+    <Content Include="public\jq\demo\datagrid\custompager.html" />
+    <Content Include="public\jq\demo\datagrid\fluid.html" />
+    <Content Include="public\jq\demo\datagrid\footer.html" />
+    <Content Include="public\jq\demo\datagrid\formatcolumns.html" />
+    <Content Include="public\jq\demo\datagrid\frozencolumns.html" />
+    <Content Include="public\jq\demo\datagrid\frozenrows.html" />
+    <Content Include="public\jq\demo\datagrid\mergecells.html" />
+    <Content Include="public\jq\demo\datagrid\multisorting.html" />
+    <Content Include="public\jq\demo\datagrid\rowborder.html" />
+    <Content Include="public\jq\demo\datagrid\rowediting.html" />
+    <Content Include="public\jq\demo\datagrid\rowstyle.html" />
+    <Content Include="public\jq\demo\datagrid\selection.html" />
+    <Content Include="public\jq\demo\datagrid\simpletoolbar.html" />
+    <Content Include="public\jq\demo\datagrid\transform.html" />
+    <Content Include="public\jq\demo\datalist\basic.html" />
+    <Content Include="public\jq\demo\datalist\checkbox.html" />
+    <Content Include="public\jq\demo\datalist\group.html" />
+    <Content Include="public\jq\demo\datalist\multiselect.html" />
+    <Content Include="public\jq\demo\datalist\remotedata.html" />
+    <Content Include="public\jq\demo\datebox\basic.html" />
+    <Content Include="public\jq\demo\datebox\buttons.html" />
+    <Content Include="public\jq\demo\datebox\clone.html" />
+    <Content Include="public\jq\demo\datebox\dateformat.html" />
+    <Content Include="public\jq\demo\datebox\events.html" />
+    <Content Include="public\jq\demo\datebox\fluid.html" />
+    <Content Include="public\jq\demo\datebox\restrict.html" />
+    <Content Include="public\jq\demo\datebox\sharedcalendar.html" />
+    <Content Include="public\jq\demo\datebox\validate.html" />
+    <Content Include="public\jq\demo\datetimebox\basic.html" />
+    <Content Include="public\jq\demo\datetimebox\fluid.html" />
+    <Content Include="public\jq\demo\datetimebox\initvalue.html" />
+    <Content Include="public\jq\demo\datetimebox\showseconds.html" />
+    <Content Include="public\jq\demo\datetimespinner\basic.html" />
+    <Content Include="public\jq\demo\datetimespinner\clearicon.html" />
+    <Content Include="public\jq\demo\datetimespinner\fluid.html" />
+    <Content Include="public\jq\demo\datetimespinner\format.html" />
+    <Content Include="public\jq\demo\demo.css" />
+    <Content Include="public\jq\demo\dialog\basic.html" />
+    <Content Include="public\jq\demo\dialog\complextoolbar.html" />
+    <Content Include="public\jq\demo\dialog\fluid.html" />
+    <Content Include="public\jq\demo\dialog\toolbarbuttons.html" />
+    <Content Include="public\jq\demo\draggable\basic.html" />
+    <Content Include="public\jq\demo\draggable\constrain.html" />
+    <Content Include="public\jq\demo\draggable\snap.html" />
+    <Content Include="public\jq\demo\droppable\accept.html" />
+    <Content Include="public\jq\demo\droppable\basic.html" />
+    <Content Include="public\jq\demo\droppable\sort.html" />
+    <Content Include="public\jq\demo\easyloader\basic.html" />
+    <Content Include="public\jq\demo\filebox\basic.html" />
+    <Content Include="public\jq\demo\filebox\buttonalign.html" />
+    <Content Include="public\jq\demo\filebox\fluid.html" />
+    <Content Include="public\jq\demo\form\basic.html" />
+    <Content Include="public\jq\demo\form\load.html" />
+    <Content Include="public\jq\demo\form\validateonsubmit.html" />
+    <Content Include="public\jq\demo\layout\addremove.html" />
+    <Content Include="public\jq\demo\layout\autoheight.html" />
+    <Content Include="public\jq\demo\layout\basic.html" />
+    <Content Include="public\jq\demo\layout\collapsetitle.html" />
+    <Content Include="public\jq\demo\layout\complex.html" />
+    <Content Include="public\jq\demo\layout\customcollapsetitle.html" />
+    <Content Include="public\jq\demo\layout\fluid.html" />
+    <Content Include="public\jq\demo\layout\full.html" />
+    <Content Include="public\jq\demo\layout\nestedlayout.html" />
+    <Content Include="public\jq\demo\layout\nocollapsible.html" />
+    <Content Include="public\jq\demo\layout\_content.html" />
+    <Content Include="public\jq\demo\linkbutton\basic.html" />
+    <Content Include="public\jq\demo\linkbutton\fluid.html" />
+    <Content Include="public\jq\demo\linkbutton\group.html" />
+    <Content Include="public\jq\demo\linkbutton\iconalign.html" />
+    <Content Include="public\jq\demo\linkbutton\plain.html" />
+    <Content Include="public\jq\demo\linkbutton\size.html" />
+    <Content Include="public\jq\demo\linkbutton\style.html" />
+    <Content Include="public\jq\demo\linkbutton\toggle.html" />
+    <Content Include="public\jq\demo\menubutton\actions.html" />
+    <Content Include="public\jq\demo\menubutton\alignment.html" />
+    <Content Include="public\jq\demo\menubutton\basic.html" />
+    <Content Include="public\jq\demo\menubutton\nav.html" />
+    <Content Include="public\jq\demo\menu\basic.html" />
+    <Content Include="public\jq\demo\menu\customitem.html" />
+    <Content Include="public\jq\demo\menu\events.html" />
+    <Content Include="public\jq\demo\menu\inline.html" />
+    <Content Include="public\jq\demo\menu\nav.html" />
+    <Content Include="public\jq\demo\messager\alert.html" />
+    <Content Include="public\jq\demo\messager\basic.html" />
+    <Content Include="public\jq\demo\messager\interactive.html" />
+    <Content Include="public\jq\demo\messager\position.html" />
+    <Content Include="public\jq\demo\numberbox\basic.html" />
+    <Content Include="public\jq\demo\numberbox\fluid.html" />
+    <Content Include="public\jq\demo\numberbox\format.html" />
+    <Content Include="public\jq\demo\numberbox\range.html" />
+    <Content Include="public\jq\demo\numberspinner\basic.html" />
+    <Content Include="public\jq\demo\numberspinner\fluid.html" />
+    <Content Include="public\jq\demo\numberspinner\increment.html" />
+    <Content Include="public\jq\demo\numberspinner\range.html" />
+    <Content Include="public\jq\demo\pagination\attaching.html" />
+    <Content Include="public\jq\demo\pagination\basic.html" />
+    <Content Include="public\jq\demo\pagination\custombuttons.html" />
+    <Content Include="public\jq\demo\pagination\layout.html" />
+    <Content Include="public\jq\demo\pagination\links.html" />
+    <Content Include="public\jq\demo\pagination\simple.html" />
+    <Content Include="public\jq\demo\panel\basic.html" />
+    <Content Include="public\jq\demo\panel\customtools.html" />
+    <Content Include="public\jq\demo\panel\fluid.html" />
+    <Content Include="public\jq\demo\panel\footer.html" />
+    <Content Include="public\jq\demo\panel\loadcontent.html" />
+    <Content Include="public\jq\demo\panel\nestedpanel.html" />
+    <Content Include="public\jq\demo\panel\paneltools.html" />
+    <Content Include="public\jq\demo\panel\_content.html" />
+    <Content Include="public\jq\demo\progressbar\basic.html" />
+    <Content Include="public\jq\demo\progressbar\fluid.html" />
+    <Content Include="public\jq\demo\propertygrid\basic.html" />
+    <Content Include="public\jq\demo\propertygrid\customcolumns.html" />
+    <Content Include="public\jq\demo\propertygrid\groupformat.html" />
+    <Content Include="public\jq\demo\resizable\basic.html" />
+    <Content Include="public\jq\demo\searchbox\basic.html" />
+    <Content Include="public\jq\demo\searchbox\category.html" />
+    <Content Include="public\jq\demo\searchbox\fluid.html" />
+    <Content Include="public\jq\demo\slider\basic.html" />
+    <Content Include="public\jq\demo\slider\fluid.html" />
+    <Content Include="public\jq\demo\slider\formattip.html" />
+    <Content Include="public\jq\demo\slider\nonlinear.html" />
+    <Content Include="public\jq\demo\slider\range.html" />
+    <Content Include="public\jq\demo\slider\rule.html" />
+    <Content Include="public\jq\demo\slider\vertical.html" />
+    <Content Include="public\jq\demo\splitbutton\actions.html" />
+    <Content Include="public\jq\demo\splitbutton\basic.html" />
+    <Content Include="public\jq\demo\switchbutton\action.html" />
+    <Content Include="public\jq\demo\switchbutton\basic.html" />
+    <Content Include="public\jq\demo\tabs\autoheight.html" />
+    <Content Include="public\jq\demo\tabs\basic.html" />
+    <Content Include="public\jq\demo\tabs\dropdown.html" />
+    <Content Include="public\jq\demo\tabs\fixedwidth.html" />
+    <Content Include="public\jq\demo\tabs\fluid.html" />
+    <Content Include="public\jq\demo\tabs\hover.html" />
+    <Content Include="public\jq\demo\tabs\images\modem.png" />
+    <Content Include="public\jq\demo\tabs\images\pda.png" />
+    <Content Include="public\jq\demo\tabs\images\scanner.png" />
+    <Content Include="public\jq\demo\tabs\images\tablet.png" />
+    <Content Include="public\jq\demo\tabs\nestedtabs.html" />
+    <Content Include="public\jq\demo\tabs\striptools.html" />
+    <Content Include="public\jq\demo\tabs\style.html" />
+    <Content Include="public\jq\demo\tabs\tabimage.html" />
+    <Content Include="public\jq\demo\tabs\tabposition.html" />
+    <Content Include="public\jq\demo\tabs\tabstools.html" />
+    <Content Include="public\jq\demo\tabs\_content.html" />
+    <Content Include="public\jq\demo\textbox\basic.html" />
+    <Content Include="public\jq\demo\textbox\button.html" />
+    <Content Include="public\jq\demo\textbox\clearicon.html" />
+    <Content Include="public\jq\demo\textbox\custom.html" />
+    <Content Include="public\jq\demo\textbox\fluid.html" />
+    <Content Include="public\jq\demo\textbox\icons.html" />
+    <Content Include="public\jq\demo\textbox\multiline.html" />
+    <Content Include="public\jq\demo\textbox\size.html" />
+    <Content Include="public\jq\demo\timespinner\actions.html" />
+    <Content Include="public\jq\demo\timespinner\basic.html" />
+    <Content Include="public\jq\demo\timespinner\fluid.html" />
+    <Content Include="public\jq\demo\timespinner\range.html" />
+    <Content Include="public\jq\demo\tooltip\ajax.html" />
+    <Content Include="public\jq\demo\tooltip\basic.html" />
+    <Content Include="public\jq\demo\tooltip\customcontent.html" />
+    <Content Include="public\jq\demo\tooltip\customstyle.html" />
+    <Content Include="public\jq\demo\tooltip\position.html" />
+    <Content Include="public\jq\demo\tooltip\toolbar.html" />
+    <Content Include="public\jq\demo\tooltip\tooltipdialog.html" />
+    <Content Include="public\jq\demo\tooltip\_content.html" />
+    <Content Include="public\jq\demo\tooltip\_dialog.html" />
+    <Content Include="public\jq\demo\treegrid\actions.html" />
+    <Content Include="public\jq\demo\treegrid\basic.html" />
+    <Content Include="public\jq\demo\treegrid\checkbox.html" />
+    <Content Include="public\jq\demo\treegrid\clientpagination.html" />
+    <Content Include="public\jq\demo\treegrid\contextmenu.html" />
+    <Content Include="public\jq\demo\treegrid\customcheckbox.html" />
+    <Content Include="public\jq\demo\treegrid\editable.html" />
+    <Content Include="public\jq\demo\treegrid\fluid.html" />
+    <Content Include="public\jq\demo\treegrid\footer.html" />
+    <Content Include="public\jq\demo\treegrid\lines.html" />
+    <Content Include="public\jq\demo\treegrid\reports.html" />
+    <Content Include="public\jq\demo\tree\actions.html" />
+    <Content Include="public\jq\demo\tree\animation.html" />
+    <Content Include="public\jq\demo\tree\basic.html" />
+    <Content Include="public\jq\demo\tree\checkbox.html" />
+    <Content Include="public\jq\demo\tree\contextmenu.html" />
+    <Content Include="public\jq\demo\tree\customcheckbox.html" />
+    <Content Include="public\jq\demo\tree\dnd.html" />
+    <Content Include="public\jq\demo\tree\editable.html" />
+    <Content Include="public\jq\demo\tree\formatting.html" />
+    <Content Include="public\jq\demo\tree\icons.html" />
+    <Content Include="public\jq\demo\tree\lazyload.html" />
+    <Content Include="public\jq\demo\tree\lines.html" />
+    <Content Include="public\jq\demo\validatebox\basic.html" />
+    <Content Include="public\jq\demo\validatebox\customtooltip.html" />
+    <Content Include="public\jq\demo\validatebox\errorplacement.html" />
+    <Content Include="public\jq\demo\validatebox\validateonblur.html" />
+    <Content Include="public\jq\demo\window\basic.html" />
+    <Content Include="public\jq\demo\window\borderstyle.html" />
+    <Content Include="public\jq\demo\window\customtools.html" />
+    <Content Include="public\jq\demo\window\fluid.html" />
+    <Content Include="public\jq\demo\window\footer.html" />
+    <Content Include="public\jq\demo\window\inlinewindow.html" />
+    <Content Include="public\jq\demo\window\modalwindow.html" />
+    <Content Include="public\jq\demo\window\windowlayout.html" />
+    <Content Include="public\jq\easyloader.js" />
+    <Content Include="public\jq\jquery-1.4.1.min.js" />
+    <Content Include="public\jq\jquery-ui.min.js" />
+    <Content Include="public\jq\jquery.easyui.min.js" />
+    <Content Include="public\jq\jquery.easyui.mobile.js" />
+    <Content Include="public\jq\jquery.jqCombo.min.js" />
+    <Content Include="public\jq\jquery.min.js" />
+    <Content Include="public\jq\jquery.number.min.js" />
+    <Content Include="public\jq\license_freeware.txt" />
+    <Content Include="public\jq\locale\easyui-lang-af.js" />
+    <Content Include="public\jq\locale\easyui-lang-am.js" />
+    <Content Include="public\jq\locale\easyui-lang-ar.js" />
+    <Content Include="public\jq\locale\easyui-lang-bg.js" />
+    <Content Include="public\jq\locale\easyui-lang-ca.js" />
+    <Content Include="public\jq\locale\easyui-lang-cs.js" />
+    <Content Include="public\jq\locale\easyui-lang-cz.js" />
+    <Content Include="public\jq\locale\easyui-lang-da.js" />
+    <Content Include="public\jq\locale\easyui-lang-de.js" />
+    <Content Include="public\jq\locale\easyui-lang-el.js" />
+    <Content Include="public\jq\locale\easyui-lang-en.js" />
+    <Content Include="public\jq\locale\easyui-lang-es.js" />
+    <Content Include="public\jq\locale\easyui-lang-fr.js" />
+    <Content Include="public\jq\locale\easyui-lang-it.js" />
+    <Content Include="public\jq\locale\easyui-lang-jp.js" />
+    <Content Include="public\jq\locale\easyui-lang-ko.js" />
+    <Content Include="public\jq\locale\easyui-lang-nl.js" />
+    <Content Include="public\jq\locale\easyui-lang-pl.js" />
+    <Content Include="public\jq\locale\easyui-lang-pt_BR.js" />
+    <Content Include="public\jq\locale\easyui-lang-ru.js" />
+    <Content Include="public\jq\locale\easyui-lang-sv_SE.js" />
+    <Content Include="public\jq\locale\easyui-lang-tr.js" />
+    <Content Include="public\jq\locale\easyui-lang-zh_CN.js" />
+    <Content Include="public\jq\locale\easyui-lang-zh_TW.js" />
+    <Content Include="public\jq\plugins\jquery.accordion.js" />
+    <Content Include="public\jq\plugins\jquery.calendar.js" />
+    <Content Include="public\jq\plugins\jquery.combo.js" />
+    <Content Include="public\jq\plugins\jquery.combobox.js" />
+    <Content Include="public\jq\plugins\jquery.combogrid.js" />
+    <Content Include="public\jq\plugins\jquery.combotree.js" />
+    <Content Include="public\jq\plugins\jquery.datagrid.js" />
+    <Content Include="public\jq\plugins\jquery.datalist.js" />
+    <Content Include="public\jq\plugins\jquery.datebox.js" />
+    <Content Include="public\jq\plugins\jquery.datetimebox.js" />
+    <Content Include="public\jq\plugins\jquery.datetimespinner.js" />
+    <Content Include="public\jq\plugins\jquery.dialog.js" />
+    <Content Include="public\jq\plugins\jquery.draggable.js" />
+    <Content Include="public\jq\plugins\jquery.droppable.js" />
+    <Content Include="public\jq\plugins\jquery.filebox.js" />
+    <Content Include="public\jq\plugins\jquery.form.js" />
+    <Content Include="public\jq\plugins\jquery.layout.js" />
+    <Content Include="public\jq\plugins\jquery.linkbutton.js" />
+    <Content Include="public\jq\plugins\jquery.menu.js" />
+    <Content Include="public\jq\plugins\jquery.menubutton.js" />
+    <Content Include="public\jq\plugins\jquery.messager.js" />
+    <Content Include="public\jq\plugins\jquery.mobile.js" />
+    <Content Include="public\jq\plugins\jquery.numberbox.js" />
+    <Content Include="public\jq\plugins\jquery.numberspinner.js" />
+    <Content Include="public\jq\plugins\jquery.pagination.js" />
+    <Content Include="public\jq\plugins\jquery.panel.js" />
+    <Content Include="public\jq\plugins\jquery.parser.js" />
+    <Content Include="public\jq\plugins\jquery.progressbar.js" />
+    <Content Include="public\jq\plugins\jquery.propertygrid.js" />
+    <Content Include="public\jq\plugins\jquery.resizable.js" />
+    <Content Include="public\jq\plugins\jquery.searchbox.js" />
+    <Content Include="public\jq\plugins\jquery.slider.js" />
+    <Content Include="public\jq\plugins\jquery.spinner.js" />
+    <Content Include="public\jq\plugins\jquery.splitbutton.js" />
+    <Content Include="public\jq\plugins\jquery.switchbutton.js" />
+    <Content Include="public\jq\plugins\jquery.tabs.js" />
+    <Content Include="public\jq\plugins\jquery.textbox.js" />
+    <Content Include="public\jq\plugins\jquery.timespinner.js" />
+    <Content Include="public\jq\plugins\jquery.tooltip.js" />
+    <Content Include="public\jq\plugins\jquery.tree.js" />
+    <Content Include="public\jq\plugins\jquery.treegrid.js" />
+    <Content Include="public\jq\plugins\jquery.validatebox.js" />
+    <Content Include="public\jq\plugins\jquery.window.js" />
+    <Content Include="public\jq\process_donhang.js" />
+    <Content Include="public\jq\readme.txt" />
+    <Content Include="public\jq\src\easyloader.js" />
+    <Content Include="public\jq\src\jquery.accordion.js" />
+    <Content Include="public\jq\src\jquery.calendar.js" />
+    <Content Include="public\jq\src\jquery.combobox.js" />
+    <Content Include="public\jq\src\jquery.datebox.js" />
+    <Content Include="public\jq\src\jquery.draggable.js" />
+    <Content Include="public\jq\src\jquery.droppable.js" />
+    <Content Include="public\jq\src\jquery.form.js" />
+    <Content Include="public\jq\src\jquery.linkbutton.js" />
+    <Content Include="public\jq\src\jquery.menu.js" />
+    <Content Include="public\jq\src\jquery.parser.js" />
+    <Content Include="public\jq\src\jquery.progressbar.js" />
+    <Content Include="public\jq\src\jquery.propertygrid.js" />
+    <Content Include="public\jq\src\jquery.resizable.js" />
+    <Content Include="public\jq\src\jquery.slider.js" />
+    <Content Include="public\jq\src\jquery.tabs.js" />
+    <Content Include="public\jq\src\jquery.window.js" />
+    <Content Include="public\jq\themes\black\accordion.css" />
+    <Content Include="public\jq\themes\black\calendar.css" />
+    <Content Include="public\jq\themes\black\combo.css" />
+    <Content Include="public\jq\themes\black\combobox.css" />
+    <Content Include="public\jq\themes\black\datagrid.css" />
+    <Content Include="public\jq\themes\black\datalist.css" />
+    <Content Include="public\jq\themes\black\datebox.css" />
+    <Content Include="public\jq\themes\black\dialog.css" />
+    <Content Include="public\jq\themes\black\easyui.css" />
+    <Content Include="public\jq\themes\black\filebox.css" />
+    <Content Include="public\jq\themes\black\images\accordion_arrows.png" />
+    <Content Include="public\jq\themes\black\images\blank.gif" />
+    <Content Include="public\jq\themes\black\images\calendar_arrows.png" />
+    <Content Include="public\jq\themes\black\images\combo_arrow.png" />
+    <Content Include="public\jq\themes\black\images\datagrid_icons.png" />
+    <Content Include="public\jq\themes\black\images\datebox_arrow.png" />
+    <Content Include="public\jq\themes\black\images\layout_arrows.png" />
+    <Content Include="public\jq\themes\black\images\linkbutton_bg.png" />
+    <Content Include="public\jq\themes\black\images\loading.gif" />
+    <Content Include="public\jq\themes\black\images\menu_arrows.png" />
+    <Content Include="public\jq\themes\black\images\messager_icons.png" />
+    <Content Include="public\jq\themes\black\images\pagination_icons.png" />
+    <Content Include="public\jq\themes\black\images\panel_tools.png" />
+    <Content Include="public\jq\themes\black\images\searchbox_button.png" />
+    <Content Include="public\jq\themes\black\images\slider_handle.png" />
+    <Content Include="public\jq\themes\black\images\spinner_arrows.png" />
+    <Content Include="public\jq\themes\black\images\tabs_icons.png" />
+    <Content Include="public\jq\themes\black\images\tree_icons.png" />
+    <Content Include="public\jq\themes\black\images\validatebox_warning.png" />
+    <Content Include="public\jq\themes\black\layout.css" />
+    <Content Include="public\jq\themes\black\linkbutton.css" />
+    <Content Include="public\jq\themes\black\menu.css" />
+    <Content Include="public\jq\themes\black\menubutton.css" />
+    <Content Include="public\jq\themes\black\messager.css" />
+    <Content Include="public\jq\themes\black\numberbox.css" />
+    <Content Include="public\jq\themes\black\pagination.css" />
+    <Content Include="public\jq\themes\black\panel.css" />
+    <Content Include="public\jq\themes\black\progressbar.css" />
+    <Content Include="public\jq\themes\black\propertygrid.css" />
+    <Content Include="public\jq\themes\black\searchbox.css" />
+    <Content Include="public\jq\themes\black\slider.css" />
+    <Content Include="public\jq\themes\black\spinner.css" />
+    <Content Include="public\jq\themes\black\splitbutton.css" />
+    <Content Include="public\jq\themes\black\switchbutton.css" />
+    <Content Include="public\jq\themes\black\tabs.css" />
+    <Content Include="public\jq\themes\black\textbox.css" />
+    <Content Include="public\jq\themes\black\tooltip.css" />
+    <Content Include="public\jq\themes\black\tree.css" />
+    <Content Include="public\jq\themes\black\validatebox.css" />
+    <Content Include="public\jq\themes\black\window.css" />
+    <Content Include="public\jq\themes\bootstrap\accordion.css" />
+    <Content Include="public\jq\themes\bootstrap\calendar.css" />
+    <Content Include="public\jq\themes\bootstrap\combo.css" />
+    <Content Include="public\jq\themes\bootstrap\combobox.css" />
+    <Content Include="public\jq\themes\bootstrap\datagrid.css" />
+    <Content Include="public\jq\themes\bootstrap\datalist.css" />
+    <Content Include="public\jq\themes\bootstrap\datebox.css" />
+    <Content Include="public\jq\themes\bootstrap\dialog.css" />
+    <Content Include="public\jq\themes\bootstrap\easyui.css" />
+    <Content Include="public\jq\themes\bootstrap\filebox.css" />
+    <Content Include="public\jq\themes\bootstrap\images\accordion_arrows.png" />
+    <Content Include="public\jq\themes\bootstrap\images\blank.gif" />
+    <Content Include="public\jq\themes\bootstrap\images\calendar_arrows.png" />
+    <Content Include="public\jq\themes\bootstrap\images\combo_arrow.png" />
+    <Content Include="public\jq\themes\bootstrap\images\datagrid_icons.png" />
+    <Content Include="public\jq\themes\bootstrap\images\datebox_arrow.png" />
+    <Content Include="public\jq\themes\bootstrap\images\layout_arrows.png" />
+    <Content Include="public\jq\themes\bootstrap\images\linkbutton_bg.png" />
+    <Content Include="public\jq\themes\bootstrap\images\loading.gif" />
+    <Content Include="public\jq\themes\bootstrap\images\menu_arrows.png" />
+    <Content Include="public\jq\themes\bootstrap\images\messager_icons.png" />
+    <Content Include="public\jq\themes\bootstrap\images\pagination_icons.png" />
+    <Content Include="public\jq\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="public\jq\themes\bootstrap\images\searchbox_button.png" />
+    <Content Include="public\jq\themes\bootstrap\images\slider_handle.png" />
+    <Content Include="public\jq\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="public\jq\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="public\jq\themes\bootstrap\images\tree_icons.png" />
+    <Content Include="public\jq\themes\bootstrap\images\validatebox_warning.png" />
+    <Content Include="public\jq\themes\bootstrap\layout.css" />
+    <Content Include="public\jq\themes\bootstrap\linkbutton.css" />
+    <Content Include="public\jq\themes\bootstrap\menu.css" />
+    <Content Include="public\jq\themes\bootstrap\menubutton.css" />
+    <Content Include="public\jq\themes\bootstrap\messager.css" />
+    <Content Include="public\jq\themes\bootstrap\numberbox.css" />
+    <Content Include="public\jq\themes\bootstrap\pagination.css" />
+    <Content Include="public\jq\themes\bootstrap\panel.css" />
+    <Content Include="public\jq\themes\bootstrap\progressbar.css" />
+    <Content Include="public\jq\themes\bootstrap\propertygrid.css" />
+    <Content Include="public\jq\themes\bootstrap\searchbox.css" />
+    <Content Include="public\jq\themes\bootstrap\slider.css" />
+    <Content Include="public\jq\themes\bootstrap\spinner.css" />
+    <Content Include="public\jq\themes\bootstrap\splitbutton.css" />
+    <Content Include="public\jq\themes\bootstrap\switchbutton.css" />
+    <Content Include="public\jq\themes\bootstrap\tabs.css" />
+    <Content Include="public\jq\themes\bootstrap\textbox.css" />
+    <Content Include="public\jq\themes\bootstrap\tooltip.css" />
+    <Content Include="public\jq\themes\bootstrap\tree.css" />
+    <Content Include="public\jq\themes\bootstrap\validatebox.css" />
+    <Content Include="public\jq\themes\bootstrap\window.css" />
+    <Content Include="public\jq\themes\color.css" />
+    <Content Include="public\jq\themes\default\accordion.css" />
+    <Content Include="public\jq\themes\default\calendar.css" />
+    <Content Include="public\jq\themes\default\combo.css" />
+    <Content Include="public\jq\themes\default\combobox.css" />
+    <Content Include="public\jq\themes\default\datagrid.css" />
+    <Content Include="public\jq\themes\default\datalist.css" />
+    <Content Include="public\jq\themes\default\datebox.css" />
+    <Content Include="public\jq\themes\default\dialog.css" />
+    <Content Include="public\jq\themes\default\easyui.css" />
+    <Content Include="public\jq\themes\default\filebox.css" />
+    <Content Include="public\jq\themes\default\images\accordion_arrows.png" />
+    <Content Include="public\jq\themes\default\images\blank.gif" />
+    <Content Include="public\jq\themes\default\images\calendar_arrows.png" />
+    <Content Include="public\jq\themes\default\images\combo_arrow.png" />
+    <Content Include="public\jq\themes\default\images\datagrid_icons.png" />
+    <Content Include="public\jq\themes\default\images\datebox_arrow.png" />
+    <Content Include="public\jq\themes\default\images\layout_arrows.png" />
+    <Content Include="public\jq\themes\default\images\linkbutton_bg.png" />
+    <Content Include="public\jq\themes\default\images\loading.gif" />
+    <Content Include="public\jq\themes\default\images\menu_arrows.png" />
+    <Content Include="public\jq\themes\default\images\messager_icons.png" />
+    <Content Include="public\jq\themes\default\images\pagination_icons.png" />
+    <Content Include="public\jq\themes\default\images\panel_tools.png" />
+    <Content Include="public\jq\themes\default\images\searchbox_button.png" />
+    <Content Include="public\jq\themes\default\images\slider_handle.png" />
+    <Content Include="public\jq\themes\default\images\spinner_arrows.png" />
+    <Content Include="public\jq\themes\default\images\tabs_icons.png" />
+    <Content Include="public\jq\themes\default\images\tree_icons.png" />
+    <Content Include="public\jq\themes\default\images\validatebox_warning.png" />
+    <Content Include="public\jq\themes\default\layout.css" />
+    <Content Include="public\jq\themes\default\linkbutton.css" />
+    <Content Include="public\jq\themes\default\menu.css" />
+    <Content Include="public\jq\themes\default\menubutton.css" />
+    <Content Include="public\jq\themes\default\messager.css" />
+    <Content Include="public\jq\themes\default\numberbox.css" />
+    <Content Include="public\jq\themes\default\pagination.css" />
+    <Content Include="public\jq\themes\default\panel.css" />
+    <Content Include="public\jq\themes\default\progressbar.css" />
+    <Content Include="public\jq\themes\default\propertygrid.css" />
+    <Content Include="public\jq\themes\default\searchbox.css" />
+    <Content Include="public\jq\themes\default\slider.css" />
+    <Content Include="public\jq\themes\default\spinner.css" />
+    <Content Include="public\jq\themes\default\splitbutton.css" />
+    <Content Include="public\jq\themes\default\switchbutton.css" />
+    <Content Include="public\jq\themes\default\tabs.css" />
+    <Content Include="public\jq\themes\default\textbox.css" />
+    <Content Include="public\jq\themes\default\tooltip.css" />
+    <Content Include="public\jq\themes\default\tree.css" />
+    <Content Include="public\jq\themes\default\validatebox.css" />
+    <Content Include="public\jq\themes\default\window.css" />
+    <Content Include="public\jq\themes\gray\accordion.css" />
+    <Content Include="public\jq\themes\gray\calendar.css" />
+    <Content Include="public\jq\themes\gray\combo.css" />
+    <Content Include="public\jq\themes\gray\combobox.css" />
+    <Content Include="public\jq\themes\gray\datagrid.css" />
+    <Content Include="public\jq\themes\gray\datalist.css" />
+    <Content Include="public\jq\themes\gray\datebox.css" />
+    <Content Include="public\jq\themes\gray\dialog.css" />
+    <Content Include="public\jq\themes\gray\easyui.css" />
+    <Content Include="public\jq\themes\gray\filebox.css" />
+    <Content Include="public\jq\themes\gray\images\accordion_arrows.png" />
+    <Content Include="public\jq\themes\gray\images\blank.gif" />
+    <Content Include="public\jq\themes\gray\images\calendar_arrows.png" />
+    <Content Include="public\jq\themes\gray\images\combo_arrow.png" />
+    <Content Include="public\jq\themes\gray\images\datagrid_icons.png" />
+    <Content Include="public\jq\themes\gray\images\datebox_arrow.png" />
+    <Content Include="public\jq\themes\gray\images\layout_arrows.png" />
+    <Content Include="public\jq\themes\gray\images\linkbutton_bg.png" />
+    <Content Include="public\jq\themes\gray\images\loading.gif" />
+    <Content Include="public\jq\themes\gray\images\menu_arrows.png" />
+    <Content Include="public\jq\themes\gray\images\messager_icons.png" />
+    <Content Include="public\jq\themes\gray\images\pagination_icons.png" />
+    <Content Include="public\jq\themes\gray\images\panel_tools.png" />
+    <Content Include="public\jq\themes\gray\images\searchbox_button.png" />
+    <Content Include="public\jq\themes\gray\images\slider_handle.png" />
+    <Content Include="public\jq\themes\gray\images\spinner_arrows.png" />
+    <Content Include="public\jq\themes\gray\images\tabs_icons.png" />
+    <Content Include="public\jq\themes\gray\images\tree_icons.png" />
+    <Content Include="public\jq\themes\gray\images\validatebox_warning.png" />
+    <Content Include="public\jq\themes\gray\layout.css" />
+    <Content Include="public\jq\themes\gray\linkbutton.css" />
+    <Content Include="public\jq\themes\gray\menu.css" />
+    <Content Include="public\jq\themes\gray\menubutton.css" />
+    <Content Include="public\jq\themes\gray\messager.css" />
+    <Content Include="public\jq\themes\gray\numberbox.css" />
+    <Content Include="public\jq\themes\gray\pagination.css" />
+    <Content Include="public\jq\themes\gray\panel.css" />
+    <Content Include="public\jq\themes\gray\progressbar.css" />
+    <Content Include="public\jq\themes\gray\propertygrid.css" />
+    <Content Include="public\jq\themes\gray\searchbox.css" />
+    <Content Include="public\jq\themes\gray\slider.css" />
+    <Content Include="public\jq\themes\gray\spinner.css" />
+    <Content Include="public\jq\themes\gray\splitbutton.css" />
+    <Content Include="public\jq\themes\gray\switchbutton.css" />
+    <Content Include="public\jq\themes\gray\tabs.css" />
+    <Content Include="public\jq\themes\gray\textbox.css" />
+    <Content Include="public\jq\themes\gray\tooltip.css" />
+    <Content Include="public\jq\themes\gray\tree.css" />
+    <Content Include="public\jq\themes\gray\validatebox.css" />
+    <Content Include="public\jq\themes\gray\window.css" />
+    <Content Include="public\jq\themes\icon.css" />
+    <Content Include="public\jq\themes\icons\back.png" />
+    <Content Include="public\jq\themes\icons\blank.gif" />
+    <Content Include="public\jq\themes\icons\cancel.png" />
+    <Content Include="public\jq\themes\icons\clear.png" />
+    <Content Include="public\jq\themes\icons\cut.png" />
+    <Content Include="public\jq\themes\icons\edit_add.png" />
+    <Content Include="public\jq\themes\icons\edit_remove.png" />
+    <Content Include="public\jq\themes\icons\filesave.png" />
+    <Content Include="public\jq\themes\icons\filter.png" />
+    <Content Include="public\jq\themes\icons\help.png" />
+    <Content Include="public\jq\themes\icons\large_chart.png" />
+    <Content Include="public\jq\themes\icons\large_clipart.png" />
+    <Content Include="public\jq\themes\icons\large_picture.png" />
+    <Content Include="public\jq\themes\icons\large_shapes.png" />
+    <Content Include="public\jq\themes\icons\large_smartart.png" />
+    <Content Include="public\jq\themes\icons\lock.png" />
+    <Content Include="public\jq\themes\icons\man.png" />
+    <Content Include="public\jq\themes\icons\mini_add.png" />
+    <Content Include="public\jq\themes\icons\mini_edit.png" />
+    <Content Include="public\jq\themes\icons\mini_refresh.png" />
+    <Content Include="public\jq\themes\icons\more.png" />
+    <Content Include="public\jq\themes\icons\no.png" />
+    <Content Include="public\jq\themes\icons\ok.png" />
+    <Content Include="public\jq\themes\icons\pencil.png" />
+    <Content Include="public\jq\themes\icons\print.png" />
+    <Content Include="public\jq\themes\icons\redo.png" />
+    <Content Include="public\jq\themes\icons\reload.png" />
+    <Content Include="public\jq\themes\icons\search.png" />
+    <Content Include="public\jq\themes\icons\sum.png" />
+    <Content Include="public\jq\themes\icons\tip.png" />
+    <Content Include="public\jq\themes\icons\undo.png" />
+    <Content Include="public\jq\themes\material\accordion.css" />
+    <Content Include="public\jq\themes\material\calendar.css" />
+    <Content Include="public\jq\themes\material\combo.css" />
+    <Content Include="public\jq\themes\material\combobox.css" />
+    <Content Include="public\jq\themes\material\datagrid.css" />
+    <Content Include="public\jq\themes\material\datalist.css" />
+    <Content Include="public\jq\themes\material\datebox.css" />
+    <Content Include="public\jq\themes\material\dialog.css" />
+    <Content Include="public\jq\themes\material\easyui.css" />
+    <Content Include="public\jq\themes\material\filebox.css" />
+    <Content Include="public\jq\themes\material\images\accordion_arrows.png" />
+    <Content Include="public\jq\themes\material\images\blank.gif" />
+    <Content Include="public\jq\themes\material\images\calendar_arrows.png" />
+    <Content Include="public\jq\themes\material\images\combo_arrow.png" />
+    <Content Include="public\jq\themes\material\images\datagrid_icons.png" />
+    <Content Include="public\jq\themes\material\images\datebox_arrow.png" />
+    <Content Include="public\jq\themes\material\images\layout_arrows.png" />
+    <Content Include="public\jq\themes\material\images\linkbutton_bg.png" />
+    <Content Include="public\jq\themes\material\images\loading.gif" />
+    <Content Include="public\jq\themes\material\images\menu_arrows.png" />
+    <Content Include="public\jq\themes\material\images\messager_icons.png" />
+    <Content Include="public\jq\themes\material\images\pagination_icons.png" />
+    <Content Include="public\jq\themes\material\images\panel_tools.png" />
+    <Content Include="public\jq\themes\material\images\searchbox_button.png" />
+    <Content Include="public\jq\themes\material\images\slider_handle.png" />
+    <Content Include="public\jq\themes\material\images\spinner_arrows.png" />
+    <Content Include="public\jq\themes\material\images\tabs_icons.png" />
+    <Content Include="public\jq\themes\material\images\tree_icons.png" />
+    <Content Include="public\jq\themes\material\images\validatebox_warning.png" />
+    <Content Include="public\jq\themes\material\layout.css" />
+    <Content Include="public\jq\themes\material\linkbutton.css" />
+    <Content Include="public\jq\themes\material\menu.css" />
+    <Content Include="public\jq\themes\material\menubutton.css" />
+    <Content Include="public\jq\themes\material\messager.css" />
+    <Content Include="public\jq\themes\material\numberbox.css" />
+    <Content Include="public\jq\themes\material\pagination.css" />
+    <Content Include="public\jq\themes\material\panel.css" />
+    <Content Include="public\jq\themes\material\progressbar.css" />
+    <Content Include="public\jq\themes\material\propertygrid.css" />
+    <Content Include="public\jq\themes\material\searchbox.css" />
+    <Content Include="public\jq\themes\material\slider.css" />
+    <Content Include="public\jq\themes\material\spinner.css" />
+    <Content Include="public\jq\themes\material\splitbutton.css" />
+    <Content Include="public\jq\themes\material\switchbutton.css" />
+    <Content Include="public\jq\themes\material\tabs.css" />
+    <Content Include="public\jq\themes\material\textbox.css" />
+    <Content Include="public\jq\themes\material\tooltip.css" />
+    <Content Include="public\jq\themes\material\tree.css" />
+    <Content Include="public\jq\themes\material\validatebox.css" />
+    <Content Include="public\jq\themes\material\window.css" />
+    <Content Include="public\jq\themes\metro\accordion.css" />
+    <Content Include="public\jq\themes\metro\calendar.css" />
+    <Content Include="public\jq\themes\metro\combo.css" />
+    <Content Include="public\jq\themes\metro\combobox.css" />
+    <Content Include="public\jq\themes\metro\datagrid.css" />
+    <Content Include="public\jq\themes\metro\datalist.css" />
+    <Content Include="public\jq\themes\metro\datebox.css" />
+    <Content Include="public\jq\themes\metro\dialog.css" />
+    <Content Include="public\jq\themes\metro\easyui.css" />
+    <Content Include="public\jq\themes\metro\filebox.css" />
+    <Content Include="public\jq\themes\metro\images\accordion_arrows.png" />
+    <Content Include="public\jq\themes\metro\images\blank.gif" />
+    <Content Include="public\jq\themes\metro\images\calendar_arrows.png" />
+    <Content Include="public\jq\themes\metro\images\combo_arrow.png" />
+    <Content Include="public\jq\themes\metro\images\datagrid_icons.png" />
+    <Content Include="public\jq\themes\metro\images\datebox_arrow.png" />
+    <Content Include="public\jq\themes\metro\images\layout_arrows.png" />
+    <Content Include="public\jq\themes\metro\images\linkbutton_bg.png" />
+    <Content Include="public\jq\themes\metro\images\loading.gif" />
+    <Content Include="public\jq\themes\metro\images\menu_arrows.png" />
+    <Content Include="public\jq\themes\metro\images\messager_icons.png" />
+    <Content Include="public\jq\themes\metro\images\pagination_icons.png" />
+    <Content Include="public\jq\themes\metro\images\panel_tools.png" />
+    <Content Include="public\jq\themes\metro\images\searchbox_button.png" />
+    <Content Include="public\jq\themes\metro\images\slider_handle.png" />
+    <Content Include="public\jq\themes\metro\images\spinner_arrows.png" />
+    <Content Include="public\jq\themes\metro\images\tabs_icons.png" />
+    <Content Include="public\jq\themes\metro\images\tree_icons.png" />
+    <Content Include="public\jq\themes\metro\images\validatebox_warning.png" />
+    <Content Include="public\jq\themes\metro\layout.css" />
+    <Content Include="public\jq\themes\metro\linkbutton.css" />
+    <Content Include="public\jq\themes\metro\menu.css" />
+    <Content Include="public\jq\themes\metro\menubutton.css" />
+    <Content Include="public\jq\themes\metro\messager.css" />
+    <Content Include="public\jq\themes\metro\numberbox.css" />
+    <Content Include="public\jq\themes\metro\pagination.css" />
+    <Content Include="public\jq\themes\metro\panel.css" />
+    <Content Include="public\jq\themes\metro\progressbar.css" />
+    <Content Include="public\jq\themes\metro\propertygrid.css" />
+    <Content Include="public\jq\themes\metro\searchbox.css" />
+    <Content Include="public\jq\themes\metro\slider.css" />
+    <Content Include="public\jq\themes\metro\spinner.css" />
+    <Content Include="public\jq\themes\metro\splitbutton.css" />
+    <Content Include="public\jq\themes\metro\switchbutton.css" />
+    <Content Include="public\jq\themes\metro\tabs.css" />
+    <Content Include="public\jq\themes\metro\textbox.css" />
+    <Content Include="public\jq\themes\metro\tooltip.css" />
+    <Content Include="public\jq\themes\metro\tree.css" />
+    <Content Include="public\jq\themes\metro\validatebox.css" />
+    <Content Include="public\jq\themes\metro\window.css" />
+    <Content Include="public\jq\themes\mobile.css" />
+    <Content Include="public\js\autocomplete\dist\easy-autocomplete.css" />
+    <Content Include="public\js\autocomplete\dist\easy-autocomplete.min.css" />
+    <Content Include="public\js\autocomplete\dist\easy-autocomplete.themes.css" />
+    <Content Include="public\js\autocomplete\dist\easy-autocomplete.themes.min.css" />
+    <Content Include="public\js\autocomplete\dist\jquery.easy-autocomplete.js" />
+    <Content Include="public\js\autocomplete\dist\jquery.easy-autocomplete.min.js" />
+    <Content Include="public\js\bootstrap-datepicker.js" />
+    <Content Include="public\js\bootstrap.js" />
+    <Content Include="public\js\bootstrap.min.js" />
+    <Content Include="public\js\datatable_process.js" />
+    <Content Include="public\js\donhang.php" />
+    <Content Include="public\js\function_del.js" />
+    <Content Include="public\js\jquery-1.12.3.min.js" />
+    <Content Include="public\js\jquery-1.9.1.min.js" />
+    <Content Include="public\js\jquery.scrollbar.js" />
+    <Content Include="public\js\notify.js" />
+    <Content Include="public\js\npm.js" />
+    <Content Include="public\js\NumberFormat154.js" />
+    <Content Include="public\js\po\process_po.js" />
+    <Content Include="public\js\process_donhang.js" />
+    <Content Include="public\js\process_front\process_menubutton.js" />
+    <Content Include="public\js\update_soct1.php" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="public\css\bootstrap-theme.css.map" />
+    <Content Include="public\css\bootstrap-theme.min.css.map" />
+    <Content Include="public\css\bootstrap.css.map" />
+    <Content Include="public\css\bootstrap.min.css.map" />
+    <Content Include="public\font\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="public\font\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="public\font\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="public\font\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="public\font\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="public\font\font-awesome\less\animated.less" />
+    <Content Include="public\font\font-awesome\less\bordered-pulled.less" />
+    <Content Include="public\font\font-awesome\less\core.less" />
+    <Content Include="public\font\font-awesome\less\fixed-width.less" />
+    <Content Include="public\font\font-awesome\less\font-awesome.less" />
+    <Content Include="public\font\font-awesome\less\icons.less" />
+    <Content Include="public\font\font-awesome\less\larger.less" />
+    <Content Include="public\font\font-awesome\less\list.less" />
+    <Content Include="public\font\font-awesome\less\mixins.less" />
+    <Content Include="public\font\font-awesome\less\path.less" />
+    <Content Include="public\font\font-awesome\less\rotated-flipped.less" />
+    <Content Include="public\font\font-awesome\less\screen-reader.less" />
+    <Content Include="public\font\font-awesome\less\stacked.less" />
+    <Content Include="public\font\font-awesome\less\variables.less" />
+    <Content Include="public\font\font-awesome\scss\font-awesome.scss" />
+    <Content Include="public\font\font-awesome\scss\_animated.scss" />
+    <Content Include="public\font\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="public\font\font-awesome\scss\_core.scss" />
+    <Content Include="public\font\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="public\font\font-awesome\scss\_icons.scss" />
+    <Content Include="public\font\font-awesome\scss\_larger.scss" />
+    <Content Include="public\font\font-awesome\scss\_list.scss" />
+    <Content Include="public\font\font-awesome\scss\_mixins.scss" />
+    <Content Include="public\font\font-awesome\scss\_path.scss" />
+    <Content Include="public\font\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="public\font\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="public\font\font-awesome\scss\_stacked.scss" />
+    <Content Include="public\font\font-awesome\scss\_variables.scss" />
+    <Content Include="public\font\glyphicons-halflings-regular.eot" />
+    <Content Include="public\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\font\glyphicons-halflings-regular.woff" />
+    <Content Include="public\font\glyphicons-halflings-regular.woff2" />
+    <Content Include="public\images\Firework.class" />
+    <Content Include="public\images\Rocket.class" />
+    <Content Include="public\images\Thumbs.db" />
+    <Content Include="public\jq\demo\accordion\datagrid_data1.json" />
+    <Content Include="public\jq\demo\combobox\combobox_data1.json" />
+    <Content Include="public\jq\demo\combobox\combobox_data2.json" />
+    <Content Include="public\jq\demo\combogrid\datagrid_data1.json" />
+    <Content Include="public\jq\demo\combotree\tree_data1.json" />
+    <Content Include="public\jq\demo\datagrid\datagrid_data1.json" />
+    <Content Include="public\jq\demo\datagrid\datagrid_data2.json" />
+    <Content Include="public\jq\demo\datagrid\products.json" />
+    <Content Include="public\jq\demo\datalist\datalist_data1.json" />
+    <Content Include="public\jq\demo\form\form_data1.json" />
+    <Content Include="public\jq\demo\layout\datagrid_data1.json" />
+    <Content Include="public\jq\demo\layout\propertygrid_data1.json" />
+    <Content Include="public\jq\demo\layout\tree_data1.json" />
+    <Content Include="public\jq\demo\propertygrid\propertygrid_data1.json" />
+    <Content Include="public\jq\demo\tabs\tree_data1.json" />
+    <Content Include="public\jq\demo\treegrid\treegrid_data1.json" />
+    <Content Include="public\jq\demo\treegrid\treegrid_data2.json" />
+    <Content Include="public\jq\demo\treegrid\treegrid_data3.json" />
+    <Content Include="public\jq\demo\tree\tree_data1.json" />
+    <Content Include="public\jq\demo\tree\tree_data2.json" />
+    <Content Include="public\jq\jquery-easyui-1.4.5.zip" />
+    <Content Include="public\jq\themes\material\images\Thumbs.db" />
+    <Content Include="public\js\autocomplete\dist\maps\easy-autocomplete.css.map" />
+    <Content Include="public\js\autocomplete\dist\maps\easy-autocomplete.min.css.map" />
+    <Content Include="public\js\autocomplete\dist\maps\easy-autocomplete.themes.css.map" />
+    <Content Include="public\js\autocomplete\dist\maps\easy-autocomplete.themes.min.css.map" />
+    <Content Include="Areas\XConfig\Views\web.config" />
+    <Content Include="Areas\XConfig\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\XConfig\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\XConfig\Views\Home\Index.cshtml" />
+    <Content Include="Areas\XConfig\Views\Shared\PartialView\_Header.cshtml" />
+    <Content Include="Areas\XConfig\Views\Shared\PartialView\_LeftSide.cshtml" />
+    <Content Include="Areas\XConfig\Views\Shared\PartialView\_MenuMain.cshtml" />
+    <Content Include="Areas\XConfig\Views\Shared\PartialView\_Footer.cshtml" />
+    <Content Include="Areas\XConfig\Views\Home\ConnectionSetup.cshtml" />
+    <Content Include="Areas\Order\Views\web.config" />
+    <Content Include="Areas\Order\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Order\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Order\Views\Home\Index.cshtml" />
+    <Content Include="Areas\TARCL\Views\web.config" />
+    <Content Include="Areas\TARCL\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\TARCL\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\TARCL\Views\Order\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\web.config" />
+    <Content Include="Areas\CRM\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\CRM\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\CRM\Views\Cus\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Depart\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Provs\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Vens\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Curs\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Wars\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Mtps\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Cmss\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\StatusOb\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Emps\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Emps\_Form.cshtml" />
+    <Content Include="Areas\CRM\Views\Emps\MPermission_.cshtml" />
+    <Content Include="Areas\CRM\Views\Emps\MPermission.cshtml" />
+    <Content Include="Areas\CRM\Views\Cus\_Form.cshtml" />
+    <Content Include="Areas\CRM\Views\Cus\Infor.cshtml" />
+    <Content Include="Areas\CRM\Views\Cus\_MenuBar.cshtml" />
+    <Content Include="Areas\CRM\Views\Cus\Pps.cshtml" />
+    <Content Include="Areas\CRM\Views\Shared\_LayoutSubWindow.cshtml" />
+    <Content Include="Areas\CRM\Views\Pps\_Form.cshtml" />
+    <Content Include="Areas\CRM\Views\Shared\ViewsUtils\windowclose.cshtml" />
+    <Content Include="Areas\CRM\Views\Shared\ViewsUtils\redirect_close.cshtml" />
+    <Content Include="Areas\CRM\Views\Cus\Conts.cshtml" />
+    <Content Include="Areas\CRM\Views\Conts\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Prcs\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Cons1\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Mis1\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Schs\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Funs\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Reqs\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Cas1\Index.cshtml" />
+    <Content Include="Areas\PO\Views\web.config" />
+    <Content Include="Areas\PO\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\PO\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\PO\Views\PhieuNhap\Index.cshtml" />
+    <Content Include="Areas\PO\Views\PhieuNhap\TestGrid.cshtml" />
+    <Content Include="Areas\CRM\Views\Nquys\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\QChs\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Mtrs\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Dcds\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Reps\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Tsks\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Tskso\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Tskso\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Asts\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Idas\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Schs\Index1.cshtml" />
+    <Content Include="Areas\CRM\Views\Schs\SearchCus.cshtml" />
+    <Content Include="Areas\CRM\Views\Cddqs\Index1.cshtml" />
+    <Content Include="Areas\CRM\Views\Mis1\Index3.cshtml" />
+    <Content Include="Areas\CRM\Views\Cas1\Index1.cshtml" />
+    <Content Include="Areas\CRM\Views\Cons1\SearchConst.cshtml" />
+    <Content Include="Areas\CRM\Views\Thnh\Index2.cshtml" />
+    <Content Include="Areas\CRM\Views\RFB1\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\mypublish1.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Themes\XConfig\style.css" />
+    <Content Include="Themes\XConfig\images\background.png" />
+    <Content Include="Themes\XConfig\images\leftmenu_bottom.png" />
+    <Content Include="Themes\XConfig\images\leftmenu_link.png" />
+    <Content Include="Themes\XConfig\images\leftmenu_top.png" />
+    <Content Include="Themes\XConfig\images\linkbackground.jpg" />
+    <Content Include="Themes\XConfig\images\main_back.png" />
+    <Content Include="Themes\XConfig\images\main_bottom.png" />
+    <Content Include="Themes\XConfig\images\main_top.png" />
+    <Content Include="Themes\XConfig\images\preview.png" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\arkhs\Create.cshtml" />
+    <Content Include="Views\arkhs\Delete.cshtml" />
+    <Content Include="Views\arkhs\Details.cshtml" />
+    <Content Include="Views\arkhs\Edit.cshtml" />
+    <Content Include="Views\arkhs\Index.cshtml" />
+    <Content Include="Views\arkhs\_CreateInOrder.cshtml" />
+    <Content Include="Views\DonHang\Index.cshtml" />
+    <Content Include="Views\DonHang\Process.cshtml" />
+    <Content Include="Views\invts\Create.cshtml" />
+    <Content Include="Views\invts\Delete.cshtml" />
+    <Content Include="Views\invts\Details.cshtml" />
+    <Content Include="Views\invts\Edit.cshtml" />
+    <Content Include="Views\invts\Index.cshtml" />
+    <Content Include="Views\Shared\_Alert.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Shared\_LayoutMain.cshtml" />
+    <Content Include="Views\Shared\_PartialView\_ControlSide.cshtml" />
+    <Content Include="Views\Shared\_PartialView\_Footer.cshtml" />
+    <Content Include="Views\Shared\_PartialView\_FooterSignal.cshtml" />
+    <Content Include="Views\Shared\_PartialView\_Header.cshtml" />
+    <Content Include="Views\Shared\_PartialView\_LeftSide.cshtml" />
+    <Content Include="Views\Shared\_PartialView\_Soph1Search.cshtml" />
+    <Content Include="Views\Shared\_PartialView\_UpdateSoPhAjax.cshtml" />
+    <Content Include="Views\Execution\ServerError.cshtml" />
+    <Content Include="Views\Shared\_LayoutError.cshtml" />
+    <Content Include="Views\Exception\ServerError.cshtml" />
+    <Content Include="Views\DonHang\IndexNew.cshtml" />
+    <Content Include="Views\Shared\_PartialView\UpdateSoPhAjaxNew.cshtml" />
+    <Content Include="Views\DonHang\ListDH.cshtml" />
+    <Content Include="Views\Shared\_LayoutReceipt.cshtml" />
+    <Content Include="Views\DonHang\Receipt.cshtml" />
+    <Content Include="Views\BCDPSReport\Search.cshtml" />
+    <Content Include="Views\BCDPSReport\_DataSearch.cshtml" />
+    <Content Include="Views\BCDPSReport\_PreviewData.cshtml" />
+    <Content Include="Views\MuaHang\Index.cshtml" />
+    <Content Include="Views\Exception\ServerError1.cshtml" />
+    <Content Include="Views\DonHang\InputData.cshtml" />
+    <Content Include="Views\Shared\_PartialView\_MenuButtonsEasyui.cshtml" />
+    <Content Include="Views\DonHang\_Address.cshtml" />
+    <Content Include="Views\DonHang\_Delivery.cshtml" />
+    <Content Include="Views\DonHang\_Purchase.cshtml" />
+    <Content Include="Views\DonHang\_Other.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\CRM\Controllers\Report\Execute\" />
+    <Folder Include="Areas\CRM\Controllers\Report\Maintain\" />
+    <Folder Include="Areas\CRM\Models\" />
+    <Folder Include="Areas\CRM\Views\CusCRM\" />
+    <Folder Include="Areas\Order\Api\Controllers\" />
+    <Folder Include="Areas\Order\Models\" />
+    <Folder Include="Areas\PO\Models\" />
+    <Folder Include="Areas\TARCL\Models\" />
+    <Folder Include="Areas\XConfig\Models\" />
+    <Folder Include="Data\DBModel\" />
+    <Folder Include="public\crm\css\" />
+    <Folder Include="public\crm\font\" />
+    <Folder Include="public\crm\images\" />
+    <Folder Include="public\crm\js\" />
+    <Folder Include="public\crm\resources\appendixs\" />
+    <Folder Include="public\crm\resources\contracts\" />
+    <Folder Include="public\crm\resources\quotes\" />
+    <Folder Include="public\js\tarcl\order\" />
+    <Folder Include="Views\Common\" />
+    <Folder Include="Views\TestG\" />
+    <Folder Include="Views\Ultils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7502</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:7502/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

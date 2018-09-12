@@ -1,0 +1,198 @@
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\BHLVT.dll.config
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\BHLVT.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\BHLVT.pdb
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Antlr3.Runtime.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\BHLVTBLL.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\BHLVTDAL.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\CRMLVTBLLmd.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\EntityFramework.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\EntityFramework.SqlServer.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Google.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Newtonsoft.Json.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Owin.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\PagedList.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\PagedList.Mvc.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.Helpers.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.Mvc.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.Optimization.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.Razor.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.WebPages.Deployment.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.WebPages.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.WebPages.Razor.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\WebGrease.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\BHLVTBLL.pdb
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\BHLVTDAL.pdb
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\CRMLVTBLLmd.pdb
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\PagedList.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\PagedList.Mvc.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.Helpers.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.Mvc.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.Optimization.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.Razor.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.WebPages.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.WebPages.Deployment.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\System.Web.WebPages.Razor.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Newtonsoft.Json.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Antlr3.Runtime.pdb
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\EntityFramework.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\EntityFramework.SqlServer.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Google.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\obj\Debug\BHLVT.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\obj\Debug\BHLVT.pdb
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\LVTWebHelpers.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\WebActivatorEx.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\RazorGenerator.Mvc.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\LVTWebHelpers.pdb
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\VTExtensions.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\VTExtensions.pdb
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\CommonServiceLocator.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\CommonServiceLocator.pdb
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\obj\Debug\BHLVT.csprojResolveAssemblyReference.cache
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Unity.Container.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Unity.Mvc5.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Unity.Abstractions.dll
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Unity.Container.pdb
+D:\Projects 2013\BHLVT_v1.1\BHLVT\BHLVT\bin\Unity.Abstractions.pdb
+F:\trung\sources\web\BHLVT\BHLVT\bin\BHLVT.dll.config
+F:\trung\sources\web\BHLVT\BHLVT\bin\BHLVT.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\BHLVT.pdb
+F:\trung\sources\web\BHLVT\BHLVT\bin\Antlr3.Runtime.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\CommonServiceLocator.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\EntityFramework.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\EntityFramework.SqlServer.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.Core.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Cookies.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Facebook.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Google.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.OAuth.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Twitter.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Web.Infrastructure.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Newtonsoft.Json.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\Owin.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.Helpers.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.Mvc.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.Optimization.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.Razor.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.WebPages.Deployment.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.WebPages.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.WebPages.Razor.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\WebActivatorEx.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\WebGrease.dll
+F:\trung\sources\web\BHLVT\BHLVT\bin\CommonServiceLocator.pdb
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.Helpers.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.Mvc.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.Razor.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.WebPages.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.WebPages.Deployment.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.WebPages.Razor.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\System.Web.Optimization.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Newtonsoft.Json.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Antlr3.Runtime.pdb
+F:\trung\sources\web\BHLVT\BHLVT\bin\EntityFramework.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\EntityFramework.SqlServer.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.Core.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Facebook.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Cookies.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.OAuth.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Google.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.Twitter.xml
+F:\trung\sources\web\BHLVT\BHLVT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\trung\sources\web\BHLVT\BHLVT\obj\Debug\BHLVT.dll
+F:\trung\sources\web\BHLVT\BHLVT\obj\Debug\BHLVT.pdb
+F:\trung\sources\web\BHLVT\BHLVT\bin\RazorGenerator.Mvc.dll
+F:\trung\sources\web\BHLVT\BHLVT\obj\Debug\BHLVT.csprojResolveAssemblyReference.cache
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.csprojResolveAssemblyReference.cache
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.pdb
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVT.dll.config
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVT.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVT.pdb
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Antlr3.Runtime.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\CommonServiceLocator.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\EntityFramework.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\EntityFramework.SqlServer.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.AspNet.Identity.Core.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.Cookies.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.Facebook.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.Google.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.OAuth.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.Twitter.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Web.Infrastructure.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Newtonsoft.Json.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Owin.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\RazorGenerator.Mvc.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.Helpers.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.Mvc.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.Optimization.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.Razor.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.WebPages.Deployment.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.WebPages.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.WebPages.Razor.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\WebActivatorEx.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\WebGrease.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\CommonServiceLocator.pdb
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.Helpers.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.Mvc.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.Razor.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.WebPages.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.WebPages.Deployment.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.WebPages.Razor.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.Optimization.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Newtonsoft.Json.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Antlr3.Runtime.pdb
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\EntityFramework.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\EntityFramework.SqlServer.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.AspNet.Identity.Core.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.Facebook.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.Cookies.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.OAuth.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.Google.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.Twitter.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTBLL.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTBLL.pdb

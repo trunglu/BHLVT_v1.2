@@ -1,0 +1,281 @@
+﻿@using BHLVTDAL.Data
+@using CRMLVTBLLmd.CONST
+@model BHLVTDAL.Data.tblcontract
+@{
+    ViewBag.Title = "Báo giá";
+    ViewBag.namewindow = "mainp";
+    var lpps = (PagedList.IPagedList<Dictionary<string, Object>>)ViewBag.lpps;
+    var btn_class = ViewBag.btn == "Thêm" ? "btn btn-flat btn-sm btn-success" : "btn btn-flat btn-sm btn-warning";
+    Model.contractdate = Model.contractdate == null ? DateTime.Now : Model.contractdate;
+    Model.contractid = Model.contractid == null ? "" : Model.contractid;
+
+}
+@section styles {
+    <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td {
+            padding: 1px 5px;
+        }
+
+        table.scroll tbody {
+            height: 400px;
+        }
+    </style>
+<style>
+    .textbox {
+        border-bottom: 1px solid #c2d0e4;
+    }
+</style>
+
+}
+
+<div class="content">
+    <div class="col-md-12">
+        <div class="nav-tabs-custom">
+            @Html.Action("MBar", "Cus", new { area = "crm", t = "5", _id = ViewBag._id })
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="col-md-7" >
+                        <div style="margin-bottom:3px"><a href="javascript:void(0);" onclick="return window_open('@Url.RouteUrl(new { controller = "Cons1", action = "Create", area = "crm", _idcus = ViewBag._id })','t',600,300)" class="btn btn-xs btn-flat btn-success"><i class="fa fa-plus"></i></a></div>
+                        <div class="table-responsive">
+                            <table class="table table-striped scroll table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Số</th>
+                                        <th>Tên hợp đồng</th>
+                                        <th>Ngày ký</th>
+                                        <th>Giá trị</th>
+                                        <th>Người ký</th>
+                                        <th>Triển khai</th>
+                                        <th>Files</th>
+                                        <th class="text-center">Sửa</th>
+                                        <th class="text-center">Xóa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        var index = (lpps.PageNumber - 1) * (lpps.PageSize) + 1;
+                                        foreach (var i in lpps)
+                                        {
+                                            var q = (tblcontract)i["q"]; var e = (tblemployee)i["e"];
+                                            <tr>
+                                                <td><div style="width:70px"><a href="~/crm/cons1?_id=@q.customerid&cid=@q.contractid">@q.contractid</a></div></td>
+                                                <td><div style="width:150px">@q.contractname</div></td>
+                                                <td><div style="width:100px;">@q.contractdate</div></td>
+                                                <td><div style="width:100px">@(string.Format("{0:0,0}", q.price))</div></td>
+                                                <td><div style="width:100px">@e.firstname @e.lastname</div></td>
+                                                <td><div style="width:100px">@(q.deployid+" "+q.deployid1+" "+q.deployid2+" "+q.deployid3+" "+q.deployid4)</div></td>
+
+                                                <td><div style="width:70px;word-break:break-word"><a href="@(ConstCRM.PATHFILEQUOTE+q.enclosure)">@q.enclosure</a></div></td>
+                                                <td class="text-center"><div style="width:40px"><a href="#"></a></div></td>
+                                                <td class="text-center"><div style="width:40px"><form onsubmit="return checkvar()" action="~/CRM/Cons1/Delete" method="post">@Html.AntiForgeryToken()<input type="hidden" name="_id" value="@q.customerid" /><input type="hidden" name="cid" value="@q.contractid" /><button class="btn btn-xs"><i class="fa fa-trash"></i></button></form></div></td>
+                                            </tr>
+                                            index++;
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-xs-12 panel-form">
+                        <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary()
+                            @Html.HiddenFor(model => model.customerid)
+                            @Html.HiddenFor(model => model.sellerid)
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.contractid, "Mã hợp đồng", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.contractid, new { @class = "form-control input-sm", placeholder = "Mã hợp đồng", @readonly = "true" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.contractname, "Tên hợp đồng", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.contractname, new { @class = "form-control input-sm", placeholder = "Tên hợp đồng", required = "true" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.contractdate, "Ngày ký", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.contractdate, new { @class = "form-control1 input-sm datepicker", placeholder = "Ngày báo giá", })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.warranty, "Thời hạn bảo hành", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.warranty, new { @class = "form-control input-sm", placeholder = "Thời hạn bảo hành", })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.warrantyid, "Tính từ", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                   @Html.DropDownListFor(model => model.warrantyid, (IEnumerable<SelectListItem>)ViewBag.lwaties,"-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.price, "Giá trị VND", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.price, new { @class = "form-control input-sm", placeholder = "Giá trị VND" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.feedback, "Feedback VND", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.feedback, new { @class = "form-control input-sm", placeholder = "Feedback" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.deployid, "Người triển khai", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.DropDownListFor(model => model.deployid, (IEnumerable<SelectListItem>)ViewBag.lemploy, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.deployid1, "Người triển khai 1", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                   @Html.DropDownListFor(model => model.deployid1, (IEnumerable<SelectListItem>)ViewBag.lemploy, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.deployid2, "Người triển khai 2", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.DropDownListFor(model => model.deployid2, (IEnumerable<SelectListItem>)ViewBag.lemploy, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.deployid3, "Người triển khai 3", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.DropDownListFor(model => model.deployid3, (IEnumerable<SelectListItem>)ViewBag.lemploy, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.deployid4, "Người triển khai 4", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.DropDownListFor(model => model.deployid4, (IEnumerable<SelectListItem>)ViewBag.lemploy, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.enclosure, "Kèm theo file", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    <input type="file" name="enclosuref" class="form-control input-sm"/>
+                                    <a href="@(ConstCRM.PATHFILECONTRACT+Model.enclosure)">@Model.enclosure</a>
+                                    @Html.HiddenFor(model => model.enclosure, new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.appendix, "Kèm theo file phụ lục", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    <input type="file" name="appendixf" class="form-control input-sm" />
+                                    <a href="@(ConstCRM.PATHFILEAPPENDIX+Model.appendix)">@Model.appendix</a>
+                                    @Html.HiddenFor(model => model.appendix, new { @class = "form-control input-sm" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.note, "Ghi chú", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextAreaFor(model => model.note, new { @class = "form-control input-sm", placeholder = "Ghi chú", rows = "5" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.@checked, "Ngày thanh lý", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.@checked, new { @class = "form-control1 input-sm datepicker", placeholder = "Ngày thanh lý" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.status, "Tình trạng", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.status, new { @class = "form-control input-sm", placeholder = "Tình trạng" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.availabledate, "Ngày hiệu lực", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.availabledate, new { @class = "form-control1 input-sm datepicker", placeholder = "Ngày hiệu lực" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.statusdesc, "Lý do", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextAreaFor(model => model.statusdesc, new { @class = "form-control input-sm", placeholder = "Lý do", rows = "5" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.contracttype, "Hợp đồng bảo trì", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    <input type="checkbox" name="contracttype" @{if (Model.contracttype == "1") { @("checked") } } value="1" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.contractid1, "Bảo trì hợp đồng số", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.contractid1, new { @class = "form-control input-sm", placeholder = "Bảo trì hợp đồng số" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.maincontract, "Hợp đồng chính", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    <input type="checkbox" name="maincontract" @{if (Model.maincontract == "1") { @("checked")  } } value="1" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.appendixcontract, "Hợp đồng chính số", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                   @Html.TextBoxFor(model => model.appendixcontract, new { @class = "form-control input-sm", placeholder = "Hợp đồng chính số" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-md-3">
+                                    <input type="submit" value="@ViewBag.btn" name="btn" class="@btn_class" />
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+@section scripts {
+    <!-- daterange picker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+
+<!-- date-range-picker -->
+<script src="~/Themes/AdminLTE/bower_components/moment/min/moment.min.js"></script>
+<script src="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/public/js/datatable_process.js"></script>
+    <script src="~/Areas/CRM/Sources/js/windows.js"></script>
+    <script>
+            $(document).ready(function () {
+                process_scroll_table(0);
+            });
+
+    </script>
+}

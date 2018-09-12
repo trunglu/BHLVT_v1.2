@@ -1,0 +1,251 @@
+﻿@using BHLVT.Utils
+@model BHLVT.Models.BillViewModel
+@{
+    ViewBag.Title = "_UpdateSoPhAjax";
+}
+
+@Html.AntiForgeryToken()
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <input type="hidden" class="form-control" name="stt_rec" id="stt_rec" value="@Model.soph1.stt_rec" />
+    <div class="col-sm-12 col-md-6 col-sm-6 col-lg-6">
+        <div class="form-group">
+            <label for="dienthoai" class="col-sm-4 control-label">Điện Thoại</label>
+            <div class="col-md-4 col-sm-6">
+                <input type="text" class="form-control" name="dienthoai" value="@Model.soph1.dien_thoai" id="dienthoai" />
+            </div>
+            <div class="col-md-3 col-sm-6" id="" style="margin-left: 10px">
+                <label class="control-label">&nbsp;Thêm KH: </label>
+                <input type="checkbox" name="insertcus" value="1" />
+            </div>
+        </div>
+        <div class="form-group collapse" id="cus_category">
+            <label for="khachhang" class="col-sm-4 control-label">Loại khách hàng</label>
+            <div class="col-md-6 col-sm-7" id="cus_cate">
+                <select data-options=" editable: false" class="easyui-combobox form-control" name="cus_category" style="height:30px;">
+                    <option value="DL">Đại lý</option>
+                    <option value="KL">Khách lẻ</option>
+                    <option value="KTT">Khách hàng thân thiết</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="diachi" class="col-sm-4 control-label">Địa Chỉ</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="diachi" value="@Model.soph1.dia_chi" id="diachi" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="khachhang" class="col-sm-4 control-label">Khách Hàng</label>
+            <div class="col-md-7 col-sm-7" id="cus_change">
+                <input id="cccus1" name="cccus" type="hidden" onblur="/*onChangeCus()*/" class="form-control" value="@Model.soph1.ma_kh" data-options="valueField:'id',textField:'text'" onclick="/*hienthi();*/" style="height:30px;" />
+                <input type="text" id="cccus_tenkh" name="cccus_tenkh" value="@Model.soph1.ten_kh" class="form-control" style="height:30px;" />
+            </div>
+        </div>
+        <div class="form-group hidden">
+            <label for="nguoigiaodich" class="col-sm-4 control-label">Người Giao Dịch</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" value="@Model.soph1.nguoi_gd" id="nguoigiaodich" name="nguoigiaodich" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="diengiai" class="col-sm-4 control-label">Diễn Giải</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="diengiai" value="@Model.soph1.dien_giai" name="diengiai" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label id="nhanvien" for="nhanvien" class="col-sm-4 control-label">Nhân Viên</label>
+            <div class="col-sm-7">
+                <input disabled type="text" value='@{ if (Model.soph1.cuser == null) {@UserManager.Identity.username; } else {@Model.soph1.cuser } }' class="form-control" id="nhanvien" name="nhanvien" />
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-12 col-sm-6 col-md-6 col-sm-6 col-lg-6">
+        <div class="form-group">
+            <label for="sodonhang" class="col-sm-4 control-label">Số Đơn Hàng</label>
+            <div class="col-sm-8">
+                <input type="text" readonly
+                       class="form-control"  name="sodonhang" id="sodonhang" value="@Model.soph1.so_ct" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ngaylap" class="col-sm-4 control-label">Ngày Lập</label>
+            <div class="col-sm-8">
+                <input class="form-control" readonly name="ngaylap" value="@Model.soph1.ngay_ct.ToString("dd/MM/yyyy")"
+                       id="ngaylap" />
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="hantt" class="col-sm-4 control-label">Hạn TT</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="songaytt" style="" value='0'
+                       name="songaytt" />
+
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="ngaytt"
+                       name="ngaytt" placeholder="Ngày Hạn Thanh Toán" style="" value="@Model.soph1.ngay_hh.ToString("dd/MM/yyyy")">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="loaidonhang" class="col-sm-4 control-label">Loại Đơn Hàng</label>
+            <div class="col-sm-4">
+                <select id="loaidonhang" name="loaidonhang" data-value="@Model.soph1.loai_dh" class="easyui-combobox form-control" style="height:30px;" data-options="editable: false">
+                    <option value="0">Giao Ngay</option>
+                    <option value="1">Giao 24h</option>
+                    <!--<option value="2">Giao Hẹn</option>-->
+                </select>
+            </div>
+            <!--  <label for="khuyenmai" class="col-sm-3 control-label">Khuyến Mãi</label>
+            <div class="col-sm-1">
+                <input type="checkbox" name="khuyenmai" class="form-control" value="khuyenmai" />
+            </div>-->
+
+        </div>
+        <div class="form-group">
+            <label for="trangthaidonhang" class="col-sm-4 control-label">Trạng Thái</label>
+            <div class="col-sm-4">
+                <select id="trangthaidonhang" name="trangthaidonhang" class="easyui-combobox form-control" data-value="@Model.soph1.trang_thai" data-options="editable: false" style="height:30px; ">
+                    @{
+                        foreach (var i in UtilsHepler.GetListCombo())
+                        {
+                            <option name="trangthaidonhang" value="@i.id">@i.text</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group hidden">
+            <label for="nocu" class="col-sm-4 control-label">Nợ Cũ</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="nocu" name="nocu" onkeyup="onChangeNocu();" style="text-align:right;" value="0" />
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <!-- <label for="tlchietkhau" class="col-sm-4 control-label">Tỉ Giá: </label>-->
+            <div class="col-sm-4">
+                <input type="hidden" class="form-control" name="tigia" onkeyup="changeTG()" onblur="changeTG()" onclick="changeTG()" value="1" id="tigia" />
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 col-xs-12 col-lg-12 col-md-12">
+    <div class="table-responsive table-ct" style="overflow-x:visible">
+        <input type="hidden" id="flag_check" value="1" />
+        <table class="tablesorter table" id="dataTable" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="hidden">NCC </th>
+                    <th class="hidden">Nhóm Hàng </th>
+                    <th>Tên Hàng </th>
+                    <th>ĐVT </th>
+                    <th>S.L </th>
+                    <th>K.M </th>
+                    <th>Đơn Giá </th>
+                    <th>% CK </th>
+                    <th>Tiền CK </th>
+                    <th>Thành Tiền </th>
+
+                </tr>
+            </thead>
+            <tbody id="tbody_soct1">
+                @{
+                    var index = 0;
+                    var script_st = "var rowCount=1;";
+                    foreach (var soct1_ in Model.lsoct1)
+                    {
+                        var he_so = soct1_.so_luong == 0 ? 0 : soct1_.so_luong_qd / soct1_.so_luong;
+                        <tr>
+                            <td>
+                                <input type="checkbox" data-configdata='{"ten":"@soct1_.ma_vt","donvi":"@soct1_.dvt"}' name="chk" value="@{@Html.Raw(index);}" style="/*width: 80px;*/" />
+                            </td>
+                            <td class="hidden">
+                                <input type="hidden" name="ccheso[]" value="@(he_so)" id="ccheso@{@Html.Raw(index);}" />
+                                <input id="ccsup" onblur="onChangeSup(0)" name="ccsup[]" class="easyui-combobox" data-options="valueField:'id',textField:'text'" value="Tên NCC" style="height:30px;width: 80px;" />
+                            </td>
+                            <td class="hidden">
+                                <input id="ccnhomhang@{@Html.Raw(index);}" name="ccnhomhang[]" class="easyui-combobox" data-options="valueField:'id',textField:'text'" value="Nhóm Hàng" style="height:30px;width: 100px;" />
+                            </td>
+                            <td>
+                                <div style="display:none">
+                                    <input id="cctenhang@{@Html.Raw(index);}" name="cctenhang[@{@Html.Raw(index);}]" class="easyui-combobox" data-options="valueField:'id',textField:'text'" value="@soct1_.ma_vt" style="height:30px;" />
+                                </div>
+                                <input id="scctenhang@{@Html.Raw(index);}" name="scctenhang@{@Html.Raw(index);}" class="form-control" value="@soct1_.ten_vt" placeholder="Tên Hàng" style="height:30px;width:270px" />
+
+                            </td>
+                            <td>
+                                <input type="hidden" id="namedvt@{@Html.Raw(index);}" name="namedvt[@{@Html.Raw(index);}]" value="@soct1_.dvt" />
+                                @{var data_combo = Html.Raw(UtilsHepler.GetDataDVT(soct1_.ma_vt, soct1_.dvt)); }
+                                <input id="ccdvt@{@Html.Raw(index);}" data-datacombo__='@data_combo' name="ccdvt[@{@Html.Raw(index);}]" class="easyui-combobox" style="width: 80px;height: 34px;"  />
+                                
+                            </td>
+                            <td>
+                                <input type="text" maxlength="6" size="6" step="1" min="1" value="@soct1_.so_luong" class="form-control" onblur="onChangeSoLuong(soluong@{@Html.Raw(index);}, @{@Html.Raw(index);})"
+                                       onfocus="select_value(0)" onkeyup="onChangeSoLuong(soluong@{@Html.Raw(index);}, @{@Html.Raw(index);})" name="soluong[@{@Html.Raw(index);}]" id="soluong@{@Html.Raw(index);}" style="text-align:center; width: 100px;height: 34px" />
+                            </td>
+                            <td>
+                                <input type="checkbox" class="check-box-km" name="check_km@{@Html.Raw(index);}" value="0" style="width: 50px;" id="check_km@{@Html.Raw(index);}" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" onkeyup="onChangeGia(dongia@{@Html.Raw(index);}, @{@Html.Raw(index);})" name="dongia[@{@Html.Raw(index);}]" id="dongia@{@Html.Raw(index);}" value="@soct1_.gia_nt2" style="text-align:right;width:100px;" />
+                            </td>
+                            <td>
+                                <input type="hidden" value="1" id="flagdiscount@{@Html.Raw(index);}" />
+                                <input required onclick="changeCK(chietkhau0, 0)" onblur="changeCK(chietkhau0, 0)" onkeyup="changeCK(chietkhau@{@Html.Raw(index);}, @{@Html.Raw(index);})" name="chietkhau[@{@Html.Raw(index);}]" id="chietkhau@{@Html.Raw(index);}" value="@soct1_.tl_ck" style="text-align:right;width:60px;height: 34px" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" readonly onclick="" onblur="" onkeyup="onChangeFixedDiscount(tienck@{@Html.Raw(index);}, @{@Html.Raw(index);})" name="tienck[@{@Html.Raw(index);}]" id="tienck@{@Html.Raw(index);}" value="@soct1_.tien_ck_nt" style="text-align:right;width:100px;" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control thanhtoan" readonly name="thanhtoan[@{@Html.Raw(index);}]" id="thanhtoan@{@Html.Raw(index);}" value="@soct1_.tt_nt" style="text-align:right;width:130px;" />
+                            </td>
+                        </tr>
+        index++;
+        script_st += "var data={ten:'" + soct1_.ma_vt + "',donvi:'" + soct1_.dvt + "'};initComboTenHang(\"cctenhang\" + (rowCount - 1)); oninitHangHoa((rowCount - 1),data); /*initComboDVT(\"ccdvt\" + (rowCount - 1));*/initNumberSoluong(\"soluong\" + (rowCount - 1), (rowCount - 1));initNumberCK(\"chietkhau\" + (rowCount - 1), (rowCount - 1));initTienCK(\"tienck\" + (rowCount - 1), (rowCount - 1));$('#cctenhang" + index + "').combobox('select', '" + soct1_.ma_vt + "');rowCount++;\n";
+
+    }
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <input class="btn btn-default" type="button" value="Thêm Dòng" onclick="addRow('dataTable')" />
+    <input class="btn btn-default" type="button" value="Xóa Dòng" onclick="deleteRow('dataTable')" />
+</div>
+<div class="form-group">
+    <div style="float:right;" class="col-sm-offset-2 col-sm-4">
+        <div class="form-group">
+            <label for="tongcong" class="col-sm-5 control-label">Tổng Cộng:</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" readonly required name="tongcong" style="text-align:right;font-weight: bold;"
+                       id="tongcong" />
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div style="float:right;" class="col-sm-offset-2 col-sm-4">
+        <div class="form-group">
+            <div class="col-sm-8">
+                <input name="btnUpdate" id="btnUpdate" onclick="checkSlTon()" value="Cập Nhật" type="button" class="btn btn-default"  />
+                <!-- <button id="btnSubmit" name="btnSubmit" type="button" class="btn btn-default" onclick="SaveDH();">Lưu DH</button>-->
+                <input id="btnSubmit" name="btnSubmit" type="button" onclick="checkSlTon()" class="btn btn-success hidden" value="Lưu ĐH" />
+                <!--<button name="btnHuy" type="button" class="btn btn-default" onclick="HuyDH();">Huy </button>-->
+                <input name="btnHuy" type="button" onclick="huydh()" class="btn btn-danger" value="Hủy" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

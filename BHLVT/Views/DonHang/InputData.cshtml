@@ -1,0 +1,156 @@
+﻿@model BHLVT.Models.InputData
+@{
+//Layout = null;
+
+}
+<section class="content" style="padding-top:0px;">
+    <div>
+    <section class="content-header" style="padding:7px 0px">
+        @Html.Partial("~/Views/Shared/_PartialView/_MenuButtonsEasyui.cshtml",
+       new Dictionary<string, Object>() { /*{"isHideAddBtn", true },*/ {"idMenu" ,"menu1"} })
+    </section>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12">
+
+            <div class="easyui-tabs" style="">
+                <div title="Thông tin chung" style="padding:10px">
+                    <p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
+                    <ul>
+                        <li>easyui is a collection of user-interface plugin based on jQuery.</li>
+                        <li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>
+                        <li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
+                        <li>complete framework for HTML5 web page.</li>
+                        <li>easyui save your time and scales while developing your products.</li>
+                        <li>easyui is very easy but powerful.</li>
+                    </ul>
+                </div>
+                <div title="Địa chỉ" style="padding:10px">
+                    @Html.Partial("~/Views/DonHang/_Address.cshtml",new { })
+                </div>
+                <div title="Giao hàng" style="padding:10px">
+                    @Html.Partial("~/Views/DonHang/_Delivery.cshtml",new { })
+                </div>
+                <div title="Thanh toán" style="padding:10px">
+                    @Html.Partial("~/Views/DonHang/_Purchase.cshtml",new { })
+                </div>
+                <div title="Giảm giá" style="padding:10px">
+                </div>
+                <div title="Hạch toán" style="padding:10px">
+                </div>
+                <div title="Khác" style="padding:10px">
+                    @Html.Partial("~/Views/DonHang/_Other.cshtml",new { })
+                </div>
+
+                <div title="Help" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
+                    This is the help content.
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12 col-sm-12" style="overflow-x: auto;overflow-y: auto; max-height:calc(100% - 68px);">
+            <form action="@Url.RouteUrl(new { controller = "DonHang", action = "PostData", area = "" })" method="post">
+                @{/*for (var i = 0; i < 3; i++)  {
+<div>
+   @Html.TextBoxFor(model => model.name, new { @class = "form-control" })<br></br>
+</div>
+} */}
+                <table id="dg" class="easyui-datagrid" title="Row Editing in DataGrid" style="width:700px;font-size:smaller"
+                       data-options="iconCls :'icon-edit' ,singleSelect: true,toolbar :'#tb' ,url :'@Url.RouteUrl(new { controller = "Ultils", action = "GetListInputData", area = "" })' ,method:'get' ,onClickCell: onClickCell,onEndEdit: onEndEdit">
+                    <thead>
+                        <tr>
+                            <th data-options="field:'name',width:80, editor:'textbox'">Name</th>
+                            <th data-options="field:'birthday',width:100, editor:'textbox',
+                        /*formatter: function(value,row) {
+                            return row.birthday;
+                        },*/
+                        ">Birthday</th>
+                            <!--<th data-options="field:'listprice',width:80,align:'right',editor:{type:'numberbox',options:{precision:1}}">List Price</th>
+                        <th data-options="field:'unitcost',width:80,align:'right',editor:'numberbox'">Unit Cost</th>
+                        <th data-options="field:'attr1',width:250,editor:'textbox'">Attribute</th>
+                        <th data-options="field:'status',width:60,align:'center',editor:{type:'checkbox',options:{on:'P',off:''}}">Status</th>-->
+                        </tr>
+                    </thead>
+                </table>
+                <div id="tb" style="height:auto">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="/*iconCls:'icon-add',*/plain:true" onclick="append()"><i class="fa fa-fw fa-plus"></i>&nbsp;Append</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="/*iconCls:'icon-remove',*/plain:true" onclick="removeit()"><i class="fa fa-fw fa-trash"></i>&nbsp;Remove</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="/*iconCls:'icon-save',*/plain:true" onclick="accept()"><i class="fa fa-fw fa-save"></i>&nbsp;Accept</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="/*iconCls:'icon-undo',*/plain:true" onclick="reject()"><i class="fa fa-fw fa-rotate-left"></i>&nbsp;Reject</a>
+                </div>
+
+                <div><button type="submit">Submit</button></div>
+            </form>
+        </div>
+
+
+
+    </div>
+</section>
+@section scripts{
+    @**@<script>
+        var editIndex = undefined;
+        function endEditing() {
+            if (editIndex == undefined) { return true }
+            if ($('#dg').datagrid('validateRow', editIndex)) {
+                $('#dg').datagrid('endEdit', editIndex);
+                editIndex = undefined;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function onEndEdit(index, row) {
+            /* var ed = $(this).datagrid('getEditor', {
+                index: index,
+                field: 'productid'
+            });
+            row.productname = $(ed.target).combobox('getText');*/
+        }
+
+        function onClickCell(index, field) {
+            console.log($('#dg').datagrid('options'));
+            if (editIndex != index) {
+                if (endEditing()) {
+                    $('#dg').datagrid('selectRow', index)
+                            .datagrid('beginEdit', index);
+                    var ed = $('#dg').datagrid('getEditor', { index: index, field: field });
+                    if (ed) {
+                        ($(ed.target).data('textbox') ? $(ed.target).textbox('textbox') : $(ed.target)).focus();
+                    }
+                    editIndex = index;
+                } else {
+                    setTimeout(function () {
+                        $('#dg').datagrid('selectRow', editIndex);
+                    }, 0);
+                }
+            }
+        }
+        function append() {
+           if (endEditing()) {
+               $('#dg').datagrid('appendRow',{name: "", birthday: ""});
+                editIndex = $('#dg').datagrid('getRows').length - 1;
+                $('#dg').datagrid('selectRow', editIndex)
+                        .datagrid('beginEdit', editIndex);
+            }
+           
+        }
+        function removeit() {
+            if (editIndex == undefined) { return }
+            $('#dg').datagrid('cancelEdit', editIndex)
+                    .datagrid('deleteRow', editIndex);
+            editIndex = undefined;
+        }
+
+        function accept() {
+            if (endEditing()) {
+                $('#dg').datagrid('acceptChanges');
+                console.log($('#dg').datagrid('getData'));
+
+            }
+        }
+    </script>
+    <script src="~/public/js/process_front/process_menubutton.js"></script>
+
+}

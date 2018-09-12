@@ -1,0 +1,117 @@
+﻿@model CRMLVTBLLmd.Models.ViewModel.tblcustomerView
+@{
+    ViewBag.Title = "_Form";
+    var name_btn = ViewBag.btn != null ? ViewBag.btn : "Thêm";
+    var class_btn = name_btn != "Thêm" ? "btn btn-flat btn-sm btn-warning" : "btn btn-flat btn-sm btn-success";
+    var checkedactive = Model.active == "1" ? "checked" : "";
+}
+@section styles{
+
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .textbox {
+            border-bottom: 1px solid #c2d0e4;
+        }
+    </style>
+}
+<div class="content">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h4>@name_btn Khách hàng</h4>
+            </div>
+            <div class="col-md-8" style="padding:5px 7px">
+                <form class="form-horizontal" method="post" action="@Url.RouteUrl(new {controller="Cus",action="Post",area="crm" })">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary()
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.customerid, "Mã Khách Hàng", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(model => model.customerid, new { @class = "form-control input-sm", placeholder = "Mã Khách Hàng", required = "true" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.customername, "Tên Khách Hàng", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(model => model.customername, new { @class = "form-control input-sm", placeholder = "Tên Khách Hàng", required = "true" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.vendorid, "Loại Khách Hàng", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(model=>model.vendorid,(IEnumerable<SelectListItem>)ViewBag.lvens, new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+                           
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.address, "Địa chỉ", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(model => model.address, new { @class = "form-control input-sm", placeholder = "Địa chỉ", required = "true" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.city, "Tỉnh / thành phố", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(model => model.city, (IEnumerable<SelectListItem>)ViewBag.lcity, new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.phone, "Điện thoại", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(model => model.phone, new { @class = "form-control input-sm", placeholder = "Điện thoại", required = "true" })
+                        </div>
+                       
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fax, "Fax", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(model => model.fax, new { @class = "form-control input-sm", placeholder = "Fax" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.vatid, "Mã số thuế", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(model => model.vatid, new { @class = "form-control input-sm", placeholder = "Mã số thuế" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.director, "Giám đốc", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(model => model.director, new { @class = "form-control input-sm", placeholder = "Giám đốc" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.active, "Hoạt động", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            <input type="checkbox" name="active" @checkedactive value="1" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.cmsid, "Nguồn khách hàng", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(model => model.cmsid, (IEnumerable<SelectListItem>)ViewBag.lcmss, new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.note, "Ghi chú", new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(model=>model.note, new { @class = "form-control input-sm", placeholder = "Ghi chú",rows="5" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10 " style="margin-top:20px">
+                            <input type="submit" name="btn" class="@class_btn" value="@name_btn" />
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+                
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+

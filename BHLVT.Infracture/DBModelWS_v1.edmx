@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBWSContextV1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="arkh">
+          <Key>
+            <PropertyRef Name="ma_cty" />
+            <PropertyRef Name="ma_kh" />
+          </Key>
+          <Property Name="ma_cty" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="ma_kh" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="loai" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="ten_kh" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ma_so_thue" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="dia_chi" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="tel" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="fax" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="home_page" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="nguoi_gd" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="so_tk_nh" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ten_nh" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tinh_tp_nh" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tk" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ma_plkh1" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="ma_plkh2" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="ma_plkh3" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="ma_nhkh" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="ma_tt" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="gh_no" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ghi_chu" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="tinh_dt_nb" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="khoa_no" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="isKh" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="isNcc" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="isNv" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="sd" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="cdate" Type="smalldatetime" Nullable="false" />
+          <Property Name="cuser" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ldate" Type="smalldatetime" Nullable="false" />
+          <Property Name="luser" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ma_duong" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ma_phuong" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ma_quan" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ma_tp" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="so_nha" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ten_dd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="chuc_vu_dd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cmnd_hc" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ngay_cap" Type="smalldatetime" Nullable="false" />
+          <Property Name="noi_cap" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="muc_han_tt" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="dtdd" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="soct1">
+          <Key>
+            <PropertyRef Name="ma_cty" />
+            <PropertyRef Name="stt_rec" />
+            <PropertyRef Name="stt_rec0" />
+          </Key>
+          <Property Name="ma_cty" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="stt_rec" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="stt_rec0" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="ma_vt" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ma_kho" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="so_luong" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="dvt" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="so_luong_qd" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="gia_nt2" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="gia2" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tien_nt2" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tien2" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tl_ck" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tien_ck_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tien_ck" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ts_gtgt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="thue_gtgt_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="thue_gtgt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tt_nt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tt" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="khuyen_mai" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="tra_ck" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="ma_nvkd" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ma_bp" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ma_phi" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="tk_pt" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="tk_dt" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="tk_gv" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="tk_vt" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="tk_thue" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="tk_ck" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="sl_xuat" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="sl_xuat_qd" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="sl_hd" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="sl_hd_qd" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ten_vt" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="xlbm" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="vat_lieu" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="tgian_gc" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ten_nguoi_pt" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="nguoi_pt" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="nguoi_pt2" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ten_nguoi_pt2" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="nguoi_pt3" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ten_nguoi_pt3" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ghi_chu" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="so_lsx" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ten_vt2" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ten_vat_lieu" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="huy_ct" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DBWSContextV1StoreContainer">
+          <EntitySet Name="arkh" EntityType="Self.arkh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="soct1" EntityType="Self.soct1" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBWSContextV1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="arkh">
+          <Key>
+            <PropertyRef Name="ma_cty" />
+            <PropertyRef Name="ma_kh" />
+          </Key>
+          <Property Name="ma_cty" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_kh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="loai" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ten_kh" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_so_thue" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dia_chi" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fax" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="home_page" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nguoi_gd" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="so_tk_nh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ten_nh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tinh_tp_nh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tk" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_plkh1" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_plkh2" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_plkh3" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_nhkh" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_tt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gh_no" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ghi_chu" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tinh_dt_nb" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="khoa_no" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isKh" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isNcc" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isNv" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sd" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="cuser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ldate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="luser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_duong" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_phuong" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_quan" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_tp" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="so_nha" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ten_dd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="chuc_vu_dd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cmnd_hc" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ngay_cap" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="noi_cap" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="muc_han_tt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dtdd" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="soct1">
+          <Key>
+            <PropertyRef Name="ma_cty" />
+            <PropertyRef Name="stt_rec" />
+            <PropertyRef Name="stt_rec0" />
+          </Key>
+          <Property Name="ma_cty" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stt_rec" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stt_rec0" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_vt" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_kho" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="so_luong" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="dvt" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="so_luong_qd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="gia_nt2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="gia2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tien_nt2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tien2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tl_ck" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tien_ck_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tien_ck" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ts_gtgt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="thue_gtgt_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="thue_gtgt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tt_nt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="tt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="khuyen_mai" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tra_ck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_nvkd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_bp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ma_phi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tk_pt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tk_dt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tk_gv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tk_vt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tk_thue" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tk_ck" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sl_xuat" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="sl_xuat_qd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="sl_hd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="sl_hd_qd" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ten_vt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="xlbm" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="vat_lieu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tgian_gc" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ten_nguoi_pt" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nguoi_pt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nguoi_pt2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ten_nguoi_pt2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nguoi_pt3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ten_nguoi_pt3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ghi_chu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="so_lsx" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ten_vt2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ten_vat_lieu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="huy_ct" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="WSCHUAN_161812Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="arkhs" EntityType="Self.arkh" />
+          <EntitySet Name="soct1" EntityType="Self.soct1" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBWSContextV1StoreContainer" CdmEntityContainer="WSCHUAN_161812Entities">
+          <EntitySetMapping Name="arkhs">
+            <EntityTypeMapping TypeName="DBWSContextV1.arkh">
+              <MappingFragment StoreEntitySet="arkh">
+                <ScalarProperty Name="ma_cty" ColumnName="ma_cty" />
+                <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
+                <ScalarProperty Name="loai" ColumnName="loai" />
+                <ScalarProperty Name="ten_kh" ColumnName="ten_kh" />
+                <ScalarProperty Name="ma_so_thue" ColumnName="ma_so_thue" />
+                <ScalarProperty Name="dia_chi" ColumnName="dia_chi" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="home_page" ColumnName="home_page" />
+                <ScalarProperty Name="nguoi_gd" ColumnName="nguoi_gd" />
+                <ScalarProperty Name="so_tk_nh" ColumnName="so_tk_nh" />
+                <ScalarProperty Name="ten_nh" ColumnName="ten_nh" />
+                <ScalarProperty Name="tinh_tp_nh" ColumnName="tinh_tp_nh" />
+                <ScalarProperty Name="tk" ColumnName="tk" />
+                <ScalarProperty Name="ma_plkh1" ColumnName="ma_plkh1" />
+                <ScalarProperty Name="ma_plkh2" ColumnName="ma_plkh2" />
+                <ScalarProperty Name="ma_plkh3" ColumnName="ma_plkh3" />
+                <ScalarProperty Name="ma_nhkh" ColumnName="ma_nhkh" />
+                <ScalarProperty Name="ma_tt" ColumnName="ma_tt" />
+                <ScalarProperty Name="gh_no" ColumnName="gh_no" />
+                <ScalarProperty Name="ghi_chu" ColumnName="ghi_chu" />
+                <ScalarProperty Name="tinh_dt_nb" ColumnName="tinh_dt_nb" />
+                <ScalarProperty Name="khoa_no" ColumnName="khoa_no" />
+                <ScalarProperty Name="isKh" ColumnName="isKh" />
+                <ScalarProperty Name="isNcc" ColumnName="isNcc" />
+                <ScalarProperty Name="isNv" ColumnName="isNv" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="sd" ColumnName="sd" />
+                <ScalarProperty Name="cdate" ColumnName="cdate" />
+                <ScalarProperty Name="cuser" ColumnName="cuser" />
+                <ScalarProperty Name="ldate" ColumnName="ldate" />
+                <ScalarProperty Name="luser" ColumnName="luser" />
+                <ScalarProperty Name="ma_duong" ColumnName="ma_duong" />
+                <ScalarProperty Name="ma_phuong" ColumnName="ma_phuong" />
+                <ScalarProperty Name="ma_quan" ColumnName="ma_quan" />
+                <ScalarProperty Name="ma_tp" ColumnName="ma_tp" />
+                <ScalarProperty Name="so_nha" ColumnName="so_nha" />
+                <ScalarProperty Name="ten_dd" ColumnName="ten_dd" />
+                <ScalarProperty Name="chuc_vu_dd" ColumnName="chuc_vu_dd" />
+                <ScalarProperty Name="cmnd_hc" ColumnName="cmnd_hc" />
+                <ScalarProperty Name="ngay_cap" ColumnName="ngay_cap" />
+                <ScalarProperty Name="noi_cap" ColumnName="noi_cap" />
+                <ScalarProperty Name="muc_han_tt" ColumnName="muc_han_tt" />
+                <ScalarProperty Name="dtdd" ColumnName="dtdd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="soct1">
+            <EntityTypeMapping TypeName="DBWSContextV1.soct1">
+              <MappingFragment StoreEntitySet="soct1">
+                <ScalarProperty Name="ma_cty" ColumnName="ma_cty" />
+                <ScalarProperty Name="stt_rec" ColumnName="stt_rec" />
+                <ScalarProperty Name="stt_rec0" ColumnName="stt_rec0" />
+                <ScalarProperty Name="ma_vt" ColumnName="ma_vt" />
+                <ScalarProperty Name="ma_kho" ColumnName="ma_kho" />
+                <ScalarProperty Name="so_luong" ColumnName="so_luong" />
+                <ScalarProperty Name="dvt" ColumnName="dvt" />
+                <ScalarProperty Name="so_luong_qd" ColumnName="so_luong_qd" />
+                <ScalarProperty Name="gia_nt2" ColumnName="gia_nt2" />
+                <ScalarProperty Name="gia2" ColumnName="gia2" />
+                <ScalarProperty Name="tien_nt2" ColumnName="tien_nt2" />
+                <ScalarProperty Name="tien2" ColumnName="tien2" />
+                <ScalarProperty Name="tl_ck" ColumnName="tl_ck" />
+                <ScalarProperty Name="tien_ck_nt" ColumnName="tien_ck_nt" />
+                <ScalarProperty Name="tien_ck" ColumnName="tien_ck" />
+                <ScalarProperty Name="ts_gtgt" ColumnName="ts_gtgt" />
+                <ScalarProperty Name="thue_gtgt_nt" ColumnName="thue_gtgt_nt" />
+                <ScalarProperty Name="thue_gtgt" ColumnName="thue_gtgt" />
+                <ScalarProperty Name="tt_nt" ColumnName="tt_nt" />
+                <ScalarProperty Name="tt" ColumnName="tt" />
+                <ScalarProperty Name="khuyen_mai" ColumnName="khuyen_mai" />
+                <ScalarProperty Name="tra_ck" ColumnName="tra_ck" />
+                <ScalarProperty Name="ma_nvkd" ColumnName="ma_nvkd" />
+                <ScalarProperty Name="ma_bp" ColumnName="ma_bp" />
+                <ScalarProperty Name="ma_phi" ColumnName="ma_phi" />
+                <ScalarProperty Name="tk_pt" ColumnName="tk_pt" />
+                <ScalarProperty Name="tk_dt" ColumnName="tk_dt" />
+                <ScalarProperty Name="tk_gv" ColumnName="tk_gv" />
+                <ScalarProperty Name="tk_vt" ColumnName="tk_vt" />
+                <ScalarProperty Name="tk_thue" ColumnName="tk_thue" />
+                <ScalarProperty Name="tk_ck" ColumnName="tk_ck" />
+                <ScalarProperty Name="sl_xuat" ColumnName="sl_xuat" />
+                <ScalarProperty Name="sl_xuat_qd" ColumnName="sl_xuat_qd" />
+                <ScalarProperty Name="sl_hd" ColumnName="sl_hd" />
+                <ScalarProperty Name="sl_hd_qd" ColumnName="sl_hd_qd" />
+                <ScalarProperty Name="ten_vt" ColumnName="ten_vt" />
+                <ScalarProperty Name="xlbm" ColumnName="xlbm" />
+                <ScalarProperty Name="vat_lieu" ColumnName="vat_lieu" />
+                <ScalarProperty Name="tgian_gc" ColumnName="tgian_gc" />
+                <ScalarProperty Name="ten_nguoi_pt" ColumnName="ten_nguoi_pt" />
+                <ScalarProperty Name="nguoi_pt" ColumnName="nguoi_pt" />
+                <ScalarProperty Name="nguoi_pt2" ColumnName="nguoi_pt2" />
+                <ScalarProperty Name="ten_nguoi_pt2" ColumnName="ten_nguoi_pt2" />
+                <ScalarProperty Name="nguoi_pt3" ColumnName="nguoi_pt3" />
+                <ScalarProperty Name="ten_nguoi_pt3" ColumnName="ten_nguoi_pt3" />
+                <ScalarProperty Name="ghi_chu" ColumnName="ghi_chu" />
+                <ScalarProperty Name="so_lsx" ColumnName="so_lsx" />
+                <ScalarProperty Name="ten_vt2" ColumnName="ten_vt2" />
+                <ScalarProperty Name="ten_vat_lieu" ColumnName="ten_vat_lieu" />
+                <ScalarProperty Name="huy_ct" ColumnName="huy_ct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

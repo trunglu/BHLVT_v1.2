@@ -1,0 +1,161 @@
+﻿@model BHLVTBLL.ModelsBLL.ViewModel.StatisticViewModel
+@{
+    ViewBag.Title = "ThongkeDH";
+}
+@section styles{
+ <!-- daterange picker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+}
+<style>
+    .box {
+    border-radius:0px;
+    }
+    .row-hover {
+        background-color:#f9d27d !important;
+    }
+</style>
+<div class="box" style="border-top:none;border-radius:0px;margin-bottom:0px;background-color:#dbe9fb">
+    <div class="box-body" style="padding:0px" >
+        <ul class="nav navbar-nav">
+        <li class=""><a href="@Url.RouteUrl(new {controller="DonHang",action="Index" })" style="padding:5px 5px 3px 5px"><i class="fa fa-plus"></i> <span style="color:black"> Tạo mới&nbsp;&nbsp;</span></a></li>
+        <li class=""><a id="delete-all" class="hidden"  onclick="" href="javascript:void(0);" data-url="@Url.RouteUrl(new {controller="DonHang",action="DeleteAll" })" data-method="POST" style="padding:5px 5px 3px 5px"><i class="fa fa-trash"></i> <span style="color:black"> Xóa&nbsp;&nbsp;</span></a></li>
+        <li class=""><a id="edit" class="hidden" onclick="" href="javascript:void(0);" data-url="@Url.RouteUrl(new {controller="DonHang",action="Index" })?ids=" data-method="POST" style="padding:5px 5px 3px 5px"><i class="fa fa-edit"></i> <span style="color:black"> Sửa&nbsp;&nbsp;</span></a></li>
+            <li class=""><a id="preview" class="hidden" onclick="" target="_blank" href="javascript:void(0);" data-url="@Url.RouteUrl(new {controller="DonHang",action="Receipt" })?ids=" data-method="POST" style="padding:5px 5px 3px 5px"><i class="fa fa-edit"></i> <span style="color:black"> Preview</span></a></li>
+
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div id="show_list_soph1">
+                @*Html.Action("SearchSoph1",Model)*@
+            @Html.Action("SearchSoph1",Model)
+        </div>
+    </div>
+</div>
+@section scripts{
+     <!-- date-range-picker -->
+     <script src="~/Themes/AdminLTE/bower_components/moment/min/moment.min.js"></script>
+     <script src="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+     <!-- bootstrap datepicker -->
+     <script src="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/public/js/datatable_process.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           /*$('#FromDate').datepicker({
+                format: "mm/dd/yyyy"
+            });
+            $('#ToDate').datepicker({
+                format: "mm/dd/yyyy"
+            });*/
+            //----------------------------------------//
+
+            var nowTemp = new Date();
+            var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+            //$('#ToDate').datepicker();
+            var checkin = $('#FromDate').datepicker({
+                format: "dd/mm/yyyy",
+                onRender: function (date) {
+                    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+                }
+            }).on('changeDate', function (ev) {
+                if (ev.date.valueOf() > checkout.viewDate.valueOf()) {
+                    var newDate = new Date(ev.date)
+                    newDate.setDate(newDate.getDate() + 1);
+                    checkout.setValue(newDate);
+                    console.log(newDate);
+                }
+                checkin.hide();
+                $('#ToDate')[0].focus();
+            }).data('datepicker');
+
+            var checkout = $('#ToDate').datepicker({
+                format: "dd/mm/yyyy",
+                onRender: function (date) {
+                    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+                }
+            }).on('changeDate', function (ev) {
+                checkout.hide();
+            }).data('datepicker');
+            //----------------------------------------//
+
+            setTimeout(function () {
+                process_scroll_table();
+            }, 500);
+            $('#btn-search-order').off().on('click', function () {
+                $('#modal_search_order').modal('show');
+            });
+            initDatatable('#datatableOrder');
+            
+
+        });
+        
+        function process_scroll_table() {
+            // Change the selector if needed
+            var $table = $('table.scroll'),
+                $bodyCells = $table.find('tbody tr:first').children('td'), colWidth;
+
+            // Adjust the width of thead cells when window resizes
+            $(window).resize(function () {
+                //$table.fadeOut();
+                // Get the tbody columns width array
+                colWidth = $bodyCells.map(function () {
+                    return $(this).width();
+                }).get();
+
+                // Set the width of thead columns
+                $table.find('thead tr').children().each(function (i, v) {
+                    //$bodyCells.get(i).css();
+                    console.log("Dài cột " + i + ":" + (colWidth[i]+16));
+                    if (colWidth[i] > 16) {
+                        $(v).css('width', colWidth[i] + 16);
+                    }
+                   
+                });
+                $table.fadeIn();
+            }).resize(); // Trigger resize handler
+        }
+
+        function changetypedate() {
+            var val = $('#typedate').combobox('getValue');
+            var baseurl = $('.main-header a').attr('href');
+            console.log(val);
+            if (val == "3") {
+                $('#FromDate').prop("readonly", false);
+                $('#ToDate').prop("readonly", false);
+                $('#FromDate').datepicker();
+                $('#ToDate').datepicker();
+            }
+            else {
+                $('#FromDate').prop("readonly", true);
+                $('#ToDate').prop("readonly", true);
+                $('#FromDate').datepicker('destroy');
+                $('#ToDate').datepicker('destroy');
+                
+                $.ajax({
+                    url: baseurl + "Ultils/GetDatePicker",
+                    data: { type: val },
+                    // type: "GET",
+                    success: function (data) {
+                        console.log(data);
+                        if (data != null) {
+                            data = JSON.parse(data);
+                            $('#FromDate').val(data.firstday);
+                            $('#ToDate').val(data.lastday);
+                        }
+
+                    }, error: function (response) {
+                        alert(response);
+                    }
+                });
+            }
+            
+        }
+        
+
+    </script>
+}
+
