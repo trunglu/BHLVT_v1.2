@@ -1,0 +1,15 @@
+﻿@using BHLVTBLL.Services.XConfig
+@{ 
+    var height_row = 25;
+    var dg1 = new WebDatagridClient()
+        .setAction("index")
+        .setArea(" ")
+        .setController("donhang")
+        .setId("donhang_index_dg1")
+        .setClassDatagrid("easyui-datagrid")
+        .setUrlDataOption(Url.RouteUrl(new { controller = "Ultils",
+            action = "GetListInputData", area = "" }));
+}
+<div>
+    @Html.Raw(dg1.Widget())
+</div>

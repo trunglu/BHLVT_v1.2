@@ -6,14 +6,13 @@
 <section class="content" style="padding-top:0px;">
     <div>
     <section class="content-header" style="padding:7px 0px">
-        @Html.Partial("~/Views/Shared/_PartialView/_MenuButtonsEasyui.cshtml",
+        @Html.Partial("~/Views/Shared/_PartialView/_MenuButtonsEasyui.cshtml", 
        new Dictionary<string, Object>() { /*{"isHideAddBtn", true },*/ {"idMenu" ,"menu1"} })
     </section>
     </div>
     <div class="row clearfix">
         <div class="col-md-12">
-
-            <div class="easyui-tabs" style="">
+            <div class="easyui-tabs" style="" id="tab1">
                 <div title="Thông tin chung" style="padding:10px">
                     <p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
                     <ul>
@@ -26,53 +25,57 @@
                     </ul>
                 </div>
                 <div title="Địa chỉ" style="padding:10px">
-                    @Html.Partial("~/Views/DonHang/_Address.cshtml",new { })
+                    @Html.Partial("~/Views/DonHang/_Tab1_Address.cshtml",new { })
                 </div>
                 <div title="Giao hàng" style="padding:10px">
-                    @Html.Partial("~/Views/DonHang/_Delivery.cshtml",new { })
+                    @Html.Partial("~/Views/DonHang/_Tab1_Delivery.cshtml",new { })
                 </div>
                 <div title="Thanh toán" style="padding:10px">
-                    @Html.Partial("~/Views/DonHang/_Purchase.cshtml",new { })
+                    @Html.Partial("~/Views/DonHang/_Tab1_Purchase.cshtml",new { })
                 </div>
                 <div title="Giảm giá" style="padding:10px">
                 </div>
                 <div title="Hạch toán" style="padding:10px">
                 </div>
                 <div title="Khác" style="padding:10px">
-                    @Html.Partial("~/Views/DonHang/_Other.cshtml",new { })
+                    @Html.Partial("~/Views/DonHang/_Tab1_Other.cshtml",new { })
                 </div>
-
                 <div title="Help" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
                     This is the help content.
                 </div>
             </div>
         </div>
+        <div class="col-md-12">
+            <div class="easyui-tabs" style="" id="tab2">
+                <div title="Chi tiết" style="padding:10px">
+                    @Html.Partial("~/Views/DonHang/_Tab2_Details.cshtml",new { })
+                </div>
+                <div title="Địa chỉ" style="padding:10px">
+                    @Html.Partial("~/Views/DonHang/_Tab2_Address.cshtml", new { })
+                </div>
+                <div title="Giao hàng" style="padding:10px">
+                    @Html.Partial("~/Views/DonHang/_Tab2_Delivery.cshtml", new { })
+                </div>
+                <div title="Số lượng" style="padding:10px">
+                    @*@Html.Partial("~/Views/DonHang/_Tab2_Purchase.cshtml", new { })*@
+                </div>
+                <div title="Hạch toán" style="padding:10px">
+                    @Html.Partial("~/Views/DonHang/_Tab2_Budget.cshtml", new { })
+                </div>
+                <div title="Khác" style="padding:10px">
+                    @Html.Partial("~/Views/DonHang/_Tab2_Other.cshtml", new { })
+                </div>
+            </div>
+        </div>
 
 
-        <div class="col-md-12 col-sm-12" style="overflow-x: auto;overflow-y: auto; max-height:calc(100% - 68px);">
+        <div class="col-md-12 col-sm-12 hidden" style="overflow-x: auto;overflow-y: auto; max-height:calc(100% - 68px);">
             <form action="@Url.RouteUrl(new { controller = "DonHang", action = "PostData", area = "" })" method="post">
                 @{/*for (var i = 0; i < 3; i++)  {
 <div>
    @Html.TextBoxFor(model => model.name, new { @class = "form-control" })<br></br>
 </div>
 } */}
-                <table id="dg" class="easyui-datagrid" title="Row Editing in DataGrid" style="width:700px;font-size:smaller"
-                       data-options="iconCls :'icon-edit' ,singleSelect: true,toolbar :'#tb' ,url :'@Url.RouteUrl(new { controller = "Ultils", action = "GetListInputData", area = "" })' ,method:'get' ,onClickCell: onClickCell,onEndEdit: onEndEdit">
-                    <thead>
-                        <tr>
-                            <th data-options="field:'name',width:80, editor:'textbox'">Name</th>
-                            <th data-options="field:'birthday',width:100, editor:'textbox',
-                        /*formatter: function(value,row) {
-                            return row.birthday;
-                        },*/
-                        ">Birthday</th>
-                            <!--<th data-options="field:'listprice',width:80,align:'right',editor:{type:'numberbox',options:{precision:1}}">List Price</th>
-                        <th data-options="field:'unitcost',width:80,align:'right',editor:'numberbox'">Unit Cost</th>
-                        <th data-options="field:'attr1',width:250,editor:'textbox'">Attribute</th>
-                        <th data-options="field:'status',width:60,align:'center',editor:{type:'checkbox',options:{on:'P',off:''}}">Status</th>-->
-                        </tr>
-                    </thead>
-                </table>
                 <div id="tb" style="height:auto">
                     <a href="javascript:void(0)" class="easyui-linkbutton" data-options="/*iconCls:'icon-add',*/plain:true" onclick="append()"><i class="fa fa-fw fa-plus"></i>&nbsp;Append</a>
                     <a href="javascript:void(0)" class="easyui-linkbutton" data-options="/*iconCls:'icon-remove',*/plain:true" onclick="removeit()"><i class="fa fa-fw fa-trash"></i>&nbsp;Remove</a>
@@ -83,19 +86,19 @@
                 <div><button type="submit">Submit</button></div>
             </form>
         </div>
-
-
+    </div>
+    <div>
 
     </div>
 </section>
 @section scripts{
     @**@<script>
-        var editIndex = undefined;
+        var editIndexDg1 = undefined;
         function endEditing() {
-            if (editIndex == undefined) { return true }
-            if ($('#dg').datagrid('validateRow', editIndex)) {
-                $('#dg').datagrid('endEdit', editIndex);
-                editIndex = undefined;
+            if (editIndexDg1 == undefined) { return true }
+            if ($('#dg').datagrid('validateRow', editIndexDg1)) {
+                $('#dg').datagrid('endEdit', editIndexDg1);
+                editIndexDg1 = undefined;
                 return true;
             } else {
                 return false;
@@ -111,7 +114,7 @@
 
         function onClickCell(index, field) {
             console.log($('#dg').datagrid('options'));
-            if (editIndex != index) {
+            if (editIndexDg1 != index) {
                 if (endEditing()) {
                     $('#dg').datagrid('selectRow', index)
                             .datagrid('beginEdit', index);
@@ -119,10 +122,10 @@
                     if (ed) {
                         ($(ed.target).data('textbox') ? $(ed.target).textbox('textbox') : $(ed.target)).focus();
                     }
-                    editIndex = index;
+                    editIndexDg1 = index;
                 } else {
                     setTimeout(function () {
-                        $('#dg').datagrid('selectRow', editIndex);
+                        $('#dg').datagrid('selectRow', editIndexDg1);
                     }, 0);
                 }
             }
@@ -130,17 +133,17 @@
         function append() {
            if (endEditing()) {
                $('#dg').datagrid('appendRow',{name: "", birthday: ""});
-                editIndex = $('#dg').datagrid('getRows').length - 1;
-                $('#dg').datagrid('selectRow', editIndex)
-                        .datagrid('beginEdit', editIndex);
+                editIndexDg1 = $('#dg').datagrid('getRows').length - 1;
+                $('#dg').datagrid('selectRow', editIndexDg1)
+                        .datagrid('beginEdit', editIndexDg1);
             }
            
         }
         function removeit() {
-            if (editIndex == undefined) { return }
-            $('#dg').datagrid('cancelEdit', editIndex)
-                    .datagrid('deleteRow', editIndex);
-            editIndex = undefined;
+            if (editIndexDg1 == undefined) { return }
+            $('#dg').datagrid('cancelEdit', editIndexDg1)
+                    .datagrid('deleteRow', editIndexDg1);
+            editIndexDg1 = undefined;
         }
 
         function accept() {
@@ -152,5 +155,6 @@
         }
     </script>
     <script src="~/public/js/process_front/process_menubutton.js"></script>
-
+    <script src="~/public/js/process_front/process_datagrid.js"></script>
+    <script src="~/public/js/tarcl/order/process_dg1.js"></script>
 }

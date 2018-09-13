@@ -46,7 +46,7 @@
     </Reference>
     <Reference Include="BHLVTDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\BHLVTDAL.dll</HintPath>
+      <HintPath>..\..\BHLVTDAL\BHLVTDAL\BHLVTDAL\bin\Debug\BHLVTDAL.dll</HintPath>
     </Reference>
     <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.2.0\lib\net45\CommonServiceLocator.dll</HintPath>
@@ -236,6 +236,7 @@
     <Compile Include="Areas\TARCL\Controllers\OrderController.cs" />
     <Compile Include="Areas\TARCL\TARCLAreaRegistration.cs" />
     <Compile Include="Areas\XConfig\Controllers\HomeController.cs" />
+    <Compile Include="Areas\XConfig\Controllers\XViewController.cs" />
     <Compile Include="Areas\XConfig\XConfigAreaRegistration.cs" />
     <Compile Include="ConfigProgram\XWebConfig.cs" />
     <Compile Include="Const\Const.cs" />
@@ -1131,8 +1132,11 @@
     <Content Include="public\js\NumberFormat154.js" />
     <Content Include="public\js\po\process_po.js" />
     <Content Include="public\js\process_donhang.js" />
+    <Content Include="public\js\process_front\process_datagrid.js" />
     <Content Include="public\js\process_front\process_menubutton.js" />
+    <Content Include="public\js\tarcl\order\process_dg1.js" />
     <Content Include="public\js\update_soct1.php" />
+    <Content Include="public\js\xconfig\process_xview_controller.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="public\css\bootstrap-theme.css.map" />
@@ -1278,6 +1282,7 @@
     <Content Include="Areas\CRM\Views\Cons1\SearchConst.cshtml" />
     <Content Include="Areas\CRM\Views\Thnh\Index2.cshtml" />
     <Content Include="Areas\CRM\Views\RFB1\Index.cshtml" />
+    <Content Include="Areas\XConfig\Views\XView\Index.cshtml" />
     <None Include="Properties\PublishProfiles\mypublish1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1366,10 +1371,15 @@
     <Content Include="Views\Exception\ServerError1.cshtml" />
     <Content Include="Views\DonHang\InputData.cshtml" />
     <Content Include="Views\Shared\_PartialView\_MenuButtonsEasyui.cshtml" />
-    <Content Include="Views\DonHang\_Address.cshtml" />
-    <Content Include="Views\DonHang\_Delivery.cshtml" />
-    <Content Include="Views\DonHang\_Purchase.cshtml" />
-    <Content Include="Views\DonHang\_Other.cshtml" />
+    <Content Include="Views\DonHang\_Tab1_Address.cshtml" />
+    <Content Include="Views\DonHang\_Tab1_Delivery.cshtml" />
+    <Content Include="Views\DonHang\_Tab1_Purchase.cshtml" />
+    <Content Include="Views\DonHang\_Tab1_Other.cshtml" />
+    <Content Include="Views\DonHang\_Tab2_Address.cshtml" />
+    <Content Include="Views\DonHang\_Tab2_Other.cshtml" />
+    <Content Include="Views\DonHang\_Tab2_Delivery.cshtml" />
+    <Content Include="Views\DonHang\_Tab2_Budget.cshtml" />
+    <Content Include="Views\DonHang\_Tab2_Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1390,7 +1400,6 @@
     <Folder Include="public\crm\resources\appendixs\" />
     <Folder Include="public\crm\resources\contracts\" />
     <Folder Include="public\crm\resources\quotes\" />
-    <Folder Include="public\js\tarcl\order\" />
     <Folder Include="Views\Common\" />
     <Folder Include="Views\TestG\" />
     <Folder Include="Views\Ultils\" />

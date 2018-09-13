@@ -135,7 +135,6 @@ F:\trung\sources\web\BHLVT\BHLVT\obj\Debug\BHLVT.dll
 F:\trung\sources\web\BHLVT\BHLVT\obj\Debug\BHLVT.pdb
 F:\trung\sources\web\BHLVT\BHLVT\bin\RazorGenerator.Mvc.dll
 F:\trung\sources\web\BHLVT\BHLVT\obj\Debug\BHLVT.csprojResolveAssemblyReference.cache
-F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.csprojResolveAssemblyReference.cache
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.dll
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.pdb
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVT.dll.config
@@ -196,3 +195,6 @@ F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.Twitter.
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTBLL.dll
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTBLL.pdb
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTDAL.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTDAL.pdb
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.csprojResolveAssemblyReference.cache

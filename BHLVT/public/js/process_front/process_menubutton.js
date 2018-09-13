@@ -119,6 +119,4 @@ var setHeightItemMenu = function (selector) {
                 $('#btn-home').focus();
             }
         });
-        //$('#mm1').menu({ itemHeight: 25 });
-        //setHeightItemMenu('.menu-div-lvt');
     });
