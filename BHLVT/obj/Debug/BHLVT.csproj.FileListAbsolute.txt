@@ -135,12 +135,12 @@ F:\trung\sources\web\BHLVT\BHLVT\obj\Debug\BHLVT.dll
 F:\trung\sources\web\BHLVT\BHLVT\obj\Debug\BHLVT.pdb
 F:\trung\sources\web\BHLVT\BHLVT\bin\RazorGenerator.Mvc.dll
 F:\trung\sources\web\BHLVT\BHLVT\obj\Debug\BHLVT.csprojResolveAssemblyReference.cache
-F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.dll
-F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.pdb
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVT.dll.config
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVT.dll
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVT.pdb
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Antlr3.Runtime.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTBLL.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTDAL.dll
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\CommonServiceLocator.dll
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\EntityFramework.dll
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\EntityFramework.SqlServer.dll
@@ -169,6 +169,8 @@ F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.WebPages.dll
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.WebPages.Razor.dll
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\WebActivatorEx.dll
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\WebGrease.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTBLL.pdb
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTDAL.pdb
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\CommonServiceLocator.pdb
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.Helpers.xml
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\System.Web.Mvc.xml
@@ -193,8 +195,6 @@ F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.OAuth.xm
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.Google.xml
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.Twitter.xml
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTBLL.dll
-F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTBLL.pdb
-F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTDAL.dll
-F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\bin\BHLVTDAL.pdb
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.dll
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.pdb
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\BHLVT.csprojResolveAssemblyReference.cache

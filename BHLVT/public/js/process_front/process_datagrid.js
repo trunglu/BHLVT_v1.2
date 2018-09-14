@@ -2,6 +2,7 @@
     constructor(selectorDg) {
         this.selectorDg = selectorDg;
         this.editIndex = undefined;
+        this.dataDefaultRow = {};
     }
 
     endEditing() {
@@ -37,5 +38,34 @@
             }
         }
     }
+
+     append() {
+           if (this.endEditing()) {
+               $(this.selectorDg).datagrid('appendRow',this.dataDefaultRow);
+               this.editIndex = $(this.selectorDg).datagrid('getRows').length - 1;
+               $(this.selectorDg).datagrid('selectRow', this.editIndex)
+                        .datagrid('beginEdit', this.editIndex);
+           }
+     }
+
+     accept(_accept) {
+         if (this.endEditing()) {
+             $(this.selectorDg).datagrid('acceptChanges');
+             if (typeof (_accept) !== "undefined") {
+                 _accept();
+             }
+         }
+     }
+     removeit() {
+         if (this.editIndex == undefined) { return; }
+         $(this.selectorDg).datagrid('cancelEdit', this.editIndex)
+                 .datagrid('deleteRow', this.editIndex);
+         this.editIndex = undefined;
+     }
+
+     setDefaultDataRow(data) {
+         this.dataDefaultRow = data;
+         return this;
+     }
 
 }

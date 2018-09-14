@@ -1,28 +1,30 @@
 ﻿@model BHLVT.Models.InputData
+@using BHLVTBLL.Services.XConfig
 @{
-//Layout = null;
+    
+    var web_view = ((WebView)(new WebView()
+                    .SetWebViewPage(this)
+                    .setAction("Index")
+                    .setController("DonHang")
+                    .setArea(" "))).Prepare();
+}
+@section styles{
 
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    @(new HtmlString(web_view.GetRegisterStyles()))
 }
 <section class="content" style="padding-top:0px;">
     <div>
     <section class="content-header" style="padding:7px 0px">
-        @Html.Partial("~/Views/Shared/_PartialView/_MenuButtonsEasyui.cshtml", 
-       new Dictionary<string, Object>() { /*{"isHideAddBtn", true },*/ {"idMenu" ,"menu1"} })
+        @Html.Partial("~/Views/Shared/_PartialView/_MenuButtonsEasyui.cshtml",
+    new Dictionary<string, Object>() { /*{"isHideAddBtn", true },*/ { "idMenu", "menu1" }})
     </section>
     </div>
     <div class="row clearfix">
         <div class="col-md-12">
             <div class="easyui-tabs" style="" id="tab1">
                 <div title="Thông tin chung" style="padding:10px">
-                    <p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
-                    <ul>
-                        <li>easyui is a collection of user-interface plugin based on jQuery.</li>
-                        <li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>
-                        <li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
-                        <li>complete framework for HTML5 web page.</li>
-                        <li>easyui save your time and scales while developing your products.</li>
-                        <li>easyui is very easy but powerful.</li>
-                    </ul>
+                    @Html.Partial("~/Views/DonHang/_Tab1_GenInformations.cshtml", new Dictionary<string, Object>() { { "web_view", web_view } })
                 </div>
                 <div title="Địa chỉ" style="padding:10px">
                     @Html.Partial("~/Views/DonHang/_Tab1_Address.cshtml",new { })
@@ -48,7 +50,7 @@
         <div class="col-md-12">
             <div class="easyui-tabs" style="" id="tab2">
                 <div title="Chi tiết" style="padding:10px">
-                    @Html.Partial("~/Views/DonHang/_Tab2_Details.cshtml",new { })
+                    @Html.Partial("~/Views/DonHang/_Tab2_Details.cshtml", new Dictionary<string, Object>() {{ "web_view", web_view } })
                 </div>
                 <div title="Địa chỉ" style="padding:10px">
                     @Html.Partial("~/Views/DonHang/_Tab2_Address.cshtml", new { })
@@ -92,69 +94,5 @@
     </div>
 </section>
 @section scripts{
-    @**@<script>
-        var editIndexDg1 = undefined;
-        function endEditing() {
-            if (editIndexDg1 == undefined) { return true }
-            if ($('#dg').datagrid('validateRow', editIndexDg1)) {
-                $('#dg').datagrid('endEdit', editIndexDg1);
-                editIndexDg1 = undefined;
-                return true;
-            } else {
-                return false;
-            }
-        }
-        function onEndEdit(index, row) {
-            /* var ed = $(this).datagrid('getEditor', {
-                index: index,
-                field: 'productid'
-            });
-            row.productname = $(ed.target).combobox('getText');*/
-        }
-
-        function onClickCell(index, field) {
-            console.log($('#dg').datagrid('options'));
-            if (editIndexDg1 != index) {
-                if (endEditing()) {
-                    $('#dg').datagrid('selectRow', index)
-                            .datagrid('beginEdit', index);
-                    var ed = $('#dg').datagrid('getEditor', { index: index, field: field });
-                    if (ed) {
-                        ($(ed.target).data('textbox') ? $(ed.target).textbox('textbox') : $(ed.target)).focus();
-                    }
-                    editIndexDg1 = index;
-                } else {
-                    setTimeout(function () {
-                        $('#dg').datagrid('selectRow', editIndexDg1);
-                    }, 0);
-                }
-            }
-        }
-        function append() {
-           if (endEditing()) {
-               $('#dg').datagrid('appendRow',{name: "", birthday: ""});
-                editIndexDg1 = $('#dg').datagrid('getRows').length - 1;
-                $('#dg').datagrid('selectRow', editIndexDg1)
-                        .datagrid('beginEdit', editIndexDg1);
-            }
-           
-        }
-        function removeit() {
-            if (editIndexDg1 == undefined) { return }
-            $('#dg').datagrid('cancelEdit', editIndexDg1)
-                    .datagrid('deleteRow', editIndexDg1);
-            editIndexDg1 = undefined;
-        }
-
-        function accept() {
-            if (endEditing()) {
-                $('#dg').datagrid('acceptChanges');
-                console.log($('#dg').datagrid('getData'));
-
-            }
-        }
-    </script>
-    <script src="~/public/js/process_front/process_menubutton.js"></script>
-    <script src="~/public/js/process_front/process_datagrid.js"></script>
-    <script src="~/public/js/tarcl/order/process_dg1.js"></script>
+    @Html.Raw(web_view.GetRegisterScripts())
 }
