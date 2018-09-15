@@ -1,0 +1,285 @@
+﻿@model IEnumerable<BHLVT.Data.arkh>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.loai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ten_kh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_so_thue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dia_chi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.home_page)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nguoi_gd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.so_tk_nh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ten_nh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tinh_tp_nh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_plkh1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_plkh2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_plkh3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_nhkh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_tt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gh_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ghi_chu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tinh_dt_nb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.khoa_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isKh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isNcc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isNv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cuser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ldate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.luser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_duong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_phuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_quan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_tp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.so_nha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ten_dd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.chuc_vu_dd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cmnd_hc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ngay_cap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noi_cap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.muc_han_tt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtdd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.loai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ten_kh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ma_so_thue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dia_chi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.home_page)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nguoi_gd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.so_tk_nh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ten_nh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tinh_tp_nh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ma_plkh1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ma_plkh2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ma_plkh3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ma_nhkh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ma_tt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gh_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ghi_chu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tinh_dt_nb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.khoa_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isKh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isNcc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isNv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cuser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ldate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.luser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ma_duong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ma_phuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ma_quan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ma_tp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.so_nha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ten_dd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.chuc_vu_dd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cmnd_hc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngay_cap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noi_cap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.muc_han_tt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtdd)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,85 @@
+﻿@model List<BHLVTDAL.Data.tblemployee>
+@{
+    var controller = "Emps";
+}
+@section styles{
+
+    <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td {
+        padding:1px 5px;
+        }
+         table.scroll tbody {
+            height: 320px;
+        }
+    </style>
+}
+<div class="">
+    <div class="content">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Danh sách nhân viên</h3>
+                    <div style="display:inline;float:right"><a href="@Url.RouteUrl(new { controller = controller, action = "Create", area = "crm" })" class="btn btn-success btn-flat btn-xs"><i class="fa fa-plus"></i></a></div>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover scroll">
+                            <thead>
+                                <tr>
+                                    <th>Đăng Nhập</th>
+                                    <th>Tên</th>
+                                    <th>Họ</th>
+                                    <th>Giới tính</th>
+                                    <th>Ngày sinh</th>
+                                    <th>Ngày làm</th>
+                                    <th>Email</th>
+                                    <th>Di động</th>
+                                    <th>Bộ phận</th>
+                                    <th>PQ</th>
+                                    <th>Sửa</th>
+                                    <th>Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var i in Model)
+                                    {
+                                        <tr>
+                                            <td>@i.username</td>
+                                            <td>@i.firstname</td>
+                                            <td>@i.lastname</td>
+                                            <td><div style="min-width:80px">@i.sex</div></td>
+                                            <td>@i.birthday</td>
+                                            <td>@i.workday</td>
+                                            <td>@i.email</td>
+                                            <td>@i.mobile</td>
+                                            <td><div style="min-width:80px">@i.department</div></td>
+                                            <td class="text-center"><div style="min-width:40px"><a href="@Url.RouteUrl(new {controller="Emps",action="MPermission" ,area="crm",_id=i.username})"><i class="fa fa-users"></i></a></div></td>
+                                            <td class="text-center"><div style="min-width:40px"><a href="@Url.RouteUrl(new {controller="Emps",action="Update" ,area="crm",_id=i.username})"><i class="fa fa-edit"></i></a></div></td>
+                                            <td class="text-center"><div style="min-width:40px"><a href=""><i class="fa fa-trash"></i></a></div></td>
+
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+     @section scripts {
+<script src="~/public/js/datatable_process.js"></script>
+<script src="~/Areas/CRM/Sources/js/windows.js"></script>
+     <script>
+            $(document).ready(function () {
+                process_scroll_table(0);
+            });
+
+</script>
+     }  

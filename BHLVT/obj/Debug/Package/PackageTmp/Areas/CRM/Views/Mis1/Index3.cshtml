@@ -1,0 +1,152 @@
+﻿@using BHLVTDAL.Data
+@using CRMLVTBLLmd.CONST
+@using CRMLVTBLLmd.Models.Ultils
+@model BHLVTDAL.Data.tblmission
+
+@{
+    ViewBag.Title = "Nhập ký làm việc";
+    ViewBag.namewindow = "mainp";
+    var lpps = (PagedList.IPagedList<Dictionary<string, Object>>)ViewBag.lpps;
+    var db = new LVTDBContext();
+    var btn_class = ViewBag.btn == "Thêm" ? "btn btn-flat btn-sm btn-success" : "btn btn-flat btn-sm btn-warning";
+    Model.date = Model.date == null ? DateTime.Now : Model.date;
+    //Model.missionid = Model.missionid == null ? "" : Model.missionid;
+
+
+}
+@section styles {
+    <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td {
+            padding: 1px 5px;
+        }
+
+        table.scroll tbody {
+            height: 400px;
+        }
+    </style>
+    <style>
+        .textbox {
+            border-bottom: 1px solid #c2d0e4;
+        }
+    </style>
+
+}
+<div class="content">
+    <div class="col-md-12">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h4 class="title-box">Lập nhật ký làm việc nhanh</h4>
+            </div>
+            <div class="box-body">
+                <form method="post" name="frm" class="form-horizontal" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.customerid)
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.customerid, "Khách hàng:", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control input-sm" id="customername" name="customername" value="@(Model.customerid != null ? Customer.GetCustomerID(db,Model.customerid).customername : "")" required placeholder="Tên Khách hàng" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.customerid, "Tìm Khách hàng:", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            <div class="input-group input-group-xs">
+                                <input type="text" class="form-control input-sm" name="searchname" id="vsearch" placeholder="Nhập từ cần tìm">
+                                <span class="input-group-btn">
+                                    <button type="button" onclick="searchcustomer()" class="btn btn-info btn-flat">Tìm</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.mistype, "Loại công việc", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.DropDownListFor(model => model.mistype, (IEnumerable<SelectListItem>)ViewBag.lmtypes, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:120px" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.date, "Ngày làm", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.date, new { @class = "form-control1 input-sm datepicker", placeholder = "Ngày đi" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Giờ - phút bắt đầu", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.fromh, new { @class = "form-control1 input-sm", placeholder = "Giờ làm", maxlength = 2, size = 2 })
+                            @Html.TextBoxFor(model => model.fromi, new { @class = "form-control1 input-sm", placeholder = "Phút làm", maxlength = 2, size = 2 })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.todate, "Ngày kết thúc", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.todate, new { @class = "form-control1 input-sm datepicker", placeholder = "Ngày về" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Giờ - phút kết thúc", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.toh, new { @class = "form-control1 input-sm", placeholder = "Giờ kết thúc", maxlength = 2, size = 5 })
+                            @Html.TextBoxFor(model => model.toi, new { @class = "form-control1 input-sm", placeholder = "Phút kết thúc", maxlength = 2, size = 5 })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.content, "Nội dung công việc", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextAreaFor(model => model.content, new { @class = "form-control input-sm", placeholder = "Nội dung công việc", rows = "5" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.done, "Công việc đã hoàn thành", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextAreaFor(model => model.done, new { @class = "form-control input-sm", placeholder = "Công việc đã hoàn thành", rows = "5" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.wait, "Công việc chưa hoàn thành", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextAreaFor(model => model.wait, new { @class = "form-control input-sm", placeholder = "Công việc chưa hoàn thành", rows = "5" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.result, "Tỷ lệ hoàn thành (%)", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.result, new { @class = "form-control input-sm", placeholder = "Ngày về", type = "number"  })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.idea, "Ý kiến của khách hàng", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextAreaFor(model => model.idea, new { @class = "form-control input-sm", placeholder = "Ý kiến của khách hàng", rows = "5" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-4">
+                            <input type="submit" value="@ViewBag.btn" name="btn" class="@btn_class" />
+                        </div>    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+@section scripts{
+    <!-- daterange picker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+
+<!-- date-range-picker -->
+<script src="~/Themes/AdminLTE/bower_components/moment/min/moment.min.js"></script>
+<script src="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="~/Areas/CRM/Sources/js/searchcustomer.js"></script>
+<script src="~/Areas/CRM/Sources/js/windows.js"></script>    
+}
+
+

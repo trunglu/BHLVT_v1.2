@@ -1,0 +1,646 @@
+﻿@using BHLVTBLL.Services.Utils
+@using BHLVTBLL.IdentityModel
+@model BHLVTBLL.ModelsBLL.ViewModel.BillViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+@section styles{
+    <link href="~/public/js/autocomplete/dist/easy-autocomplete.min.css" rel="stylesheet" type="text/css">
+
+    <link href="~/public/css/scrollbar-basic.css" rel="stylesheet" />
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    
+    <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+}
+@*
+    <style>
+        .modal-content {
+         background-color:#ecf0f5;
+        }
+
+        body {
+        font-size:12px;
+        }
+        hr {
+            border: 1px solid #e6e5e5;
+        }
+        .easy-autocomplete input {
+            border-radius: 0px !important;
+            box-shadow: none !important;
+        }
+
+        .textbox {
+            border-radius: 0px !important;
+        }
+        .input-sm {
+        height:22px;
+        }
+        .form-group label {
+        text-align:left !important;
+        font-size:small;
+        }
+        .form-group {
+        margin-bottom:3px;
+        }
+        select.input-sm {
+        height:22px;
+        line-height:22px;
+        }
+        .input-group .btn {
+        padding: 0px 4px;
+        }
+        /*
+            .table > tbody > tr > td,
+         .table > tbody > tr > th,
+         .table > tfoot > tr > td,
+         .table > tfoot > tr > th,
+         .table > thead > tr > td,
+         .table > thead > tr > th {
+        padding:0px;
+        }
+        */
+        .nav-tabs > li > a {
+            padding:2px 15px;
+        }
+        .easy-autocomplete {
+            width:100% !important;
+        }
+        .form-control,.easy-autocomplete input {
+        border:none;
+        }
+        .form-control:focus,.easy-autocomplete input:focus {
+        border-bottom:1px solid #d2d6de;
+        }
+        .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+            background-color: #f9f9f9;
+        }
+        .textbox {
+        border:none;
+        }
+       /* .table > thead > tr > th {
+        border-width:0 1px 1px 0;
+        padding:5px;
+        background-color:#ececec7d;
+        border-style:dotted;
+        border-color:#bdbbbb;
+        }
+        .table > tbody > tr > td {
+        border-width:0 1px 1px 0;
+        border-style:dotted;
+        border-color:#bdbbbb;
+        }
+        table.scroll tbody,
+        table.scroll thead { display: block; }
+        table.scroll tbody {
+        height: 150px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+    }*/
+        .panel-footer {
+        border:none
+        }
+        .easy-autocomplete-container {
+        z-index:999999;
+        }
+        .panel-footer {
+        z-index:-1;
+        }
+        .btn-business {
+           border:none;
+           padding:3px 4px;
+        }
+        .btn-group-vt .l-btn {
+        border-radius:0px;
+        padding:0px 18px;
+        }
+
+    </style>*@
+
+<section class="content" style="padding-top:0px">
+    <div class="">
+        <!-- Content Header (Page header) -->
+        <section class="content-header" style="padding:7px 4px">
+            <h1>
+                Đơn Hàng
+                <small>Tạo đơn hàng</small>
+            </h1>
+        </section>
+        <hr style="margin-top:3px;margin-bottom:4px" />
+       
+        <form method="post" class="form-horizontal"  id="form_donhang" name="frm_main">
+            @Html.AntiForgeryToken()
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <input type="hidden" class="form-control" name="stt_rec" id="stt_rec" value="@Model.soph1.stt_rec" />
+                <div class="col-sm-12 col-md-6 col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="dienthoai" class="col-sm-3 control-label">Điện Thoại</label>
+                        <div class="col-md-7 col-sm-7">
+                            <input type="text" class="form-control input-sm" name="dienthoai" value="@Model.soph1.dien_thoai" id="dienthoai" />
+                        </div>
+                        <div class="col-md-3 col-sm-6 hidden" id="" style="margin-left: 10px">
+                            <label class="control-label">&nbsp;Thêm KH: </label>
+                            <input type="checkbox" name="insertcus" value="1" />
+                        </div>
+                    </div>
+                    <div class="form-group collapse" id="cus_category">
+                        <label for="khachhang" class="col-sm-3 control-label">Loại khách hàng</label>
+                        <div class="col-md-6 col-sm-7" id="cus_cate">
+                            <select data-options="editable: false" class="easyui-combobox form-control" name="cus_category" style="height:30px;">
+                                <option value="DL">Đại lý</option>
+                                <option value="KL">Khách lẻ</option>
+                                <option value="KTT">Khách hàng thân thiết</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="diachi" class="col-sm-3 control-label">Địa Chỉ</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control input-sm" name="diachi" value="@Model.soph1.dia_chi" id="diachi" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="khachhang" class="col-sm-3 control-label">Khách Hàng</label>
+                        <div class="col-md-7 col-sm-7" id="cus_change">
+                            <input id="cccus1" name="cccus" type="hidden" onblur="/*onChangeCus()*/" class="form-control" value="@Model.soph1.ma_kh" data-options="valueField:'id',textField:'text'" onclick="/*hienthi();*/" style="height:30px;" />
+                            <div class="input-group" style="z-index:0">
+                                <input type="text" id="cccus_tenkh" name="cccus_tenkh" value="@Model.soph1.ten_kh" class="form-control input-sm" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-info btn-flat" id="btn-add-customer"><i class="fa fa-plus"></i></button>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="nguoigiaodich" class="col-sm-3 control-label">Người Giao Dịch</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control input-sm" value="@Model.soph1.nguoi_gd" id="nguoigiaodich" name="nguoigiaodich" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="diengiai" class="col-sm-3 control-label">Diễn Giải</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control input-sm" id="diengiai" value="@Model.soph1.dien_giai" name="diengiai" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label id="nhanvien" for="nhanvien" class="col-sm-3 control-label">Nhân Viên</label>
+                        <div class="col-sm-7">
+                            <input disabled type="text" value='@{ if (Model.soph1.cuser.IsEmpty()) {@UserManager.Identity.username; } else {@Model.soph1.cuser } }' class="form-control input-sm" id="nhanvien" name="nhanvien" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-6 col-md-6 col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="sodonhang" class="col-sm-3 control-label">Số Đơn Hàng</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly
+                                   class="form-control input-sm" name="sodonhang" id="sodonhang" value="@Model.soph1.so_ct" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ngaylap" class="col-sm-3 control-label">Ngày Lập</label>
+                        <div class="col-sm-8">
+                            <input class="form-control input-sm" readonly name="ngaylap" value="@Model.soph1.cdate.ToString("dd/MM/yyyy")"
+                                   id="ngaylap" />
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="hantt" class="col-sm-3 control-label">Hạn TT</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control input-sm" id="songaytt" style="" value='0'
+                                   name="songaytt" />
+
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control input-sm" id="ngaytt"
+                                   name="ngaytt" placeholder="Ngày Hạn Thanh Toán" style="">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loaidonhang" class="col-sm-3 control-label">Loại Đơn Hàng</label>
+                        <div class="col-sm-4">
+                            <select id="loaidonhang" name="loaidonhang" class="easyui-combobox form-control input-sm" style="" data-options="editable: false">
+                                @{
+                                    foreach (var i in UtilsHelper.GetListComboTypeOrder())
+                                    {
+                                        <option  @{if (i.id.ToString() == Model.soph1.loai_dh) { @("selected")  }} value="@i.id">@i.text</option>
+                                    }
+                                }
+                                <!--<option value="2">Giao Hẹn</option>-->
+                            </select>
+                        </div>
+                        <!--  <label for="khuyenmai" class="col-sm-3 control-label">Khuyến Mãi</label>
+                        <div class="col-sm-1">
+                            <input type="checkbox" name="khuyenmai" class="form-control" value="khuyenmai" />
+                        </div>-->
+
+                    </div>
+                    <div class="form-group">
+                        <label for="trangthaidonhang" class="col-sm-3 control-label">Trạng Thái</label>
+                        <div class="col-sm-4">
+                            <select id="trangthaidonhang" name="trangthaidonhang" class="easyui-combobox form-control input-sm" data-options="editable: false" style=" ">
+                                @{
+                                    foreach (var i in UtilsHelper.GetListComboStatusOrder())
+                                    {
+                                        <option name="trangthaidonhang" @{if (i.id.ToString() == Model.soph1.trang_thai) {@("selected") }} value="@i.id">@i.text</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="nocu" class="col-sm-3 control-label">Nợ Cũ</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input-sm" id="nocu" name="nocu" onkeyup="onChangeNocu();" style="text-align:right;" value="0" />
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <!-- <label for="tlchietkhau" class="col-sm-3 control-label">Tỉ Giá: </label>-->
+                        <div class="col-sm-4">
+                            <input type="hidden" class="form-control input-sm" name="tigia" onkeyup="changeTG()" onblur="changeTG()" onclick="changeTG()" value="1" id="tigia" />
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <!-- Custom Tabs -->
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_1" data-toggle="tab">Chi tiết đơn hàng</a></li>
+                        <li><a href="#tab_2" data-toggle="tab">Thông tin giao hàng</a></li>
+                        <li><a href="#tab_3" data-toggle="tab">Chi phí</a></li>
+                        <li class="dropdown hidden">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Dropdown <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                        <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1">
+                            <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12">
+                                <div class="table-responsive table-ct" style="overflow-x:visible">
+                                    <input type="hidden" id="flag_check" value="1" />
+                                    <input type="hidden" id="lrow" name="lrow" value="@(Model.lsoct1.Count())"/>
+                                     <table class="tablesorter scroll table table-bordered" id="dataTable" data-row="@(Model.lsoct1.Count()+1)" style="text-align  : center;margin-bottom:0px;">
+                                         <thead>
+                                             <tr>
+                                                 <th></th>
+                                                 <th class="hidden">NCC </th>
+                                                 <th class="hidden">Nhóm Hàng </th>
+                                                 <th>Tên Hàng </th>
+                                                 <th>ĐVT </th>
+                                                 <th>K.M </th>
+                                                 <th>S.L </th>
+                                                 <th>Đơn Giá </th>
+                                                 <th>% CK </th>
+                                                 <th>Tiền CK </th>
+                                                 <th>Thành Tiền </th>
+                                             </tr>
+                                         </thead>
+                                        <tbody id="tbody_soct1">
+                                            @{
+                                                var index = 0;
+                                                var script_st = "var rowCount=1;";
+                                                foreach (var soct1_ in Model.lsoct1)
+                                                {
+                                                    var he_so = soct1_.so_luong == 0 ? 0 : soct1_.so_luong_qd / soct1_.so_luong;
+                                                    <tr>
+                                                        <td style="width:20px">
+                                                            <input type="checkbox" name="chk" value="@{@Html.Raw(index);}" style="/*width: 80px;*/" />
+                                                        </td>
+                                                        <td class="hidden">
+                                                            <input type="hidden" name="ccheso[]" value="@he_so" id="ccheso@{@Html.Raw(index);}" />
+                                                            <input id="ccsup" onblur="onChangeSup(0)" name="ccsup[]" class="easyui-combobox" data-options="valueField:'id',textField:'text'" value="Tên NCC" style="height:30px;" />
+                                                        </td>
+                                                        <td class="hidden">
+                                                            <input id="ccnhomhang@{@Html.Raw(index);}" name="ccnhomhang[]" class="easyui-combobox" data-options="valueField:'id',textField:'text'" value="Nhóm Hàng" style="height:22px;width: 100px;" />
+                                                        </td>
+                                                        <td >
+                                                            <div style="display:none">
+                                                                <input id="cctenhang@{@Html.Raw(index);}" name="cctenhang[@{@Html.Raw(index);}]" class="easyui-combobox" data-options="valueField:'id',textField:'text'" value="@soct1_.ma_vt" style="height:22px;" />
+                                                            </div>
+                                                            <input id="scctenhang@{@Html.Raw(index);}" name="scctenhang@{@Html.Raw(index);}" class="form-control input-sm" value="@soct1_.ten_vt" placeholder="Tên Hàng" style="width:200px" />
+
+                                                        </td>
+                                                        <td>
+                                                            <input type="hidden" id="namedvt@{@Html.Raw(index);}" name="namedvt[@{@Html.Raw(index);}]" value="@soct1_.dvt" />
+                                                            <select id="ccdvt@{@Html.Raw(index);}" class="easyui-combobox" name="ccdvt[@{@Html.Raw(index);}]" data-options="onChange: function () {onChangeDVT(@index);}," style="width:80px;height:22px;">
+                                                                @Html.Raw(UtilsHelper.GetListDVT(soct1_.ma_vt, soct1_.dvt))
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" class="check-box-km" name="check_km@{@Html.Raw(index);}" value="0" style="width: 50px;" id="check_km@{@Html.Raw(index);}" />
+                                                        </td>
+                                                        <td  >
+                                                            <input type="text" maxlength="6" size="6" step="1" min="1" value="@soct1_.so_luong" class="form-control " onblur="onChangeSoLuong(soluong@{@Html.Raw(index);}, @{@Html.Raw(index);})"
+                                                                   onfocus="select_value(0)" onkeyup="onChangeSoLuong(soluong@{@Html.Raw(index);}, @{@Html.Raw(index);})" name="soluong[@{@Html.Raw(index);}]" id="soluong@{@Html.Raw(index);}" style="text-align:center; width: 70px;height:22px;" />
+                                                        </td>
+                                                       
+                                                        <td style="width:150px">
+                                                            <input type="text" class="form-control input-sm" onkeyup="onChangeGia(dongia@{@Html.Raw(index);}, @{@Html.Raw(index);})" name="dongia[@{@Html.Raw(index);}]" id="dongia@{@Html.Raw(index);}" value="@soct1_.gia_nt2" style="text-align:right;" />
+                                                        </td>
+                                                        <td style="width:150px">
+                                                            <input type="hidden" value="1" id="flagdiscount@{@Html.Raw(index);}" />
+                                                            <input required onclick="changeCK(chietkhau0, 0)" onblur="changeCK(chietkhau0, 0)" onkeyup="changeCK(chietkhau@{@Html.Raw(index);}, @{@Html.Raw(index);})" name="chietkhau[@{@Html.Raw(index);}]" id="chietkhau@{@Html.Raw(index);}" value="@soct1_.tl_ck" style="text-align:right;height: 22px" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control input-sm" readonly onclick=""  onblur="onChangeFixedDiscount(tienck@{@Html.Raw(index);}, @{@Html.Raw(index);})" name="tienck[@{@Html.Raw(index);}]" id="tienck@{@Html.Raw(index);}" value="@soct1_.tien_ck_nt" style="text-align:right;width:100px" />
+                                                        </td>
+                                                        <td >
+                                                            <input type="text" class="form-control thanhtoan input-sm" readonly name="thanhtoan[@{@Html.Raw(index);}]" id="thanhtoan@{@Html.Raw(index);}" value="@soct1_.tt_nt" style="text-align:right;width:100px" />
+                                                        </td>
+                                                    </tr>
+        index++;
+        script_st += "var data={ten:'" + soct1_.ma_vt + "',donvi:'" + soct1_.dvt + "'};initComboTenHang(\"cctenhang\" + (rowCount - 1)); oninitHangHoa((rowCount - 1),data); /*initComboDVT(\"ccdvt\" + (rowCount - 1));*/initNumberSoluong(\"soluong\" + (rowCount - 1), (rowCount - 1));initNumberCK(\"chietkhau\" + (rowCount - 1), (rowCount - 1));initTienCK(\"tienck\" + (rowCount - 1), (rowCount - 1));$('#cctenhang" + index + "').combobox('select', '" + soct1_.ma_vt + "');rowCount++;\n";
+
+    }
+
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                    <div id="ft" style="padding:2px 5px;" class="panel-footer">
+                                        <a href="javascript:void(0)" onclick="addRow('dataTable')" class="easyui-linkbutton l-btn-small"  plain="true" group="" id=""><span class="fa  fa-plus">&nbsp;</span></a>
+                                        <a href="javascript:void(0)" class="easyui-linkbutton  l-btn-small hidden"  plain="true" group="" id=""><span class="fa  fa-edit">&nbsp;</span></a>
+                                        <a href="javascript:void(0)" class="easyui-linkbutton l-btn-small hidden"  plain="true" group="" id=""><span class="fa fa-save">&nbsp;</span></a>
+                                        <a href="javascript:void(0)" class="easyui-linkbutton  l-btn-small hidden"  plain="true" group="" id=""><span class="fa  fa-cut">&nbsp;</span></a>
+                                        <a href="javascript:void(0)"  onclick="deleteRow('dataTable')" class="easyui-linkbutton l-btn-small "  plain="true" group="" id=""><span class="fa  fa-remove">&nbsp;</span></a>
+                                    </div>
+                                </div>
+                                <input class="btn btn-default hidden" type="button" value="Thêm Dòng" onclick="addRow('dataTable')" />
+                                <input class="btn btn-default hidden" type="button" value="Xóa Dòng" onclick="deleteRow('dataTable')" />
+                            </div>
+                            <div class="clearfix"></div>
+                            
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="tab_2">
+                            Chức năng thông tin giao hàng đang ở trạng thái phát triển.....
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="tab_3">
+                            Chức năng Chi phí đang ở trạng thái phát triển.....
+                        </div>
+                        <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+                <!-- nav-tabs-custom -->
+                <div class="col-md-offset-8">
+                    <div class="form-group">
+                        <label for="tongcong" class="col-sm-4 control-label">Tổng Cộng:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input-sm" readonly required name="tongcong" style="text-align:right;font-weight: bold;border-bottom:1px solid #a0a0a0"
+                                   id="tongcong" />
+
+                        </div>
+                    </div>
+                </div>
+                <hr style="margin-top:5px;margin-bottom:5px;"/>
+                <div class="col-md-offset-10 btn-group-vt" style="text-align:right;margin-bottom:5px;">
+                    <button id="btnSubmit" name="btnSubmit" type="button" class="easyui-linkbutton l-btn l-btn-small @{if (Model.soph1.stt_rec.Trim() != "") { @("hidden"); }}" onclick="checkSlTon()">Mới</button>
+                    <button name="btnUpdate" id="btnUpdate" type="button" class="easyui-linkbutton l-btn l-btn-small @{if (Model.soph1.stt_rec.Trim() == "") { @("hidden"); }}" onclick="checkSlTon()">Sửa</button>
+                    <button class="easyui-linkbutton l-btn l-btn-small" type="button" onclick="huydh()">Đóng</button>
+                </div>
+            </div>
+            <!-- /.col -->
+
+        </form>
+    </div>
+    <hr />
+   
+</section>
+
+
+<div id="modal_loading" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm" style="margin:30px auto">
+        <!-- Modal content-->
+        <div class="modal-content" style="background-color:black">
+            <div class="modal-body">
+                <h1 style="color:white">Loading...</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="modal_add_customer" class="modal fade" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Tạo mới khách hàng</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Action("CreatePartial", "arkhs")
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-crcust" onclick="cms_crCustomer();"><i class="fa fa-check"></i> Lưu</button>
+                <button class="btn btn-default btn-sm btn-close" type="reset" onclick="clear_form('frm-crcust')" data-dismiss="modal"><i class="fa fa-undo"></i> Bỏ qua</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts {
+
+    <!-- date-range-picker -->
+    <script src="~/Themes/AdminLTE/bower_components/moment/min/moment.min.js"></script>
+    <script src="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap datepicker -->
+    <script src="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+    <!--autocomplete-->
+    <script src="~/public/js/jquery.scrollbar.js"></script>
+    <script src="~/public/js/autocomplete/dist/jquery.easy-autocomplete.js" type="text/javascript"></script>
+    <script src="~/public/js/process_donhang.js"></script>
+    <script src="~/public/js/function_del.js"></script>
+    <script type="text/javascript">
+            // When the document is ready
+            $(document).ready(function () {
+
+                $('#ngaylap').datepicker({
+                    format: "dd/mm/yyyy"
+                });
+
+                $("#ngaylap").datepicker().datepicker("setDate", new Date());
+                $('#ngaytt').datepicker({
+                    format: "dd/mm/yyyy"
+                });
+
+                $("#ngaytt").datepicker().datepicker("setDate", new Date());
+                /*$('#fromdate').datepicker({
+                    format: "yyyy/mm/dd"
+                });
+
+                $("#fromdate").datepicker().datepicker("setDate", new Date());
+                $('#todate').datepicker({
+                    format: "yyyy/mm/dd"
+                });*/
+
+               // $("#todate").datepicker().datepicker("setDate", new Date());
+
+                $('#daterange-btn').daterangepicker(
+      {
+          ranges: {
+              'Hôm nay': [moment(), moment()],
+              'Hôm qua': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+              'Cách đây 1 tuần': [moment().subtract(6, 'days'), moment()],
+              'Cách đây 1 tháng': [moment().subtract(29, 'days'), moment()],
+              'Đầu tháng': [moment().startOf('month'), moment().endOf('month')],
+              'Cuối tháng': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+      },
+      function (start, end) {
+          $('#daterange-btn span').html(start.format('YYYY/MM/DD') + ' - ' + end.format('YYYY/MM/DD'));
+          $('#fromdate').val(start.format('YYYY/MM/DD') + "");
+          $('#todate').val(end.format('YYYY/MM/DD') + "");
+          console.log(start.format('YYYY/MM/DD') + " ------- " + end.format('YYYY/MM/DD') + "");
+      });
+
+                $('[name="insertcus"]').change(function () {
+                    if ($(this).prop('checked')) {
+                        $('#cus_category').collapse("show");
+                        $('#cccus1').val('');
+                        $('#cccus_tenkh').val('');
+                        $('#dienthoai').val('');
+                        $('#nguoigiaodich').val('');
+                        $('#diachi').val('');
+                    } else {
+                        $('#cus_category').collapse("hide");
+                    }
+                });
+                $('#btn-add-customer').off().on('click', function () {
+                    $('#modal_add_customer').modal('show');
+                });
+                //$('.ct-diachi').scrollbar();
+                @Html.Raw(script_st);
+
+            });
+    </script>
+<script type="text/javascript">
+		(function($){
+			function getCacheContainer(t){
+				var view = $(t).closest('div.datagrid-view');
+				var c = view.children('div.datagrid-editor-cache');
+				if (!c.length){
+					c = $('<div class="datagrid-editor-cache" style="position:absolute;display:none"></div>').appendTo(view);
+				}
+				return c;
+			}
+			function getCacheEditor(t, field){
+				var c = getCacheContainer(t);
+				return c.children('div.datagrid-editor-cache-' + field);
+			}
+			function setCacheEditor(t, field, editor){
+				var c = getCacheContainer(t);
+				c.children('div.datagrid-editor-cache-' + field).remove();
+				var e = $('<div class="datagrid-editor-cache-' + field + '"></div>').appendTo(c);
+				e.append(editor);
+			}
+
+			var editors = $.fn.datagrid.defaults.editors;
+			for(var editor in editors){
+				var opts = editors[editor];
+				(function(){
+					var init = opts.init;
+					opts.init = function(container, options){
+						var field = $(container).closest('td[field]').attr('field');
+						var ed = getCacheEditor(container, field);
+						if (ed.length){
+							ed.appendTo(container);
+							return ed.find('.datagrid-editable-input');
+						} else {
+							return init(container, options);
+						}
+					}
+				})();
+				(function(){
+					var destroy = opts.destroy;
+					opts.destroy = function(target){
+						if ($(target).hasClass('datagrid-editable-input')){
+							var field = $(target).closest('td[field]').attr('field');
+							setCacheEditor(target, field, $(target).parent().children());
+						} else if (destroy){
+							destroy(target);
+						}
+					}
+				})();
+			}
+		})(jQuery);
+</script>
+<script type="text/javascript">
+		var editIndexDg1 = undefined;
+		function endEditing(){
+			if (editIndexDg1 == undefined){return true}
+			if ($('#dg').datagrid('validateRow', editIndexDg1)){
+				var ed = $('#dg').datagrid('getEditor', {index:editIndexDg1,field:'productid'});
+				var productname = $(ed.target).combobox('getText');
+				$('#dg').datagrid('getRows')[editIndexDg1]['productname'] = productname;
+				$('#dg').datagrid('endEdit', editIndexDg1);
+				editIndexDg1 = undefined;
+				return true;
+			} else {
+				return false;
+			}
+		}
+		function onClickRow(index){
+			if (editIndexDg1 != index){
+				if (endEditing()){
+					$('#dg').datagrid('selectRow', index)
+							.datagrid('beginEdit', index);
+					editIndexDg1 = index;
+				} else {
+					$('#dg').datagrid('selectRow', editIndexDg1);
+				}
+			}
+		}
+		function accept(){
+			if (endEditing()){
+				$('#dg').datagrid('acceptChanges');
+			}
+		}
+		function reject(){
+			$('#dg').datagrid('rejectChanges');
+			editIndexDg1 = undefined;
+		}
+		function getChanges(){
+			var rows = $('#dg').datagrid('getChanges');
+			alert(rows.length+' rows are changed!');
+		}
+		function formatAttribuleCol(val, row, index) {
+		    var str = "<input style='display:none' id='id-" + row + "'  /><input class='easyui-textbox' style='width:100%' value='" + val + "'/>";
+		    console.log("a: " + index);
+		    return str;
+		}
+
+</script>
+
+}
+

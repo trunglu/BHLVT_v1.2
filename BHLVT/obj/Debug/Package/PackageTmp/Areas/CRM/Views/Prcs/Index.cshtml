@@ -1,0 +1,172 @@
+﻿@using BHLVTDAL.Data
+@using CRMLVTBLLmd.CONST
+@model BHLVTDAL.Data.tblquote
+@{
+    ViewBag.Title = "Báo giá";
+    ViewBag.namewindow = "mainp";
+    var lpps = (PagedList.IPagedList<Dictionary<string,Object>>)ViewBag.lpps;
+    var btn_class = ViewBag.btn == "Thêm" ? "btn btn-flat btn-sm btn-success" : "btn btn-flat btn-sm btn-warning";
+    Model.quotedate = Model.quotedate == null ? DateTime.Now : Model.quotedate;
+}
+@section styles {
+    <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td {
+            padding: 1px 5px;
+        }
+
+        table.scroll tbody {
+            height: 320px;
+        }
+    </style>
+<style>
+    .textbox {
+        border-bottom: 1px solid #c2d0e4;
+    }
+</style>
+
+}
+<div class="content">
+    <div class="col-md-12">
+        <div class="nav-tabs-custom">
+            @Html.Action("MBar", "Cus", new { area = "crm", t = "4", _id = ViewBag._id })
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="col-md-7">
+                        <div class="box box-widget">
+                            <div class="box-header">
+                                <i class="fa fa-th"></i>
+                                <h3 class="box-title">Danh sách báo giá</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn bg-white btn-xs btn-flat" data-widget="collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>  
+                            <div class="box-body">
+                                <div style="margin-bottom:3px"><a href="javascript:void(0);" onclick="return window_open('@Url.RouteUrl(new { controller = "Conts", action = "Create", area = "crm", _idcus = ViewBag._id })','t',600,300)" class="btn btn-xs btn-flat btn-success"><i class="fa fa-plus"></i></a></div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped scroll table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Tên hợp đồng</th>
+                                                <th>Giá báo</th>
+                                                <th>Ngày Báo</th>
+                                                <th>Người báo giá</th>
+                                                <th>Files</th>
+                                                <th class="text-center">Sửa</th>
+                                                <th class="text-center">Xóa</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                var index = (lpps.PageNumber - 1) * (lpps.PageSize) + 1;
+                                                foreach (var i in lpps)
+                                                {
+                                                    var q = (tblquote)i["q"]; var e = (tblemployee)i["e"];
+                                                    <tr>
+                                                        <td><div style="width:150px"><a href="~/crm/prcs?_id=@q.customerid&cid=@q.quoteid">@q.quotename</a></div></td>
+                                                        <td><div style="width:100px;text-align:right">@(string.Format("{0:0,0}", q.price)) </div></td>
+                                                        <td><div style="width:100px">@q.quotedate</div></td>
+                                                        <td><div style="width:100px">@e.firstname @e.lastname</div></td>
+                                                        <td><div style="width:70px;word-break:break-word"><a href="@(ConstCRM.PATHFILEQUOTE+q.enclosure)">@q.enclosure</a></div></td>
+                                                        <td class="text-center"><div style="width:40px"><a href="#"></a></div></td>
+                                                        <td class="text-center"><div style="width:40px"><form onsubmit="return checkvar()" action="~/CRM/Prcs/Delete" method="post">@Html.AntiForgeryToken()<input type="hidden" name="_id" value="@q.customerid" /><input type="hidden" name="cid" value="@q.quoteid" /><button class="btn btn-xs"><i class="fa fa-trash"></i></button></form></div></td>
+                                                    </tr>
+                                                    index++;
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>  
+                        </div>
+                           
+                        </div>
+                    <div class="col-md-5 panel-form">
+                        <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary()
+                            @Html.HiddenFor(model => model.quoteid, new { required = false })
+                            @Html.HiddenFor(model => model.customerid)
+                            @Html.HiddenFor(model=>model.employee)
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.quotename, "Tên hợp đồng", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.quotename, new { @class = "form-control input-sm", placeholder = "Tên hợp đồng", required = "true" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.quotedate, "Ngày báo giá", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.quotedate, new { @class = "form-control input-sm", placeholder = "Ngày báo giá", })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.sendto, "Người nhận", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.DropDownListFor(model => model.sendto, (IEnumerable<SelectListItem>)ViewBag.lcontact, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:200px" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.price, "Giá báo", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.price, new { @class = "form-control1 input-sm decimal-mask", placeholder = "Giá báo",size="20" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.content, "Nội dung", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextAreaFor(model => model.content, new { @class = "form-control input-sm", placeholder = "Nội dung",rows="5" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.enclosure, "Kèm theo file", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    <input type="file" id="enclosuref" name="enclosuref" class="form-control input-sm"/>
+                                    @Html.HiddenFor(model => model.enclosure)
+                                    <a href="#">@Model.enclosure</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.note, "Ghi chú", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextAreaFor(model => model.note, new { @class = "form-control input-sm", placeholder = "Ghi chú", rows = "5" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.feedback, "Phản hồi", new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextAreaFor(model => model.feedback, new { rows = "5", @class = "form-control input-sm", placeholder = "Phản hồi" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-md-3">
+                                    <input type="submit" value="@ViewBag.btn" name="btn" class="@btn_class" />
+
+                                </div> 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+@section scripts {
+    <script src="~/public/js/datatable_process.js"></script>
+    <script src="~/Areas/CRM/Sources/js/windows.js"></script>
+<script src="~/Themes/AdminLTE/plugins/input-mask/jquery.inputmask.js"></script>
+    <script>
+            $(document).ready(function () {
+                process_scroll_table(0);
+            });
+
+    </script>
+}
+
+

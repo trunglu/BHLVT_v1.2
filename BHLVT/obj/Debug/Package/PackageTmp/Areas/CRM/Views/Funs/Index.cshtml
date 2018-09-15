@@ -1,0 +1,186 @@
+﻿@using BHLVTDAL.Data
+@using CRMLVTBLLmd.CONST
+@model BHLVTDAL.Data.tbldailyreport
+@{
+    ViewBag.Title = "Báo cáo ngày";
+    ViewBag.namewindow = "mainp";
+    var lpps = (PagedList.IPagedList<Dictionary<string, Object>>)ViewBag.lpps;
+    var btn_class = ViewBag.btn == "Thêm" ? "btn btn-flat btn-sm btn-success" : "btn btn-flat btn-sm btn-warning";
+    //Model.contractdate = Model.contractdate == null ? DateTime.Now : Model.contractdate;
+    //Model.contractid = Model.contractid == null ? "" : Model.contractid;
+}
+@section styles {
+    <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td {
+            padding: 1px 5px;
+        }
+
+        table.scroll tbody {
+            height: 320px;
+        }
+    </style>
+    <style>
+        .textbox {
+            border-bottom: 1px solid #c2d0e4;
+        }
+    </style>
+
+}
+<div class="content">
+    <div class="col-md-12">
+        <div class="nav-tabs-custom">
+            @Html.Action("MBar", "Cus", new { area = "crm", t = "9", _id = ViewBag._id })
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="col-md-7">
+                        <div class="box box-widget">
+                            <div class="box-header">
+                                <i class="fa fa-th"></i>
+                                <h3 class="box-title">Danh sách báo cáo ngày</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn bg-white btn-xs btn-flat" data-widget="collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div style="margin-bottom:3px"><a href="javascript:void(0);" onclick="return window_open('@Url.RouteUrl(new { controller = "Cons1", action = "Create", area = "crm", _idcus = ViewBag._id })','t',600,300)" class="btn btn-xs btn-flat btn-success"><i class="fa fa-plus"></i></a></div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped scroll table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Tên nhân viên</th>
+                                                <th>Ngày</th>
+                                                <th>Bắt đầu</th>
+                                                <th>Kết thúc</th>
+                                                <th>Nội dung công việc</th>
+                                                <th>Các file sửa</th>
+                                                <th>KQ</th>
+                                                <th class="text-center">Sửa</th>
+                                                <th class="text-center">Xóa</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                var index = (lpps.PageNumber - 1) * (lpps.PageSize) + 1;
+                                                foreach (var i in lpps)
+                                                {
+                                                    // i.Keys.
+                                                    var q = (tbldailyreport)i["q"]; var e = (tblemployee)i["e"];
+                                                    var date = q.reportdate != null ? q.reportdate.Value.ToString("dd-MM-yyyy") : "";
+                                                    //var enddate = q.enddate != null ? q.enddate.Value.ToString("dd-MM-yyyy") : "";
+
+                                                    <tr>
+                                                        <td><div style="width:150px">@(e.firstname + " " + e.lastname)</div></td>
+                                                        <td><div style="width:120px">@date</div></td>
+                                                        <td><div style="width:120px;">@(q.shour + ":" + q.sminute)</div></td>
+                                                        <td><div style="width:120px;">@(q.ehour + ":" + q.eminute)</div></td>
+                                                        <td><div style="width:200px">@q.content</div></td>
+                                                        <td><div style="width:100px">@q.repairs</div></td>
+                                                        <td><div style="width:30px">@q.result</div></td>
+                                                        <td class="text-center"><div style="width:40px"><a href="/crm/funs?_id=@q.customerid&cid=@q.reportid" class="btn btn-xs btn-warning btn-flat"><i class="fa fa-edit"></i></a></div></td>
+                                                        <td class="text-center"><div style="width:40px"><form onsubmit="return checkvar()" action="~/CRM/Funs/Delete" method="post">@Html.AntiForgeryToken()<input type="hidden" name="_id" value="@q.customerid" /><input type="hidden" name="cid" value="@q.reportid" /><button class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button></form></div></td>
+                                                    </tr>
+                                                    index++;
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                              
+                            </div>
+                            <div class="col-md-5 col-xs-12 panel-form">
+                                <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary()
+                                    @Html.HiddenFor(model => model.customerid)
+                                    @Html.HiddenFor(model => model.reportid)
+                                    @Html.HiddenFor(model => model.employeeid)
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.reportdate, "Ngày báo cáo", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.reportdate, new { @class = "form-control1 input-sm datepicker", placeholder = "Ngày bắt đầu", size = 20, required = "true" })
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Thời gian bắt đầu", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.shour, new { @class = "form-control1 input-sm", placeholder = "Giờ bắt đầu", maxlength = 2, size = 2 })
+                                            @Html.TextBoxFor(model => model.sminute, new { @class = "form-control1 input-sm", placeholder = "Phút bắt đầu", maxlength = 2, size = 2 })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Thời gian kết thúc", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.ehour, new { @class = "form-control1 input-sm", placeholder = "Giờ kết thúc", maxlength = 2, size = 2 })
+                                            @Html.TextBoxFor(model => model.eminute, new { @class = "form-control1 input-sm", placeholder = "Phút kết thúc", maxlength = 2, size = 2 })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.workin, "Nơi làm việc", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-3">
+                                            @Html.DropDownListFor(model => model.workin, (IEnumerable<SelectListItem>)ViewBag.lworkin, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:150px" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.content, "Nội dung công việc", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextAreaFor(model => model.content, new { @class = "form-control input-sm", placeholder = "Nội dung công việc", rows = "5", required = "true" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.repairs, "Các file sửa", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextAreaFor(model => model.repairs, new { @class = "form-control input-sm", placeholder = "Các file sửa", rows = "5" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.result, "Tỷ lệ hoàn thành (%)", new { @class = "control-label col-sm-3" })
+                                        <div class="col-sm-9">
+                                            @Html.TextBoxFor(model => model.result, new { @class = "form-control input-sm", placeholder = "Tỉ lệ hoàn thành", type = "number" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-3 col-md-3">
+                                            <input type="submit" value="@ViewBag.btn" name="btn" class="@btn_class" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+@section scripts {
+     <!-- daterange picker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+
+<!-- date-range-picker -->
+<script src="~/Themes/AdminLTE/bower_components/moment/min/moment.min.js"></script>
+<script src="~/Themes/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="~/Themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/public/js/datatable_process.js"></script>
+    <script src="~/Areas/CRM/Sources/js/windows.js"></script>
+    <script>
+            $(document).ready(function () {
+                process_scroll_table(0);
+            });
+
+    </script>
+}
