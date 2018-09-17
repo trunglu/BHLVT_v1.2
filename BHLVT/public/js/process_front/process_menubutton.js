@@ -1,4 +1,4 @@
-﻿(function ($) {
+﻿/*(function ($) {
     function getParentMenu(rootMenu, menu) {
         return findParent(rootMenu);
 
@@ -99,7 +99,7 @@
             }
         }
     });
-})(jQuery);
+})(jQuery);*/
 var setHeightItemMenu = function (selector) {
     if (typeof ($(selector)) !== "undefined") {
         if (typeof ($(selector).data("options")) !== "undefined") {
@@ -112,11 +112,41 @@ var setHeightItemMenu = function (selector) {
         }
     }
 };
-    $(function () {
+    /*$(function () {
         $.fn.menubutton.methods.enableNav();
         $(document).keydown(function (e) {
             if (e.altKey && e.keyCode == 87) {
                 $('#btn-home').focus();
             }
         });
-    });
+    });*/
+	
+class MenuButton {
+	constructor(selector) {
+		this.selector = selector;
+		this.InitializeSave();
+	}
+	
+	InitializeSave() {
+		$(this.selector).find(".btn-save").off().on('click',function() {
+			this.save();
+		});
+	}
+	
+	save() {
+		console.log(this.selector + " click save.");
+	}
+	
+	add() {
+		console.log(this.selector + " click add.");
+	}
+	
+	print() {
+		console.log(this.selector + " click print.");
+	}
+	
+	remove() {
+		console.log(this.selector + " click remove.");
+	}
+	
+}
