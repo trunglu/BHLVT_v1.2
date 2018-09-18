@@ -2,22 +2,23 @@
 @using BHLVTBLL.Services.XConfig
 @{
     
-    var web_view = ((WebView)(new WebView()
+    var web_view = (WebView)((WebView)(new WebView()
                     .SetWebViewPage(this)
                     .setAction("Index")
                     .setController("DonHang")
                     .setArea(" "))).Prepare();
+	var menu1 = ((WebView)web_view).CreateMenuButton("menu1").Prepare();
 }
 @section styles{
-
     <link href="~/public/css/customizestyle.css" rel="stylesheet" />
     @(new HtmlString(web_view.GetRegisterStyles()))
 }
 <section class="content" style="padding-top:0px;">
     <div>
-    <section class="content-header" style="padding:7px 0px">
-        @Html.Partial("~/Views/Shared/_PartialView/_MenuButtonsEasyui.cshtml",
-    new Dictionary<string, Object>() { /*{"isHideAddBtn", true },*/ { "idMenu", "menu1" }})
+    <section class="content-header" style="padding:2px 0px">
+		@Html.Raw(menu1.Widget())
+        @*Html.Partial("~/Views/Shared/_PartialView/_MenuButtonsEasyui.cshtml",
+    new Dictionary<string, Object>() { /*{"isHideAddBtn", true },*/ { "idMenu", "menu1" }})*@
     </section>
     </div>
     <div class="row clearfix">

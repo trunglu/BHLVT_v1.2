@@ -120,3 +120,138 @@ var setHeightItemMenu = function (selector) {
             }
         });
     });*/
+	
+class MenuButton {
+	constructor(selector) {
+		this.selector = selector;
+		this.InitializeSave();
+		this.InitializeAdd();
+		this.InitializeEdit();
+		this.InitializeRemove();
+		this.InitializePrint();
+		this.InitializeNext();
+		this.InitializePrevious();
+		this.InitializeReset();
+		this.InitializeCopy();
+		this.saveFunc = undefined;
+		this.addFunc = undefined;
+		//this
+	}
+	
+	InitializeSave() {
+		$(this.selector).find(".btn-save").off().on('click',this.save.bind(this));
+	}
+	
+	InitializeAdd() {
+		$(this.selector).find(".btn-add").off().on('click',this.add.bind(this));
+	}
+	
+	InitializeEdit() {
+		$(this.selector).find(".btn-edit").off().on('click',this.edit.bind(this));
+	}
+	
+	InitializeRemove() {
+		$(this.selector).find(".btn-remove").off().on('click',this.remove.bind(this));
+	}
+	
+	InitializePrint() {
+		$(this.selector).find(".btn-print").off().on('click',this.print.bind(this));
+	}
+	
+	InitializeNext() {
+		$(this.selector).find(".btn-next").off().on('click',this.next.bind(this));
+	}
+	
+	InitializePrevious() {
+		$(this.selector).find(".btn-previous").off().on('click',this.previous.bind(this));
+	}
+	
+	InitializeReset() {
+		$(this.selector).find(".btn-reset").off().on('click',this.reset.bind(this));
+	}
+	
+	InitializeCopy() {
+		$(this.selector).find(".btn-copy").off().on('click',this.copy.bind(this));
+	}
+	
+	save() {
+		if(typeof(this.saveFunc) === "function") {
+			this.saveFunc();
+			return this;
+		}
+		console.log(this.selector + " click save.");
+		return this;
+	}
+	
+	add() {
+		if(typeof(this.addFunc) === "function") {
+			this.addFunc();
+			return this;
+		}
+		console.log(this.selector + " click add.");
+		return this;
+	}
+	
+	edit() {
+		if(typeof(this.editFunc) === "function") {
+			this.editFunc();
+			return this;
+		}
+		console.log(this.selector + " click edit");
+		return this;
+	}
+	
+	print() {
+		if(typeof(this.printFunc) === "function") {
+			this.printFunc();
+			return this;
+		}
+		console.log(this.selector + " click print.");
+		return this;
+	}
+	
+	remove() {
+		if(typeof(this.removeFunc) === "function") {
+			this.removeFunc();
+			return this;
+		}
+		console.log(this.selector + " click remove.");
+		return this;
+	}
+	
+	next() {
+		if(typeof(this.nextFunc) === "function") {
+			this.nextFunc();
+			return this;
+		}
+		console.log(this.selector + " click next.");
+		return this;
+	}
+	
+	previous() {
+		if(typeof(this.previousFunc) === "function") {
+			this.previousFunc();
+			return this;
+		}
+		console.log(this.selector + " click previous.");
+		return this;
+	}
+	
+	reset() {
+		if(typeof(this.resetFunc) === "function") {
+			this.resetFunc();
+			return this;
+		}
+		console.log(this.selector + " click reset.");
+		return this;
+	}
+	
+	copy() {
+		if(typeof(this.copyFunc) === "function") {
+			this.copyFunc();
+			return this;
+		}
+		console.log(this.selector + " click copy.");
+		return this;
+	}
+}

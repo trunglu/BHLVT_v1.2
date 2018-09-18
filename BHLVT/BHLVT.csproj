@@ -402,6 +402,7 @@
     <Content Include="public\js\process_front\process_datagrid.js" />
     <Content Include="public\js\process_front\process_menubutton.js" />
     <Content Include="public\js\tarcl\order\process_dg1.js" />
+	<Content Include="public\js\tarcl\order\process_menu1.js" />
     <Content Include="public\js\update_soct1.php" />
     <Content Include="public\js\xconfig\process_xview_controller.js" />
     <Content Include="public\css\bootstrap-theme.css.map" />

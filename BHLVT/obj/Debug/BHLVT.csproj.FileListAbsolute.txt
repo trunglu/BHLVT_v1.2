@@ -575,3 +575,4 @@ F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\Package\PackageTmp\bin\BHL
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\Package\PackageTmp\bin\CommonServiceLocator.pdb
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\Package\PackageTmp\bin\Antlr3.Runtime.pdb
 F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\Package\PackageTmp\Web.config
+F:\trung\sources\web\BHLVT\BHLVT_v1.1\BHLVT\obj\Debug\Package\PackageTmp\public\js\tarcl\order\process_menu1.js

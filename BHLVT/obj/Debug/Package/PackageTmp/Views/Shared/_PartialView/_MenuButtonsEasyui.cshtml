@@ -3,18 +3,19 @@
 @{
 //ViewBag.Title = "MenuButtons";
 }
+	
     <div class="easyui-panel" style="padding:5px;" id="@Model["idMenu"]">
         <a href="#" @{if ((bool)UtilsHelper.GetValueDicModel(Model, "isDisabledAddBtn", false)) {
                     @("disabled")
-            }}  class="easyui-linkbutton @((bool)UtilsHelper.GetValueDicModel(Model, "isHideAddBtn", false) ? "hidden":"")" data-options="plain:true"><i class="fa fa-fw fa-plus"></i>&nbsp;Thêm</a>
+            }}  class="easyui-linkbutton btn-add @((bool)UtilsHelper.GetValueDicModel(Model, "isHideAddBtn", false) ? "hidden":"")" data-options="plain:true"><i class="fa fa-fw fa-plus"></i>&nbsp;Thêm</a>
         <a href="#" class="easyui-linkbutton btn-edit" data-options="plain:true"><i class="fa fa-fw fa-edit"></i>&nbsp;Sửa</a>
         <a href="#" class="easyui-linkbutton btn-save" data-options="plain:true"><i class="fa fa-fw fa-save"></i>&nbsp;Lưu</a>
-        <a href="#" class="easyui-linkbutton btn-cancel" data-options="plain:true"><i class="fa fa-fw fa-retweet"></i>&nbsp;Hủy</a>
-        <a href="#" class="easyui-linkbutton btn-delete" data-options="plain:true"><i class="fa fa-fw fa-trash"></i>&nbsp;Xóa</a>
+        <a href="#" class="easyui-linkbutton btn-reset" data-options="plain:true"><i class="fa fa-fw fa-retweet"></i>&nbsp;Hủy</a>
+        <a href="#" class="easyui-linkbutton btn-remove" data-options="plain:true"><i class="fa fa-fw fa-trash"></i>&nbsp;Xóa</a>
         <a href="#" class="easyui-linkbutton btn-print" data-options="plain:true"><i class="fa fa-fw fa-print"></i>&nbsp;In</a>
         <a href="#" class="easyui-linkbutton btn-copy" data-options="plain:true"><i class="fa fa-fw fa-copy"></i>&nbsp;Sao chép</a>
-        <a href="#" class="easyui-linkbutton" data-options="plain:true"><i class="fa fa-fw fa-caret-left"></i>&nbsp;</a>
-        <a href="#" class="easyui-linkbutton" data-options="plain:true"><i class="fa fa-fw fa-caret-right"></i>&nbsp;</a>
+        <a href="#" class="easyui-linkbutton btn-previous" data-options="plain:true"><i class="fa fa-fw fa-caret-left"></i>&nbsp;</a>
+        <a href="#" class="easyui-linkbutton btn-next" data-options="plain:true"><i class="fa fa-fw fa-caret-right"></i>&nbsp;</a>
         <!--<a href="#" class="easyui-menubutton" data-options="menu:'#mm1',iconCls:'icon-edit'">Edit</a>
         <a href="#" class="easyui-menubutton" data-options="menu:'#mm2',iconCls:'icon-help'">Help</a>
         <a href="#" class="easyui-menubutton" data-options="menu:'#mm3'">About</a>-->
