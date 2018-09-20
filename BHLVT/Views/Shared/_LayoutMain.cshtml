@@ -23,9 +23,36 @@
             font-size: small;
             padding-top: 10px;
         }
-
+		.main-header .sidebar-toggle {
+			padding: 7px 12px;
+		}
+		.main-header .navbar {
+			min-height: 35px;
+			height: 35px;
+		}
+		@Html.Raw("@media (max-width: 991px)")
+		{
+			.navbar-custom-menu .navbar-nav>li>a {
+				padding-top: 7px !important;
+				padding-bottom: 7px !important;
+			}
+		}
+		
+		.navbar-nav>li>a {
+			padding-top: 7px;
+			padding-bottom: 7px;
+		}
+		
+		.main-header .logo {
+			line-height: 35px;
+			height: 35px;
+		}
+		.main-sidebar {
+			padding-top: 35px;
+		}
+		
         .main-header .navbar {
-            /**/height: 40px;
+            /*height: 40px;*/
         }
 
         body {
@@ -114,8 +141,8 @@
         @Html.Partial("_PartialView/_Footer")
         @Html.Partial("_PartialView/_ControlSide")
     </div>
-    @*@Scripts.Render("~/Themes/AdminLTE/jquery")*@
-    <script src="~/Themes/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+    @Scripts.Render("~/Themes/AdminLTE/jquery")
+    @*<script src="~/Themes/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>*@
 	<script src="~/public/jq/jquery.easyui.min.js"></script>
     @*@Scripts.Render("~/Themes/AdminLTE/js")*@
         
