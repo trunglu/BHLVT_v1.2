@@ -42,8 +42,6 @@ namespace BHLVT.Controllers
             } catch (Exception e) {
                 return RedirectToAction("ServerError", "Exception", new { error = e.Message });
             }
-           
-           
         }
 
         [HttpPost]
