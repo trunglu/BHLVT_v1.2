@@ -1,7 +1,10 @@
 ﻿@using BHLVTBLL.Services.XConfig
 @model Dictionary<string, object>
 @{
-    var web_view = (WebView)Model["web_view"];
+    WebView web_view = new WebView((WebView)Model["web_view"]);
+    //var web_view = (WebView)Model["web_view"];
+    web_view = (WebView)((WebView)(web_view)
+                    .setPartialViewName("tab1_gen_information")).Prepare();
 }
 <div class="row">
     <div class="col-md-12">
