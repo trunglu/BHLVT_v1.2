@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Hosting;
 
@@ -16,10 +17,18 @@ namespace BHLVT.Controllers
         { Properties = { { HttpPropertyKeys.HttpConfigurationKey, new HttpConfiguration() } } } };
 
         [HttpGet]
-        public IHttpActionResult SearchCustomerByName() {
+        public async Task<IHttpActionResult> SearchCustomerByName() {
             var a = Request;
             //return Ok(Request.RequestUri.AbsolutePath);
-            return api_cus.SearchCustomerByName(Request);
+            return await api_cus.SearchCustomerByName(Request);
+        }
+
+        [HttpPost]
+        public async Task<IHttpActionResult> SearchCustomerByNamePost()
+        {
+            var a = Request;
+            //return Ok(Request.RequestUri.AbsolutePath);
+            return await api_cus.SearchCustomerByNamePost(Request);
         }
     }
 }

@@ -1,0 +1,210 @@
+﻿@using BHLVTDAL.Data
+@using CRMLVTBLLmd.CONST
+@model BHLVTDAL.Data.tblreport
+@{
+    ViewBag.Title = "Thông báo công ty";
+    ViewBag.namewindow = "mainp";
+    var lpps = (PagedList.IPagedList<Dictionary<string, Object>>)ViewBag.lpps;
+    var btn_class = ViewBag.btn == "Thêm" ? "btn btn-flat btn-sm btn-success" : "btn btn-flat btn-sm btn-warning";
+    //Model.contractdate = Model.contractdate == null ? DateTime.Now : Model.contractdate;
+    var reportto = Model.reportto == null ? new string[] { ""} : Model.reportto.Split('#');
+    //var reportto = new string[] { "","","abc","",null };
+    //var reportto = (" ").Split('#');
+    //@Html.ListBoxFor(model => model.reportto, new MultiSelectList(ViewBag.lemploy, "username", "name", reportto))
+
+}
+@section styles {
+    <link href="~/public/css/datagridstyle.css" rel="stylesheet" />
+    <link href="~/public/css/customizestyle.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td {
+            padding: 1px 5px;
+        }
+
+        table.scroll tbody {
+            height: 400px;
+        }
+    </style>
+    <style>
+        .textbox {
+            border-bottom: 1px solid #c2d0e4;
+        }
+    </style>
+
+}
+<div class="content">
+    <div class="col-md-12">
+        <div class="col-md-7">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+
+                </div>
+                <div class="col-md-12" style="padding-top:3px">
+                    <div style="margin-bottom:3px"><a href="javascript:void(0);" onclick="return window_open('@Url.RouteUrl(new { controller = "Cons1", action = "Create", area = "crm", _idcus = ViewBag._id })','t',600,300)" class="btn btn-xs btn-flat btn-success"><i class="fa fa-plus"></i></a></div>
+                    <div class="table-responsive">
+                        @{
+                            var gridnquy = new LVTDataGrid(source: lpps, canPage: false);
+                            @gridnquy.GetHtml(tableStyle: "table table-striped scroll", columns: gridnquy.Columns(gridnquy.Column(header: "Ngày Họp",
+                  format:@<div>
+                            @{
+                                var q = (Dictionary<string, Object>)item.Value;
+                                var a = (tblreport)q["q"];
+                            }
+                            <div style="width:100px">@(a.date)</div>
+                        </div>),
+               gridnquy.Column(header: "Người lập", format:@<div>
+                                @{
+                                    var q = (Dictionary<string, Object>)item.Value;
+                                    var b = (tblemployee)q["e"];
+                                }
+                                <div style="width:100px">@(b.firstname + " " + b.lastname )</div>
+                            </div>), gridnquy.Column(header: "Tiêu đề",
+                format:@<div style="width:250px">
+                                    @{var q = (Dictionary<string, Object>)item.Value;
+                                        var a = (tblreport)q["q"];
+
+                                    }
+                                    <a href="#">@a.title</a>
+                                </div>
+
+               ), gridnquy.Column(header: "Ngày hết hạn", format:
+            @<div style="width:110px">
+                @{var q = (Dictionary<string, Object>)item.Value;
+                    var a = (tblreport)q["q"];
+
+                }
+                @a.expire
+            </div>), gridnquy.Column(header: "Sửa", format:@<div style="width:30px">
+                            @{var q = (Dictionary<string, Object>)item.Value;
+                                var a = (tblreport)q["q"];
+
+                            }
+                            <a href="/crm/Reps?cid=@a.reportid"><i class="fa fa-edit"></i></a>
+                        </div>), gridnquy.Column(header: "Xóa", format:@<div style="width:30px">
+                            @{
+                                var q = (Dictionary<string, Object>)item.Value;
+                                var a = (tblreport)q["q"];
+                            }
+                            <form onsubmit="return checkvar()" action="/crm/Reps/delete" method="post">@Html.AntiForgeryToken()<input name="cid" type="hidden" value="@a.reportid" /><button class="btn btn-xs btn-flat"><i class="fa fa-trash"></i></button></form>
+                        </div>)))
+                                /*@gridnquy.GetHtml(tableStyle:"table table-striped scroll"
+                               ,columns:gridnquy.Columns(
+                               gridnquy.Column(header:"STT"),
+                               gridnquy.Column(header:"Ngày TB",format:(model)=> {
+                                   var q = (tblreport)model["q"];
+                                   return q.date; }),
+                               gridnquy.Column(header:"Người thông báo",format:(model)=> {
+                                   var e = (tblemployee)model["e"];
+                                   return e.firstname+" "+e.lastname;
+                               }),
+                               gridnquy.Column(header:"Tiêu đề",format:(model)=> {
+                                   var q = (tblreport)model["q"];
+                                   return q.title;
+                               }),
+                               gridnquy.Column(header:"Ngày hiệu lực",format:(model)=> {
+                                   var q = (tblreport)model["q"];
+                                   return q.expire;
+                                   //return "";
+                               }),gridnquy.Column(header:"Sửa"),
+                               gridnquy.Column(header:"Xóa")
+                                   )
+                               )*/
+                        }
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+        <div class="col-md-5">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+
+                </div>
+                <div class="col-md-12" style="padding-top:3px">
+                    <form name="frm" method="post" class="form-horizontal" enctype="multipart/form-data" onsubmit="return checkform();">
+                        @Html.HiddenFor(model => model.reportid)
+                        @Html.HiddenFor(model => model.complete)
+                        @Html.HiddenFor(model => model.type)
+                        @Html.HiddenFor(model => model.reportfrom)
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.date, "Ngày ", new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.date, new { @class = "input-sm datepicker", placeholder = "Ngày ban hành", size = 20, required = "true" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.title, "Tiêu đề", new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(model => model.title, new { @class = "form-control input-sm", placeholder = "Tiêu đề" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.content, "Nội dung", new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @Html.TextAreaFor(model => model.content, new { @class = "form-control input-sm", placeholder = "Nội dung", rows = "5" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.expire, "Ngày hết hạn", new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.expire, new { @class = "input-sm datepicker", placeholder = "Ngày hiệu lực", size = 20, required = "true" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.reportto, "Người nhận", new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @Html.HiddenFor(model=>model.reportto)
+                                @*Html.DropDownList("sendto", (IEnumerable<SelectListItem>)ViewBag.lemploy, "-----Chọn----", new { @class = "easyui-combobox form-control input-sm", style = "width:200px" ,multiple="true"})
+                                *@
+                            @Html.ListBox("sendto", new MultiSelectList(ViewBag.lemploy, "username", "name", Model.reportto == null ? new string[] { "" } : Model.reportto.Split('#')),new {size="6",@class="form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <input type="submit" value="@ViewBag.btn" name="btn" class="@btn_class" />
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+@section scripts {
+    <script src="~/public/js/datatable_process.js"></script>
+    <script src="~/Areas/CRM/Sources/js/windows.js"></script>
+    <script>
+            $(document).ready(function () {
+                process_scroll_table(0);
+            });
+            function checkform() {
+
+                str = "#";
+                for (i = 0; i < frm.sendto.length; i++)
+                    if (frm.sendto.item(i).selected)
+                        str = str + "#" + frm.sendto.item(i).value
+                str = str + "#"
+                frm.reportto.value = str
+                if (frm.reportto.value == "") {
+                    alert("Vui lòng chọn người nhận");
+                    frm.sendto.focus();
+                    return false;
+                }
+
+                frm.reportto.value = str;
+                return true;
+            }
+
+    </script>
+}
+
+
+
+

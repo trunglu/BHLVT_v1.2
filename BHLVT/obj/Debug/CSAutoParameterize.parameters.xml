@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="LVTDBContext1-Web.config Connection String" description="LVTDBContext1 Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Data.DBModel.csdl|res://*/Data.DBModel.ssdl|res://*/Data.DBModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=WS_CHUAN_02022018;user id=sa;password=sa@123456;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\trung\\sources\\web\\BHLVT\\BHLVT_v1\.1\\BHLVT\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LVTDBContext1']/@connectionString" />
+  </parameter>
+  <parameter name="WSCHUAN_161812Entities-Web.config Connection String" description="WSCHUAN_161812Entities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Data.DBModel.csdl|res://*/Data.DBModel.ssdl|res://*/Data.DBModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=WS_CHUAN_02022018;user id=sa;password=sa@123456;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\trung\\sources\\web\\BHLVT\\BHLVT_v1\.1\\BHLVT\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WSCHUAN_161812Entities']/@connectionString" />
+  </parameter>
+  <parameter name="WSCHUAN_161812Entities1-Web.config Connection String" description="WSCHUAN_161812Entities1 Connection String used in web.config by the application to access the database." defaultValue="data source=.;initial catalog=WS_CHUAN_02022018;user id=sa;password=sa@123456;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\trung\\sources\\web\\BHLVT\\BHLVT_v1\.1\\BHLVT\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WSCHUAN_161812Entities1']/@connectionString" />
+  </parameter>
+  <parameter name="DHSErpSysEntities-Web.config Connection String" description="DHSErpSysEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Data.DHSErpSys.csdl|res://*/Data.DHSErpSys.ssdl|res://*/Data.DHSErpSys.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=45.119.81.229,5156;initial catalog=DHSErpSys;user id=sa;password=211813436@Dhs;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\trung\\sources\\web\\BHLVT\\BHLVT_v1\.1\\BHLVT\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DHSErpSysEntities']/@connectionString" />
+  </parameter>
+  <parameter name="DHSErpDataEntities-Web.config Connection String" description="DHSErpDataEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Data.DHSErpData.csdl|res://*/Data.DHSErpData.ssdl|res://*/Data.DHSErpData.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=45.119.81.229,5156;initial catalog=DHSErpData;user id=sa;password=211813436@Dhs;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\trung\\sources\\web\\BHLVT\\BHLVT_v1\.1\\BHLVT\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DHSErpDataEntities']/@connectionString" />
+  </parameter>
+</parameters>

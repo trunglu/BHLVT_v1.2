@@ -3,12 +3,13 @@
     }
 
     body {
-    font-size:12px;
+		/*font-size:12px;*/
     }
 
     hr {
         border: 1px solid #e6e5e5;
     }
+	
     .easy-autocomplete input {
         border-radius: 0px !important;
         box-shadow: none !important;
@@ -45,7 +46,8 @@
     }
     */
     .nav-tabs > li > a {
-        padding:2px 15px;
+    padding:8px 15px;
+    font-weight:bolder   
     }
     .easy-autocomplete {
         width:100% !important;
@@ -61,7 +63,7 @@
         background-color: #f9f9f9;
     }
     .textbox {
-    border:none;
+    /*border:none;*/
     }
    /* .table > thead > tr > th {
     border-width:0 1px 1px 0;
@@ -112,8 +114,8 @@
     border-radius:0px;
 }
 .nav-tabs-custom > .nav-tabs > li.header {
-line-height: unset;
- font-size: unset;
+ line-height: 30px;
+ font-size: 15px;
 }
 input[type=file] {
 padding:5px;

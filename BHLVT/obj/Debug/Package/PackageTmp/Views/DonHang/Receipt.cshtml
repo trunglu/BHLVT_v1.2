@@ -1,0 +1,80 @@
+﻿@model BHLVTBLL.ModelsBLL.ViewModel.BillViewModel
+@{
+    ViewBag.Title = "Receipt";
+    Layout = "~/Views/Shared/_LayoutReceipt.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+<style>
+    body {
+   font-family: 'Roboto Mono', monospace;
+    font-size:18px;
+
+    }
+    p {
+    margin:0 0 1px;
+    }
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding:3px 3px 3px 0px;
+    }
+    .text-number {
+    text-align:right;
+    }
+
+</style>
+<div class="container" style="font-size:">
+    <div class="row">
+        <div class="col-md-12" style="text-align:center">
+            <h2 style="text-align:center">Công ty ABC</h2>
+            <p>@Model.soph1.dia_chi</p>
+            <p>@Model.soph1.dien_thoai</p>
+        </div>
+        <br />
+        <div class="col-md-12" style="margin-top:8px">
+            <p class="text-center">Đơn hàng bán</p>
+            <p class="text-center">@DateTime.Now.ToString("dd/MM/yyyy H:mm:ss")</p>
+            <p>Khách hàng: @Model.soph1.ten_kh</p>
+            <p>Sale ID:</p>
+            <p>Nhân Viên: @Model.soph1.ma_nvkd</p>
+        </div>
+        <div class="col-md-12">
+            <table class="table" style="font-size:18px;margin-top:10px;">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>ĐVT</th>
+                        <th class="text-number">Giá</th>
+                        <th class="text-number">Số Lượng</th>
+                        <th class="text-number">Chiết khấu</th>
+                        <th class="text-number">Tổng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ 
+                        foreach (var soct1 in Model.lsoct1) {
+                            <tr>
+                                <td>@soct1.ten_vt</td>
+                                <td>@soct1.dvt</td>
+                                <td class="text-number">@string.Format("{0:0,0}", soct1.gia2)</td>
+                                <td class="text-number">@string.Format("{0:0,0}", soct1.so_luong)</td>
+                                <td class="text-number">@{if (soct1.tien_ck != 0) { @Html.Raw(string.Format("{0:0,0}", soct1.tien_ck)); } else { @Html.Raw("0"); } }</td>
+                                <td class="text-number">@string.Format("{0:0,0}", soct1.tt)</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-offset-8 col-xs-offset-8">
+                <div class="col-md-6 col-xs-6">Tổng cộng</div>
+                <div class="col-md-6 col-xs-6 text-number" style="padding-right:0px;">@string.Format("{0:0,0}", Model.soph1.t_tt)</div>
+            </div>
+            <div class="col-md-offset-8 col-xs-offset-8">
+                <div class="col-md-6 col-xs-6">Thanh toán</div>
+                <div class="col-md-6 col-xs-6 text-number" style="padding-right:0px;">@string.Format("{0:0,0}", Model.soph1.t_tt)</div>
+            </div>
+        </div>
+    </div>
+</div>
+
