@@ -273,6 +273,9 @@
     <Compile Include="Controllers\COMMON\CommonController.cs" />
     <Compile Include="Controllers\CRM\GENERAL\TestGController.cs" />
     <Compile Include="Controllers\DATABASES\API\CustomerController.cs" />
+    <Compile Include="Controllers\DATABASES\API\LstItemController.cs" />
+    <Compile Include="Controllers\DATABASES\API\SysStatusController.cs" />
+    <Compile Include="Controllers\DATABASES\API\SysStatusDocController.cs" />
     <Compile Include="Controllers\ERP\PO\Figures\MuaHangController.cs" />
     <Compile Include="Controllers\ERP\REPORT\BALANCE\BCDPSController.cs" />
     <Compile Include="Controllers\ERP\TARCL\API\DonHangController.cs" />

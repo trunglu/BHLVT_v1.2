@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Hosting;
 
-namespace BHLVT.Controllers
+namespace BHLVT.Controllers.DATABASES.API
 {
     public class CustomerController : ApiController
     {
@@ -26,8 +26,6 @@ namespace BHLVT.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> SearchCustomerByNamePost()
         {
-            var a = Request;
-            //return Ok(Request.RequestUri.AbsolutePath);
             return await api_cus.SearchCustomerByNamePost(Request);
         }
     }

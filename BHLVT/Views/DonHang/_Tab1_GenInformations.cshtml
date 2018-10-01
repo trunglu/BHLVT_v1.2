@@ -75,7 +75,12 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">@web_view.GetLabelInput("rate_tab1")</label>
                     <div class="col-md-8 col-sm-8 col-xs-8">
-                        @Html.Raw(web_view.CreateTextInput("rate_tab1").Widget())
+                        <div class="col-md-6 col-sm-6" style="padding:0px">
+                            @Html.Raw(web_view.CreateTextInput("unit_rate_tab1").Widget())
+                        </div>
+                        <div class="col-md-6 col-sm-6" style="padding:0px">
+                            @Html.Raw(web_view.CreateTextInput("rate_tab1").Widget())
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,6 +89,14 @@
                     <label class="col-sm-4 control-label">@web_view.GetLabelInput("status_tab1")</label>
                     <div class="col-md-8 col-sm-8 col-xs-8">
                         @Html.Raw(web_view.CreateTextInput("status_tab1").Widget())
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@web_view.GetLabelInput("status_doc_tab1")</label>
+                    <div class="col-md-8 col-sm-8 col-xs-8">
+                        @Html.Raw(web_view.CreateTextInput("status_doc_tab1").Widget())
                     </div>
                 </div>
             </div>

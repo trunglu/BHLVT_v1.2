@@ -141,3 +141,8 @@ margin-bottom:5px;
 .panel-form {
 max-height:400px;overflow-y:auto
 }
+.calendar-day {
+   -moz-border-radius: 0px;
+   -webkit-border-radius: 0px; 
+   border-radius: 0px; 
+}
