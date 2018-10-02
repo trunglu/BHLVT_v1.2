@@ -273,6 +273,8 @@
     <Compile Include="Controllers\COMMON\CommonController.cs" />
     <Compile Include="Controllers\CRM\GENERAL\TestGController.cs" />
     <Compile Include="Controllers\DATABASES\API\CustomerController.cs" />
+    <Compile Include="Controllers\DATABASES\API\LstCurrencyController.cs" />
+    <Compile Include="Controllers\DATABASES\API\LstExchangeRateController.cs" />
     <Compile Include="Controllers\DATABASES\API\LstItemController.cs" />
     <Compile Include="Controllers\DATABASES\API\SysStatusController.cs" />
     <Compile Include="Controllers\DATABASES\API\SysStatusDocController.cs" />
@@ -436,6 +438,7 @@
     <Content Include="public\js\process_front\process_menubutton.js" />
     <Content Include="public\js\tarcl\order\process_dg1.js" />
     <Content Include="public\js\tarcl\order\process_menu1.js" />
+    <Content Include="public\js\tarcl\order\process_tab1_gen_information.js" />
     <Content Include="public\js\update_soct1.php" />
     <Content Include="public\js\xconfig\process_xview_controller.js" />
     <Content Include="public\css\bootstrap-theme.css.map" />
