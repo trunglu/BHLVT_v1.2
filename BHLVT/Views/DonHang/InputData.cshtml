@@ -31,7 +31,7 @@
                     @Html.Partial("~/Views/DonHang/_Tab1_Address.cshtml",new { })
                 </div>
                 <div title="@(web_view.GetLabelElement("tab1_delivery"))" style="padding:10px">
-                    @Html.Partial("~/Views/DonHang/_Tab1_Delivery.cshtml",new { })
+                    @Html.Partial("~/Views/DonHang/_Tab1_Delivery.cshtml", new Dictionary<string, Object>() { { "web_view", web_view } })
                 </div>
                 <div title="@(web_view.GetLabelElement("tab1_purchase"))" style="padding:10px">
                     @Html.Partial("~/Views/DonHang/_Tab1_Purchase.cshtml",new { })

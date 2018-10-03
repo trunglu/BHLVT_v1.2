@@ -283,6 +283,7 @@
     <Compile Include="Controllers\ERP\TARCL\API\DonHangController.cs" />
     <Compile Include="Controllers\ERP\TARCL\DonHangController.cs" />
     <Compile Include="Controllers\EXCEPTION\ExceptionController.cs" />
+    <Compile Include="Controllers\TMAIN\API\Author1Controller.cs" />
     <Compile Include="Controllers\TMAIN\HomeController.cs" />
     <Compile Include="Controllers\invtsController.cs" />
     <Compile Include="Controllers\UTILS\UltilsController.cs" />
@@ -420,6 +421,7 @@
     <Content Include="public\js\autocomplete\dist\easy-autocomplete.themes.min.css" />
     <Content Include="public\js\autocomplete\dist\jquery.easy-autocomplete.js" />
     <Content Include="public\js\autocomplete\dist\jquery.easy-autocomplete.min.js" />
+    <Content Include="public\js\base_config.js" />
     <Content Include="public\js\bootstrap-datepicker.js" />
     <Content Include="public\js\bootstrap.js" />
     <Content Include="public\js\bootstrap.min.js" />
@@ -434,6 +436,7 @@
     <Content Include="public\js\NumberFormat154.js" />
     <Content Include="public\js\po\process_po.js" />
     <Content Include="public\js\process_donhang.js" />
+    <Content Include="public\js\process_front\form_data.js" />
     <Content Include="public\js\process_front\process_datagrid.js" />
     <Content Include="public\js\process_front\process_menubutton.js" />
     <Content Include="public\js\tarcl\order\process_dg1.js" />

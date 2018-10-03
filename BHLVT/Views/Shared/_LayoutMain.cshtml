@@ -129,6 +129,22 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
     <div class="wrapper">
+        <!-- Page Loader -->
+        <div class="page-loader-wrapper">
+            <div class="loader">
+                <div class="preloader">
+                    <div class="spinner-layer pl-red">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <p>Please wait...</p>
+            </div>
+        </div>
         @Html.Partial("_PartialView/_Header")
         @Html.Partial("_PartialView/_LeftSide")
         @Html.Action("RenderLeftSide", "Home", new {  area=""  })
@@ -153,7 +169,8 @@
         <script src="~/Themes/AdminLTE/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="~/Themes/AdminLTE/bower_components/fastclick/lib/fastclick.js"></script>
         <script src="~/Themes/AdminLTE/dist/js/adminlte.min.js"></script>
-        
+    <script src="~/public/js/base_config.js"></script>
+
    
 
 
@@ -171,6 +188,10 @@
         window.name = '@ViewBag.namewindow';
     </script>
     @RenderSection("scripts", required: false)
-    
+    <script>
+        $(function () {
+            setTimeout(function () { $('.page-loader-wrapper').fadeOut(); }, 50);
+        });
+    </script>
 </body>
 </html>
