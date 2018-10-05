@@ -24,6 +24,7 @@
     .form-group label {
     text-align:left !important;
     font-size:small;
+    font-weight: 100;
     }
     .form-group {
     margin-bottom:3px;

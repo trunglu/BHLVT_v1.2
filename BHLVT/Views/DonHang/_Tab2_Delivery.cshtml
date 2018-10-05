@@ -1,1 +1,65 @@
-﻿<h4>_tab2_delivery</h4>
+﻿@using BHLVTBLL.Services.XConfig
+@model Dictionary<string, object>
+@{
+    ViewBag.Title = "_Delivery";
+    WebView web_view = new WebView((WebView)Model["web_view"]);
+    web_view = (WebView)((WebView)(web_view)
+                    .setPartialViewName("tab2_delivery")
+                    .SetWebViewPage(this)).Prepare();
+}
+<div class="row clearfix">
+    <div class="col-md-12">
+        <form onsubmit="return false;" id="form-tab2-delivery">
+            <div class="col-md-8 col-xs-8 col-sm-8">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">@web_view.GetLabelInput("recp_date_req_tab2")</label>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            @Html.Raw(web_view.CreateTextInput("recp_date_req_tab2").Widget())
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">@web_view.GetLabelInput("recp_date_cfm_tab2")</label>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            @Html.Raw(web_view.CreateTextInput("recp_date_cfm_tab2").Widget())
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">@web_view.GetLabelInput("dvery_date_req_tab2")</label>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            @Html.Raw(web_view.CreateTextInput("dvery_date_req_tab2").Widget())
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">@web_view.GetLabelInput("dvery_date_cfm_tab2")</label>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            @Html.Raw(web_view.CreateTextInput("dvery_date_cfm_tab2").Widget())
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">@web_view.GetLabelInput("cus_dvery_date_tab2")</label>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            @Html.Raw(web_view.CreateTextInput("cus_dvery_date_tab2").Widget())
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">@web_view.GetLabelInput("qtity_dvery_tab2")</label>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            @Html.Raw(web_view.CreateTextInput("qtity_dvery_tab2").Widget())
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

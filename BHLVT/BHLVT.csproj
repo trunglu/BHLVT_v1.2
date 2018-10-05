@@ -651,6 +651,7 @@
     <Content Include="Views\DonHang\_Tab2_Budget.cshtml" />
     <Content Include="Views\DonHang\_Tab2_Details.cshtml" />
     <Content Include="Views\DonHang\_Tab1_GenInformations.cshtml" />
+    <Content Include="Views\DonHang\_Tab2_Quantity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

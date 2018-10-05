@@ -1,7 +1,57 @@
-﻿
+﻿@using BHLVTBLL.Services.XConfig
+@model Dictionary<string, object>
 @{
     ViewBag.Title = "_Purchase";
+    WebView web_view = new WebView((WebView)Model["web_view"]);
+    web_view = (WebView)((WebView)(web_view)
+                    .setPartialViewName("tab1_purchase")
+                    .SetWebViewPage(this)).Prepare();
 }
-
-<h2>_Purchase</h2>
-
+<div class="row clearfix">
+    <div class="col-md-12">
+        <form onsubmit="return false;" id="form-tab1-purchase">
+            <div class="col-md-8 col-xs-8 col-sm-8">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">@web_view.GetLabelInput("dk_tt_tab1")</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            @Html.Raw(web_view.CreateTextInput("dk_tt_tab1").Widget())
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6" style="padding: 0px">
+                            <label class="col-sm-4 control-label">@web_view.GetLabelInput("han_ck_tab1")</label>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                @Html.Raw(web_view.CreateTextInput("han_ck_tab1").Widget())
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6" style="padding: 0px">
+                            <label class="col-sm-4 control-label">@web_view.GetLabelInput("ty_le_ck_tab1")</label>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                @Html.Raw(web_view.CreateTextInput("ty_le_ck_tab1").Widget())
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6" style="padding: 0px">
+                            <label class="col-sm-4 control-label">@web_view.GetLabelInput("han_tt_tab1")</label>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                @Html.Raw(web_view.CreateTextInput("han_tt_tab1").Widget())
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6" style="padding: 0px">
+                            <label class="col-sm-4 control-label">@web_view.GetLabelInput("ls_qua_han_tab1")</label>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                @Html.Raw(web_view.CreateTextInput("ls_qua_han_tab1").Widget())
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> 
